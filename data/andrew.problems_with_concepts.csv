@@ -1,0 +1,1033 @@
+,"def cookies_needed(num_adults, num_teens, num_children):
+    """""" (int, int, int) -> int
+
+    Return the number of cookies needed to feed num_adults adults, num_teens
+    teens and num_children children.
+    Each adult gets 3 cookies, each teenager gets 5, and each child gets 2.
+
+    >>> cookies_needed(2, 3, 1)
+    23
+    >>> cookies_needed(4, 5, 2)
+    41
+    """"""
+    return (num_adults * 3) + (num_teens * 5) + (num_children * 2)
+
+ ",Cookies needed,3,"Int:1,Return:1,Str:1,Mult:1,Add:1,arg:1,FunctionDef:1"
+,"def is_multiple_of_3(value):
+    """""" (int) -> bool
+
+    Return True iff value is an integer multiple of 3.
+
+    >>> is_multiple_of_3(15)
+    True
+    >>> is_multiple_of_3(7)
+    False
+    """"""
+    return value % 3 == 0
+ ",Multiple of 3,3,"Mod:1,Int:1,Return:1,Str:1,Eq:1,arg:1,FunctionDef:1"
+,"def is_multiple_of_3(value):
+    """""" (int) -> bool
+
+    Return True iff value is an integer multiple of 3.
+
+    >>> is_multiple_of_3(15)
+    True
+    >>> is_multiple_of_3(7)
+    False
+    """"""
+    return value%3==0
+ ",Multiple of a number,3,"Mod:1,Int:1,Return:1,Str:1,Eq:1,arg:1,FunctionDef:1"
+,"def total_slices(num_pizzas, slices_per_pizza):
+    """""" (int, int) -> int
+
+    Return the total number of slices in num_pizzas pizzas that each have
+    slices_per_pizza slices.
+    
+    >>> total_slices(2, 30)
+    60
+    >>> total_slices(1, 8)
+    8
+    """"""
+    
+    return num_pizzas * slices_per_pizza
+
+
+# We ordered 2 medium pizzas.
+medium_slices = total_slices(2, 8)
+
+# We also ordered 1 extra large pizza.
+pieces_per_extra_large = 30
+extra_large_slices = total_slices(1, pieces_per_extra_large)
+
+grand_total = medium_slices + extra_large_slices
+
+print(""With 2 mediums and 1 extra large, we will have"", grand_total, ""slices."")
+ ",Pizza tracing,3,"Mult:1,Int:3,Return:1,Str:2,arg:1,Add:1,Assign:4,FunctionDef:1,Call:3"
+,"def total_slices(num_pizzas, slices_per_pizza):
+    """""" (int, int) -> int
+
+    Return the total number of slices in num_pizzas pizzas that each have
+    slices_per_pizza slices.
+    
+    >>> total_slices(2, 30)
+    60
+    >>> total_slices(1, 8)
+    8
+    """"""
+    return num_pizzas * slices_per_pizza
+ ",Pizza slices,3,"arg:1,Mult:1,Return:1,FunctionDef:1,Str:1"
+20,"def count_uppercase(s):
+
+    """""" (str) -> int
+
+
+
+    Return the number of uppercase letters in s.
+
+    """"""
+
+
+
+    #TODO: now complete the function body
+
+    upper_count = 0
+
+    for char in s:
+
+        if s.isupper():
+
+            upper_count += 1
+
+    return upper_count",count_uppercase,4,"Int:2,Str:1,For:1,Add:1,arg:1,AugAssign:1,Attribute:1,Return:1,If:1,Assign:1,FunctionDef:1,Call:1"
+73,"def add_underscores(s):
+
+    """"""(str) -> str
+
+    
+
+    Return s with an underscore between each pair of characters
+
+
+
+    # TODO: add at least one example
+
+    >>> add_underscore(""abc"")
+
+    a_b_c
+
+    """"""
+
+
+
+    # TODO: complete the function body
+
+    new = """"
+
+    for char in s:
+
+        new = new + s + ""_""
+
+    return new[:-1]",add_underscores,4,"USub:1,Int:1,Return:1,Str:3,For:1,Assign:2,Slice:1,arg:1,Add:1,FunctionDef:1"
+83,"def upper_lower(s):
+
+    """""" (str) -> bool
+
+    
+
+    Return True if and only if there is at least one alphabetic character in s and the alphabetic characters
+
+    are either all uppercase or all lowercase.
+
+    
+
+    >>> upper_lower('abc')
+
+    True
+
+    >>> upper_lower('abcXYZ')
+
+    False
+
+    >>> upper_lower('XYZ')
+
+    True
+
+    """"""
+
+    
+
+    return s.islower() or s.isupper()",str methods: upper or lower,4,"Attribute:1,Return:1,Str:1,Or:1,arg:1,FunctionDef:1,Call:1"
+84,"CHILD = 'child'
+
+ADULT = 'adult'
+
+SENIOR = 'senior'
+
+
+
+def overdue_fees(days_late, age_group):
+
+    """""" (int, str) -> number
+
+    
+
+    Return the fees for a book that is days_late days late for a borrower
+
+    in the age group age_group.
+
+    
+
+    >>> overdue_fees(2, SENIOR) # 2 days late, SENIOR borrower
+
+    0.5
+
+    >>> overdue_fees(5, ADULT) # 5 days late, ADULT borrower
+
+    10
+
+    """"""
+
+    if days_late < 4:
+
+        cost_per_day = 1
+
+    elif days_late <= 6:
+
+        cost_per_day = 2
+
+    else:
+
+        cost_per_day = 3
+
+    fees = days_late * cost_per_day
+
+    if age_group == CHILD:
+
+        fees = fees / 2
+
+    elif age_group == SENIOR:
+
+        fees = fees / 4
+
+    return fees",if statement,4,"Int:7,Str:4,Div:2,Mult:1,arg:1,If:4,Lt:1,Return:1,LtE:1,Eq:2,Assign:9,FunctionDef:1"
+,"def count_non_digits(s):
+    """""" (str) -> int
+
+    Return the number of non-digits in s.
+
+    >>> count_non_digits('abc12d')
+    4
+    >>> count_non_digits('135')
+    0
+    >>> count_non_digits('A.4')
+    2
+    """"""
+    count=0
+    for item in s:
+        if not item.isdigit():
+            count+=1
+    return count
+
+ ",Count non-digits,4,"Not:1,Int:2,Str:1,For:1,Add:1,arg:1,AugAssign:1,Attribute:1,Return:1,If:1,Assign:1,FunctionDef:1,Call:1"
+10,"def every_nth_character(s, n):
+
+    """""" (str, int) -> str
+
+
+
+    Return every nth character in s starting at index 0.
+
+
+
+    >>> every_nth_character('Computer Science', 3)
+
+    'CpeSee'
+
+    """"""
+
+
+
+    result = ''
+
+    i = 0
+
+
+
+# Other options for the loop condition:
+
+#    while len(s) > i:
+
+#    while i != len(s):
+
+
+
+    while i < len(s):
+
+        result = result + s[i]
+
+        i = i + n
+
+
+
+    return result",every_nth_character,5,"Int:1,Lt:1,While:1,Return:1,Str:2,arg:1,Index:1,Add:2,Assign:4,FunctionDef:1,Call:1"
+11,"def find_letter_n_times(s, letter, n):
+
+    """""" (str, str, int) -> int
+
+
+
+    Precondition: letter occurs at least n times in s
+
+
+
+    Return the smallest substring of s starting from index 0 that contains
+
+    n occurrences of letter
+
+
+
+    >>> find_letter_n_times('Computer Science', 'e', 2)
+
+    'Computer Scie'
+
+    """"""
+
+
+
+    i = 0
+
+    count = 0
+
+
+
+    while count < n:
+
+        if s[i] == letter:
+
+            count = count + 1
+
+        i = i + 1
+
+
+
+    return s[:i]
+
+",find_letter_n_times,5,"Eq:1,Str:1,Index:1,Add:2,arg:1,Int:4,Lt:1,While:1,Return:1,If:1,Slice:1,Assign:4,FunctionDef:1"
+21,"def all_fluffy(s):
+
+    """""" (str) -> bool
+
+    Return True iff every letter in s is fluffy. Fluffy letters are those that
+
+    appear in the word 'fluffy'.
+
+
+
+
+
+    """"""
+
+
+
+    #TODO: Now complete the function body
+
+    
+
+    for char in s:
+
+        if char not in 'fluy':
+
+            return False
+
+    return True",all_fluffy,5,"False:1,Return:2,Str:2,If:1,For:1,NotIn:1,arg:1,FunctionDef:1,True:1"
+,"def first_even(items):
+    """""" (list of int) -> int
+    
+    Return the first even number from items. Return -1 if items contains no even numbers.
+
+    >>> first_even([5, 8, 3, 2])
+    8
+    >>> first_even([7, 1])
+    -1
+    """"""
+    for ch in items:
+        if int(ch) % 2 == 0:
+            return ch
+    else:
+        return -1
+ ",Find an even number,5,"USub:1,Mod:1,Int:2,Return:2,Str:1,If:1,For:1,Eq:1,arg:1,FunctionDef:1,Call:1"
+,"def swap_name(name_list): 
+    """""" (list of str) -> NoneType 
+ 
+    name_list contains a single person's name.  Modify name_list so that the first name and last name are swapped. 
+                 
+    >>> name = ['John', 'Smith'] 
+    >>> swap_name(name) 
+    >>> name 
+    ['Smith', 'John'] 
+    >>> name = ['John', 'Andrew', 'Gleeson', 'Smith'] 
+    >>> swap_name(name) 
+    >>> name 
+    ['Smith', 'Andrew', 'Gleeson', 'John'] 
+    """""" 
+    
+    temp_name = name_list[0]
+    name_list[0] = name_list[-1]
+    name_list[-1] = temp_name
+ ",Swap names,5,"USub:2,Int:3,Str:1,Assign:3,Index:3,FunctionDef:1,arg:1"
+,"def same_first_name(name1, name2):
+    """""" (list of str, list of str) -> bool
+    
+    Return whether the first element of name1 and name2 are the same.
+    
+    >>> same_first_name(['John', 'Smith'], ['John', 'Harkness'])
+    True
+    >>> same_first_name(['John', 'Smith'], ['Matt', 'Smith'])
+    False
+    """"""
+    return name1[0]==name2[0]
+
+ ","I'm John, Too!",5,"Int:1,Return:1,Str:1,arg:1,Eq:1,Index:1,FunctionDef:1"
+,"def search_closet(items, colour):
+    """""" (list of str, str) -> list of str
+    
+    items is a list containing descriptions of the contents of a closet where
+    every description has the form 'colour item', where each colour is one word
+    and each item is one or more word.  For example:
+
+        ['grey summer jacket', 'orange spring jacket', 'red shoes', 'green hat']
+
+    colour is a colour that is being searched for in items. 
+    
+    Return a list containing only the items that match the colour.
+    
+    >>> search_closet(['red summer jacket', 'orange spring jacket', 'red shoes', 'green hat'], 'red')
+    ['red summer jacket', 'red shoes']
+    >>> search_closet(['red shirt', 'green pants'], 'blue')
+    []
+    >>> search_closet([], 'mauve')
+    []
+    """"""
+    new=[]
+    for i in items:
+        if i.startswith(colour):
+            new.append(i)
+    return new
+ ",Search closet,5,"Assign:1,Attribute:2,Return:1,List:1,Str:1,If:1,For:1,arg:1,FunctionDef:1,Call:2"
+,"def contains_no_lowercase_vowels(phrase):
+    """""" (str) -> bool
+
+    Return True iff (if and only if) phrase does not contain any lowercase vowels.
+
+    >>> contains_no_lowercase_vowels('syzygy')
+    True
+    >>> contains_no_lowercase_vowels('e')
+    False
+    >>> contains_no_lowercase_vowels('abc')
+    False
+    """"""
+    x=0
+    while x < len(phrase):
+        if phrase[x] not in 'aeiou':
+            x +=1
+        else:
+            x -= 2
+            break
+    return x >= len(phrase)
+ ",Deciding whether a string contains no lowercase vowels,5,"Break:1,Int:3,Str:2,Index:1,Sub:1,arg:1,AugAssign:2,Lt:1,While:1,GtE:1,If:1,Return:1,NotIn:1,Assign:1,Add:1,FunctionDef:1,Call:2"
+22,"def express_checkout(product_to_quantity):
+
+    """""" (dict of {str: int}) -> bool
+
+
+
+    Return True iff the grocery order in product_to_quantity qualifies for the
+
+    express checkout.  product_to_quantity maps products to the numbers of those
+
+    items in the grocery order.
+
+
+
+    >>> express_checkout({'banana': 3, 'soy milk': 1, 'peanut butter': 1})
+
+    True
+
+    >>> express_checkout({'banana': 3, 'soy milk': 1, 'twinkie': 5})
+
+    False
+
+    """"""
+
+
+
+    total = 0
+
+    
+
+    for product in product_to_quantity:
+
+        total += product_to_quantity[product]
+
+        
+
+    return total <= 8",express_checkout,7,"Assign:1,Int:2,Return:1,FunctionDef:1,Str:1,LtE:1,For:1,Add:1,Index:1,AugAssign:1,arg:1"
+23,"def build_placements(shoes):
+
+    """""" (list of str) -> dict of {str: list of int}
+
+
+
+    Return a dictionary where each key is a company and each value is a
+
+    list of placements by people wearing shoes made by that company.
+
+
+
+    >>> build_placements(['Saucony', 'Asics', 'Asics', 'NB', 'Saucony', \
+
+                          'Nike', 'Asics', 'Adidas', 'Saucony', 'Asics'])
+
+    {'Saucony': [1, 5, 9] 'Asics': [2, 3, 7, 10], 'NB': [4], 'Nike': [6], 'Adidas': [8]}                      
+
+    """"""
+
+    
+
+    company_to_placements = {}
+
+
+
+    for i in range(len(shoes)):
+
+        
+
+        # The place the runner came in the race.
+
+        position = i + 1
+
+        
+
+        # Add that company and that position to the dictionary
+
+        if shoes[i] in company_to_placements:
+
+            company_to_placements[shoes[i]].append(position)
+
+        else:
+
+            company_to_placements[shoes[i]] = [position]
+
+        
+
+    return company_to_placements",build_placements,7,"Int:1,Str:1,Assign:3,Add:1,Index:3,arg:1,In:1,Attribute:1,Return:1,List:1,For:1,If:1,Dict:1,FunctionDef:1,Call:2"
+,"def every_second_line(report):
+    """""" (Open File for reading) -> list of str
+    
+    Return a list containing every second line (with leading and trailing
+    whitespace removed) in report, starting with the first line.
+    """"""
+    list = report.readlines()
+    every_other_line = []
+    for line in range(len(list)):
+        if line % 2 == 0:
+            every_other_line.append(list[line].strip())
+    return every_other_line
+    
+ ",every_second_line,7,"Mod:1,Int:1,Str:1,arg:1,Index:1,Attribute:2,List:1,For:1,If:1,Return:1,Eq:1,Assign:2,FunctionDef:1,Call:3"
+,"def only_evens(lst):
+    """""" (list of list of int) -> list of list of int
+
+    Return a list of the lists in lst that contain only even integers. 
+   
+    >>> only_evens([[1, 2, 4], [4, 0, 6], [22, 4, 3], [2]])
+    [[4, 0, 6], [2]]
+    """"""
+    
+    even_lists = []
+
+    for sublist in lst:
+        only_even = True
+        for element in sublist:
+            if element % 2 == 1:
+                only_even = False
+                break
+        if only_even:
+            even_lists.append(sublist)
+
+    return even_lists
+ ",Lists of even integers,7,"Mod:1,Break:1,False:1,Int:1,Attribute:1,Str:1,For:2,arg:1,True:1,List:1,Return:1,If:2,Eq:1,Assign:3,FunctionDef:1,Call:1"
+,"def average_daily_temp(high_temps, low_temps):
+    """""" (list of number, list of number) -> list of float
+
+    Precondition: len(high_temps) == len(low_temps)
+
+    high_temps and low_temps are daily high and low temperatures for a series
+    of days. Return a new list of temperatures where each item is the daily
+    average.
+   
+    >>> average_daily_temp([26, 27, 27, 28, 27, 26], [20, 20, 20, 20, 21, 21])
+    [23.0, 23.5, 23.5, 24.0, 24.0, 23.5]
+    """"""
+    result = []
+    for i in range(len( high_temps )):
+        result.append((high_temps[i]+low_temps[i])/2)
+    return result    
+    
+    
+    
+    
+    
+    
+ ",Average daily temperatures,7,"Int:1,Str:1,Div:1,For:1,Add:1,arg:1,Index:1,Attribute:1,Return:1,List:1,Assign:1,FunctionDef:1,Call:2"
+,"def reverse_lookup_dictionary(phone_num, phone_to_name):
+    """""" (str, dict of {str: str}) -> str
+
+    This function receives a phone number phone_num, and a dictionary
+    phone_to_name in which each key is a phone number and each value
+    is the name associated with that phone number.
+    
+    Return the name associated with phone_num in phone_to_name, or
+    an empty string if there is no match.
+    
+    >>> reverse_lookup_dictionary(""416-555-3498"", {""416-555-3498"": \
+        ""John A. Macdonald"", ""647-555-9812"": ""Louis Riel"", ""416-555-6543"": \
+        ""Canoe Head"", ""905-555-6681"":""Tim Horton""})
+    'John A. Macdonald'        
+    """"""
+    if phone_num not in phone_to_name:
+        return """"
+    else:
+        return phone_to_name[phone_num]
+ ",Reverse Phone Lookup (Part 2),8,"Return:2,Str:2,If:1,Index:1,NotIn:1,arg:1,FunctionDef:1"
+,"def reverse_lookup_lists(phone_num, phone_numbers, names):
+    """""" (str, list of str, list of str) -> str
+
+    Precondition: len(phone_numbers) == len(names)
+
+    This function receives a phone number phone_num, and two lists: a list of 
+    phone numbers phone_numbers and a list of names names.  These lists are
+    parallel lists, so the name in position 0 of the names list is 
+    associated with the phone number in position 0 of the phone_numbers 
+    list, and so on.
+
+    Return the name associated with phone_num according to phone_numbers
+    and names, or an empty string if there is no match.
+    
+    >>> reverse_lookup_lists('416-555-6543', ['416-555-3498', \
+        '647-555-9812', '416-555-6543', '905-555-6681'], ['John A. Macdonald', \
+        'Louis Riel', 'Canoe Head', 'Tim Horton'])        
+    'Canoe Head'
+    """"""
+    if phone_num not in phone_numbers:
+        return ''
+    else:
+        for i in range(len(phone_numbers)):
+            if phone_num == phone_numbers[i]:
+                return names[i]
+ ",Reverse Phone Lookup (Part 1),8,"Str:2,NotIn:1,Return:2,For:1,If:2,arg:1,Eq:1,Index:2,FunctionDef:1,Call:1"
+,"def get_quantities(table_to_foods):
+    """""" (dict of {str: list of str}) -> dict of {str: int}
+    
+    The table_to_foods dict has table names as keys (e.g., 't1', 't2', and so on) and each value
+    is a list of foods ordered for that table.
+
+    Return a dictionary where each key is a food from table_to_foods and each
+    value is the quantity of that food that was ordered.
+    
+    >>> get_quantities({'t1': ['Vegetarian stew', 'Poutine', 'Vegetarian stew'], 't3': ['Steak pie', 'Poutine', 'Vegetarian stew'], 't4': ['Steak pie', 'Steak pie']})
+    {'Vegetarian stew': 3, 'Poutine': 2, 'Steak pie': 3}    
+    """"""
+    
+    food_to_quantity = {}
+    food_list = []
+    counter = 0
+    
+    for i in table_to_foods.keys():
+        for x in table_to_foods[i]:
+            if x not in food_to_quantity:
+                food_to_quantity[x] = 0
+            food_to_quantity[x] += 1
+    
+    return food_to_quantity
+ ",Food Quantities,8,"Dict:1,Int:3,Str:1,For:2,Add:1,arg:1,AugAssign:1,Index:3,Attribute:1,Return:1,List:1,If:1,NotIn:1,Assign:4,FunctionDef:1,Call:1"
+,"def insert(lst, v):
+    """""" (list of int, int) -> NoneType
+
+    Insert v into lst just before the rightmost item greater than v, or at
+    index 0 if no items are greater than v.
+
+    >>> my_list = [3, 10, 4, 2]
+    >>> insert(my_list, 5)
+    >>> my_list
+    [3, 5, 10, 4, 2]
+    >>> my_list = [5, 4, 2, 10]
+    >>> insert(my_list, 20)
+    >>> my_list
+    [20, 5, 4, 2, 10]
+    """"""
+    if lst == []:
+        lst[:] = [v]
+    else:
+        for i in range(len(lst)-1,-1,-1):
+            if lst[i] > v or (lst[i]<=v and i == 0):
+                lst.insert(i,v)
+                break
+    return
+ ",Inserting into a list,10,"Index:1,Break:1,Int:2,Attribute:1,Str:1,For:1,Sub:1,arg:1,And:1,USub:1,LtE:1,Gt:1,List:2,Return:1,If:2,Or:1,Eq:2,Assign:1,Slice:1,FunctionDef:1,Call:2"
+42,"def find_value_indexes(item_list, index_list, v):
+    """""" (list of object, list of int, object) -> list of int
+
+    Precondition: the values in index_list are valid indexes in item_list.
+
+    v may appear multiple times in item_list.  index_list contains zero or
+    more indexes.  Return a list of the indexes from index_list at which v
+    appears in item_list.
+
+    >>> find_value_indexes([6, 8, 8, 5, 8], [0, 2, 4], 8)
+    [2, 4]
+    """"""
+    s = []
+    for i in index_list:
+        if item_list[i] == v:
+            s.append(i)
+    return s
+ ",List of Indexes,10,"Str:1,For:1,Index:1,arg:1,Attribute:1,Return:1,List:1,If:1,Eq:1,Assign:1,FunctionDef:1,Call:1"
+,"def bubble_up(L, start, end):
+    """""" (list, int, int) -> NoneType
+
+    Bubble up through L[start:end], swapping items that are out of order.
+
+    >>> L = [4, 3, 2, 1, 0]
+    >>> bubble_up(L, 0, 3)
+    >>> L
+    [3, 2, 1, 4, 0]
+    >>> L = [4, 3, 2, 1, 0]
+    >>> bubble_up(L, 2, 4)
+    >>> L
+    [4, 3, 1, 0, 2]
+    """"""
+
+    for i in range(start, end):
+        if L[i] > L[i + 1]:
+            L[i], L[i + 1] = L[i + 1], L[i]
+
+def bubble_down(L, start, end):
+    """""" (list, int, int) -> NoneType
+
+    Bubble down through L from indexes end through start, swapping items that are out of place.
+
+    >>> L = [4, 3, 2, 1, 0]
+    >>> bubble_down(L, 1, 3)
+    >>> L
+    [4, 1, 3, 2, 0]
+    """"""
+    if start==0:
+        for i in range(start,end):
+            if L[end-i]<L[end-i-1]:
+                L[end-i-1],L[end-i]=L[end-i],L[end-i-1]
+    else:
+        for i in range(start,end):
+            if L[end-i+1]<L[end-i]:
+                L[end-i],L[end-i+1]=L[end-i+1],L[end-i]
+ ","Bubble, bubble, toil and trouble.  Backwards.",10,"Int:7,Sub:4,For:3,Str:2,arg:2,Lt:2,Index:6,Gt:1,Tuple:3,If:4,Eq:1,Assign:3,Add:4,FunctionDef:2,Call:3"
+,"class Widget():
+    
+   def __init__(self, name, cost):
+        
+        self.name = name
+        self.cost = cost
+    
+   def is_cheap(self):
+                 
+        if (self.cost < 10):
+            return True
+        return False
+
+
+ ",Writing a Widgetclass,11,"If:1,Lt:1,Attribute:3,Return:2,Int:1,ClassDef:1,Assign:2,arg:2,False:1,FunctionDef:2,True:1"
+,"class Circle:
+    """""" A circle with a radius. """"""
+
+    def __init__(self, r):
+        """""" (Circle, number)
+
+        Create a circle with a radius r.
+
+        >>> c = Circle(10)
+        >>> c.radius
+        10
+        """"""
+        self.radius = r
+ ",Creating a Circle's instance variable,11,"Attribute:1,Str:2,ClassDef:1,Assign:1,arg:1,FunctionDef:1"
+,"class Rectangle:
+    """""" A rectangle with a width and height. """"""
+
+    def __init__(self, w, h):
+        """""" (Rectangle, number, number)
+
+        Create a new rectangle of width w and height h.
+
+        >>> r = Rectangle(1, 2)
+        >>> r.width
+        1
+        >>> r.height
+        2
+        """"""
+
+        self.width = w
+        self.height = h
+
+    def get_area(self):
+        """""" (Rectangle) -> number
+
+        Return the area of this rectangle.
+
+        >>> r = Rectangle(10, 20)
+        >>> r.get_area()
+        200
+        """"""
+
+        return self.width * self.height
+
+
+class RectangleCollection:
+
+    def __init__(self):
+        """""" (RectangleCollection) -> NoneType
+
+        >>> rc = RectangleCollection()
+        >>> rc.rectangles
+        []
+        """"""
+        self.rectangles = []
+    def add_rectangle(self,rect):
+        self.rectangles.append(rect)
+    def get_same_area_rects(self,number):
+        temp = []
+        for rec in self.rectangles:
+            if number == rec.get_area():
+                temp.append(rec)
+        return temp
+ ",Writing an area method in a Rectangleclass,11,"Str:4,For:1,arg:5,If:1,Attribute:8,Return:2,List:2,Mult:1,ClassDef:2,Eq:1,Assign:4,FunctionDef:5,Call:3"
+105,"class Item:
+    'an Itemclass for the catalog'
+    internal_id = 100
+    def __init__(self):
+        Item.internal_id += 1
+        self.id = Item.internal_id
+        self.quantity = 0
+        # Other attributes may bedefined below. This code is hidden. See the description for details.
+        # ...
+        
+class Catalog:
+    'a simple Catalogclass'
+    
+    def __init__(self):
+        'the constructor'
+        self.items=[]
+        
+    def add(self, item):
+        'add an item to the catalog'
+        return self.items.append(item)
+    
+    def has_style(self, desired_style):
+        '''returns true if catalog has an item of the given style'''
+        for obj in self.items:
+            if obj.style == desired_style:
+                return True
+        return False
+    
+    def size(self):
+        '''return the number of items in the catalog'''
+        return len(self.items)
+    # Write the lookup method here:
+    def lookup(self, shape):
+        for item in self.items:
+            if item.shape == shape:
+                return item.name
+        return None
+    
+ ",Write the lookup method for aclass,12,"False:1,Int:3,Str:6,For:2,None:1,arg:6,AugAssign:1,True:1,ClassDef:2,Attribute:11,Return:6,List:1,If:2,Eq:2,Assign:4,Add:1,FunctionDef:6,Call:2"
+,"class SpecialList:
+    """"""A list that can hold a limited number of items.""""""
+
+    def __init__(self, size):
+        """""" (SpecialList, int)
+
+        >>> L = SpecialList(10)
+        >>> L.size
+        10
+        >>> L.value_list
+        []
+        """"""
+        self.size = size
+        self.value_list = []
+        
+        # complete this code
+
+
+    def push_value(self, new_value):
+        """""" (SpecialList, object) -> NoneType
+
+        Append new_value to this list, if there is enough space in the list according to its maximum size.  
+        If there is insufficient space, new_value should not be added to the list.
+
+        >>> L = SpecialList(10)
+        >>> L.push_value(3)
+        >>> L.value_list
+        [3]
+        """"""
+        self.new_value = new_value
+        if len(self.value_list) < self.size:
+            self.value_list.append(self.new_value)
+        
+          
+        
+        # complete this code
+
+
+    def pop_most_recent_value(self):
+        """""" (SpecialList) -> object
+
+        Precondition: len(self.value_list) != 0
+
+        Return the value added most recently to value_list and remove it from the list.
+
+        >>> L = SpecialList(10)
+        >>> L.push_value(3)
+        >>> L.push_value(4)
+        >>> L.value_list
+        [3, 4]
+        >>> L.pop_most_recent_value()
+        4
+        """"""
+        # complete this code
+           
+        return self.value_list.pop(-1)
+
+    
+    def compare(self, other):
+        """""" (SpecialList, SpecialList) -> int
+
+        Return 0 if both SpecialList objects have lists that contain the same number of items.
+        Return 1 if self's list contains more items than other's list.
+        Return -1 if self's list contains fewer items than other's list.
+        """"""
+        if len(self.value_list) == len(other.value_list):
+            return int('0')
+        elif len(self.value_list) > len(other.value_list):
+            return int('1')
+        else:
+            return int('-1')
+        
+        # complete this code
+ ",Special List,12,"Int:1,Str:8,arg:4,Gt:1,USub:1,ClassDef:1,Lt:1,Attribute:8,Return:4,List:1,If:3,Eq:1,Assign:3,FunctionDef:4,Call:8"
+,"class Rectangle:
+    """""" A rectangle with a width and height. """"""
+
+    def __init__(self, w, h):
+        """""" (Rectangle, number, number)
+
+        Create a new rectangle of width w and height h.
+
+        >>> r = Rectangle(1, 2)
+        >>> r.width
+        1
+        >>> r.height
+        2
+        """"""
+
+        self.width = w
+        self.height = h
+
+    def get_area(self):
+        """""" (Rectangle) -> number
+
+        Return the area of this rectangle.
+
+        >>> r = Rectangle(10, 20)
+        >>> r.get_area()
+        200
+        """"""
+
+        return self.width * self.height
+
+
+class RectangleCollection:
+
+    def __init__(self):
+        """""" (RectangleCollection) -> NoneType
+
+        >>> rc = RectangleCollection()
+        >>> rc.rectangles
+        []
+        """"""
+        
+        self.rectangles = []
+
+    def add_rectangle(self, Rectangle):
+
+        self.rectangles.append(Rectangle)
+
+    def get_same_area_rects(self, area):
+
+        same_rectangles = []
+        for rectangle in self.rectangles:
+
+            a =  rectangle.get_area()
+
+            if a == area:
+                same_rectangles.append(rectangle)
+
+        return same_rectangles
+ ",Aclass to manage a collection of objects,12,"Str:4,Mult:1,arg:5,ClassDef:2,Attribute:8,Return:2,List:2,For:1,If:1,Eq:1,Assign:5,FunctionDef:5,Call:3"
+,"class User:
+    
+    def __init__(self, username, password, account_info):
+        """""" (User, str, str, str) -> NoneType
+        
+        Initialize the user with username, password, and account_info.
+        
+        >>> new_user = User('xyz', 'password1', ""Bob's Online Banking"")
+        >>> new_user.username
+        'xyz'
+        >>> new_user.password
+        'password1'
+        >>> new_user.account_info
+        ""Bob's Online Banking""
+        """"""
+        self.username = username
+        self.password = password
+        self.account_info = account_info
+        
+    def login(self, entered_password):
+        """""" (User, str) -> bool
+        
+        Return True iff the user's password matches entered_password.
+        
+        >>> new_user = User('xyz', 'password1', ""Bob's Online Banking"")
+        >>> new_user.login('password1')
+        True
+        >>> new_user.login('1234')
+        False
+        """"""
+        return self.password == entered_password
+
+    def update_account(self, entered_password, new_info):
+        """""" (User, str, str) -> NoneType
+        
+        Modify the user's account_info to be new_info if the user's password
+        matches entered_password.
+        
+        >>> new_user = User('xyz', 'password1', ""Bob's Online Banking"")
+        >>> new_user.update_account('1234', 'B.O.B.')
+        >>> new_user.account_info
+        ""Bob's Online Banking""
+        >>> new_user.update_account('password1', 'B.O.B.')
+        >>> new_user.account_info
+        'B.O.B.'
+        """"""
+        if self.login(entered_password):
+            self.account_info=new_info
+ ",Userclass,12,"If:1,Attribute:6,Return:1,Str:3,ClassDef:1,arg:3,Eq:1,Assign:4,FunctionDef:3,Call:1"

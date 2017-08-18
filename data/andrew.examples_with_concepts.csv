@@ -1,0 +1,3345 @@
+2,"def cube_volume(side_length):
+  '''(number) -> number
+  >>> cube_volume(3)
+  27
+  >>> cube_volume(2)
+  8
+  '''
+  return side_length ** 3
+",cube.py,1,"Pow:1,Str:1,arg:1,Int:1,FunctionDef:1,Return:1"
+2,"3 + 8
+2 * 8
+2*16
+2 ** 3
+5 / 2
+5 // 2
+8 / 2
+8 // 2
+type(1)
+type(1.0)
+type('1.0')
+a = 3
+b = 5
+a + b
+c = '3'
+d = '5'
+c + d
+a = 4.5
+type(a)
+int(a)
+type(a)
+x = 37
+x
+print(x)
+x
+y = x - 2
+x
+y
+x = 20
+x
+y
+a = 5
+type(a)
+a = 5.0
+type(a)
+a = a + 3
+a
+type(a)
+a = a + 1
+a
+a = int(a)
+a",day2_shell_example.py,1,"Sub:1,Add:5,Pow:1,Str:3,Int:17,Float:3,Div:2,Mult:2,FloorDiv:2,Call:11,Assign:13"
+2,"print(4 + 5)
+4 + 5
+def f(x):
+  return x ** 2
+f(8)
+y = 4
+f(y)
+f(2 + 1)
+z = f(9)
+z
+type(4.5)
+def add_one(x):
+  return x + 1
+add_one(4)
+x = 9
+x = x + add_one(x)
+x
+x = x + 1
+x
+q
+def do_something(x):
+  q = 8
+  return q
+do_something(4)
+do_something(5)
+do_somethig(15)
+do_something(20)
+q # no! q is local to do_something
+cube_volume(1)
+print(8 + 3)
+8 + 3
+4
+print(4)
+def f(x):
+  return x ** 2
+f(3)
+f(1)
+f(-1)
+f(0)
+f(1.0)
+y = f(4)
+y
+type(4.5)
+def add_one(x):
+  return x + 1
+add_one(4)
+add_one(0)
+add_one(3)
+x = 2
+x = x + add_one(x)
+x
+x = x + 1
+x
+cube_volume(2)
+add_one(2)
+pi
+import math
+math.pi
+ceil
+math.ceil(4.5)
+math.ceil(4)
+math.ceil(2.1)
+x
+x = x + add_one(x)
+x
+def plus_one(num):
+  return num + 1
+add_one(8)
+q = 10
+add_one(q)",day3_shell_example.py,1,"Attribute:4,Import:1,Int:39,Float:5,alias:1,Call:34,Add:13,Pow:2,arg:6,USub:1,FunctionDef:6,Assign:12,Return:6"
+2,"True
+type(True)
+False
+2 < 8
+8 < 2
+9 >= 9
+9 > 9
+4 != 4
+4 == 4
+a = 3
+a
+a == 3
+a != 3
+b = (a != 3)
+b
+not False
+not True
+a = True
+not a
+not (2 < 8)
+not not True
+True and False
+False and True
+False and False
+True and True
+False or False
+True or False
+True or True
+6 % 2
+7 % 2
+6 % 2 == 0",shell.day4.py,2,"Int:14,And:4,True:10,Not:5,NotEq:3,GtE:1,Eq:3,Call:1,Mod:3,Or:3,False:7,Lt:3,Gt:1,Assign:3"
+2,"def f():
+  return 9
+f()
+def first(a):
+  a = 8
+  return a
+first(10)
+first(2)
+a = 20
+a
+first(a)
+a
+a = 20
+first(a)
+def f(x):
+  return x + 2
+  return x + 3
+f(10)
+result = f(10)
+result
+def g(x):
+  print(x + 2)
+  print(x + 3)
+g(10)
+result = g(10)
+result
+print(result)
+a = print(10)
+print(a)
+def f4():
+  print(5)
+  return 5
+x = f4()
+x
+def f5():
+  return 5
+  print(5)
+x = f5()
+x
+def no_ret():
+  print(3)
+no_ret()
+x = no_ret()
+x",shell.day5.py,2,"Add:4,arg:3,Int:20,FunctionDef:7,Assign:9,Call:21,Return:6"
+2,"def is_shorter(s1, s2):
+    '''(str, str) -> bool
+    Return True if the first string is shorter than the second; false otherwise.
+    
+    >>> is_shorter("""", ""cat"")
+    True
+    >>> is_shorter(""kitten"", ""cat"")
+    False
+    >>> is_shorter(""cat"", ""dog"")
+    False
+    '''
+    
+    return len(s1) < len(s2)
+    # After day 2: modify this so that it returns the shorter string
+",day1.is_shorter.py,3,"Str:1,arg:1,Lt:1,Return:1,FunctionDef:1,Call:1"
+2,"s = input(""Enter PH value: "")
+if len(s) > 0:
+    ph = float(s)
+    if ph < 7.0:
+        print(ph, 'is acidic.')
+    elif ph > 7.0:
+        print(ph, 'is basic.')
+    else:
+        print(ph, 'is neutral.')
+else:
+    print('No pH value was given!')
+",day2.ph.py,3,"Str:5,Int:1,Float:2,Lt:1,If:3,Gt:2,Call:7,Assign:2"
+2,"# Given a server's response time:
+# return ""server down"" if there was no response (response time is none)
+# return ""server slow"" if the response takes longer than 5000 ms
+# return ""server okay"" if it returns a fast response_time
+
+def server_status(response_time):
+    # Complete the docstring and code for this function!
+    if response_time == null:
+     return ""server down""
+    if response_time > 5000:
+     return ""server slow""
+    else:
+     return ""server okay""",day2.server_status.py,3,"Str:3,arg:1,Int:1,FunctionDef:1,If:2,Gt:1,Eq:1,Return:3"
+2,"def is_shorter(s1, s2):
+    '''(str, str) -> str
+    Return the shorter of the two provided strings.
+    
+    >>> is_shorter("""", ""cat"")
+    ''
+    >>> is_shorter(""kitten"", ""cat"")
+    'cat'
+    >>> is_shorter(""cat"", ""dog"")
+    'dog'
+    '''
+    
+    if len(s1) < len(s2):
+        return s1
+    else:
+        return s2",day2.shorter.py,3,"Str:1,arg:1,Lt:1,If:1,Call:1,FunctionDef:1,Return:2"
+2,"def can_vote(age):
+    """""" (int) -> bool
+
+    Return True iff age is legal voting age of at least 18 years.
+
+    >>> can_vote(16)
+    False
+    >>> can_vote(21)
+    True
+    """"""
+
+    # The following three blocks of code are equivalent, but the last is
+    # the best.
+
+    # Block 1: needless if statement
+    # if age < 18:
+    #     return False
+    # else:
+    #     return True
+
+    # Block 2: okay, but why not change the condition?
+    # return not (age < 18)
+
+    # Block 3: simplest condition
+    return age >= 18",day3.can_vote.py,3,"Str:1,arg:1,Int:1,FunctionDef:1,GtE:1,Return:1"
+2,"def is_positive(x):
+    '''(num) -> bool
+    Return True iff x >= 0
+    '''
+    
+    # The following two blocks are equivalent, but the second is preferred.
+    
+    # Block 1: redundant test
+    # return (x >= 0) == True
+    
+    # Block 2: preferred -- simpler
+    return x >= 0",day3.is_positive.py,3,"Str:1,arg:1,Int:1,FunctionDef:1,GtE:1,Return:1"
+2,"# Original problem ...
+# Given a server's response time:
+# return ""server down"" if there was no response (response time is none)
+# return ""server slow"" if the response takes longer than 5000 ms
+# return ""server okay"" if it returns a fast response_time
+
+# We define a global value below, so that we can easily alter the value that
+# triggers the ""slow response"" message if a client/boss requests a change.
+SLOW_RESPONSE = 5000
+def server_status(response_time):
+    '''(int/None) -> str
+    Given a server's response time, return ""server down"" if there was 
+    no response, ""server slow"" if the response took longer than 5000
+    ms, and ""sever okay"" otherwise.
+
+    >>> server_status(None)
+    'server down'
+    >>> server_status(0)
+    'server okay'
+    >>> server_status(4500)
+    'server okay'
+    >>> server_status(5000)
+    'server okay'
+    >>> server_status(5500)
+    'server slow'
+    '''
+
+    if response_time == None:
+        return ""server down""
+    elif response_time > SLOW_RESPONSE:
+        return ""server slow""
+    else:
+        return ""server okay""
+",day3.server_status.py,3,"Str:4,arg:1,Int:1,Assign:1,Gt:1,FunctionDef:1,If:2,None:1,Eq:1,Return:3"
+2,"def encrypt_letter(letter):
+    '''(str) -> str
+    Encrypt letter by shifting three places to the right.
+    Assume letter is lowercase.
+    
+    >>> encrypt_letter('v')
+    'y'
+    '''
+    base = ord('a')
+    offset = ord(ch) - base + 3
+    if offset > 26:
+        offset = offset - 26
+    return chr(base + offset)
+
+#######################################################
+
+    # Here is an alternate solution that uses modulus:
+    # base = ord('a')
+    # return chr((ord(letter) + 3 - base) % 26 + base)
+
+def encrypt_word(word):
+    '''(str) -> str
+    Return the given word encrypted using encrypt_letter on each 
+    alphabetic character in the word.
+
+    >>> encrypt_word('cat')
+    'fdw'
+    '''
+
+
+    # Here is some foreshadowing of what we will be working on over 
+    # the next few weeks: loops!    
+    new_word = """"       # an accumulator
+    for ch in word:
+        if ch.isalpha():
+            new_word += encrypt_letter(ch)
+        else:
+            new_word += ch  
+",caesar_sol.py,4,"For:1,Attribute:1,Int:3,Call:5,Sub:2,Add:4,AugAssign:2,Str:4,arg:2,Return:1,FunctionDef:2,If:2,Gt:1,Assign:4"
+2,"def bigger_char(s, ch):
+    '''(str, ch) -> bool
+    Return True iff no character in s is larger than the single character ch.
+    Assumption: all inputs are lowercase
+
+    >>> bigger_char('abc', 'a')
+    False
+    >>> bigger_char('abc', 'z')
+    True
+    '''
+    
+    for char in s:
+        if char > ch:
+            return False
+    return True",bigger_char.py,4,"For:1,Str:1,arg:1,False:1,True:1,FunctionDef:1,If:1,Gt:1,Return:2"
+2,"def count_spaces(s):
+    '''(str) -> int
+    Return the number of whitespace characters in s.
+
+    >>> count_spaces('hello world')
+    1
+    >>> count_spaces('nospaceshere')
+    0
+    >>> count_spaces('\t\t  \n')
+    5
+    '''
+
+    count = 0
+    for char in s:
+        if char.isspace():
+            count += 1
+    return count",count_spaces.py,4,"For:1,Attribute:1,Int:2,Assign:1,Call:1,Add:1,AugAssign:1,Str:1,arg:1,FunctionDef:1,If:1,Return:1"
+2,"def contains_digit(s):
+    '''(str) -> bool
+    Return True iff s contains at least one numeral.
+    
+    >>> contains_digit('123')
+    True
+    >>> contains_digit('aBcd?')
+    False
+    >>> contains_digit('a1')
+    True
+    >>> contains_digit('')
+    False
+    '''
+    
+    for ch in s:
+        if ch.isdigit():
+            return True
+    return False",contains_digit.py,4,"For:1,Attribute:1,Str:1,arg:1,False:1,True:1,FunctionDef:1,If:1,Call:1,Return:2"
+2,"def only_vowels(s):
+    '''(str) -> str
+    Return s with all non-vowel characters removed.
+
+    >>> only_vowels('abc')
+    'a'
+    >>> only_vowels('bcd')
+    ''
+    >>> only_vowels('aeiou')
+    'aeiou'
+    >>> only_vowels('ABC')
+    'A'
+    >>> only_vowels('')
+    ''
+    '''
+    
+    vowel_s = ''
+    for char in s:
+        if char.lower() in 'aeiou':
+            vowel_s += char
+    return vowel_s",only_vowels.py,4,"For:1,Attribute:1,Assign:1,Call:1,Add:1,AugAssign:1,Str:3,arg:1,FunctionDef:1,In:1,If:1,Return:1"
+2,"def remove_spaces(s):
+   '''(str) -> str
+   Return s, but with all spaces removed.
+
+   >>> remove_spaces('abc!123')
+   'abc!123'
+   >>> remove_spaces('   \t\t\n\n')
+   ''
+   >>> remove_spaces('')
+   ''
+   '''
+   
+   nospace_s = ''
+   for char in s:
+       if not char.isspace():
+           nospace_s += char
+   return nospace_s",remove_spaces.py,4,"For:1,Attribute:1,Assign:1,Not:1,Call:1,Add:1,AugAssign:1,Str:2,arg:1,FunctionDef:1,If:1,Return:1"
+1,"def get_answer(prompt):
+    ''' (str) -> str
+
+    Use prompt to ask the user for a ""yes"" or ""no""
+    answer and continue asking until the user gives
+    a valid response. Return the answer.
+    '''
+
+    answer = input(prompt)
+
+    while not (answer == 'yes' or answer == 'no'):
+        answer = input(prompt)
+
+    return answer
+
+
+        
+def up_to_vowel(s):
+    ''' (str) -> str
+
+    Return a substring of s from index 0 up to but
+    not including the first vowel in s.
+
+    >>> up_to_vowel('hello')
+    'h'
+    >>> up_to_vowel('there')
+    'th'
+    >>> up_to_vowel('cs')
+    'cs'
+    '''
+
+    before_vowel = ''
+    i = 0
+
+    while i < len(s) and not (s[i] in 'aeiouAEIOU'):
+        before_vowel = before_vowel + s[i]
+        i = i + 1
+
+    return before_vowel
+
+
+",_9b843cf8f88dfd5332f16e78be773ba4_while_loops.py,5,"In:1,Or:1,Int:2,And:1,Not:2,Index:2,Add:2,Eq:1,Call:3,While:2,Str:5,arg:2,FunctionDef:2,Return:2,Lt:1,Assign:6"
+1,"def shift_left(L):
+    ''' (list) -> NoneType
+
+    Shift each item in L one position to the left
+    and shift the first item to the last position.
+
+    Precondition: len(L) >= 1
+    '''
+    
+    first_item = L[0]
+
+    for i in range(1, len(L)):
+        L[i - 1] = L[i]
+
+    L[-1] = first_item      
+    
+
+def count_adjacent_repeats(s):
+    ''' (str) -> int
+
+    Return the number of occurrences of a character and
+    an adjacent character being the same.
+
+    >>> count_adjacent_repeats('abccdeffggh')
+    3
+    '''
+
+    repeats = 0
+
+    for i in range(len(s) - 1):
+        if s[i] == s[i + 1]:
+            repeats = repeats + 1
+
+    return repeats
+",_d97b99e407fadb7d9d6cf80e00caeb54_loops_over_indices.py,5,"For:2,USub:1,Int:8,Index:4,Call:2,Eq:1,Sub:2,Add:2,Str:2,arg:2,FunctionDef:2,Assign:5,If:1,Return:1"
+2,"def get_valid_password():
+    '''() -> str
+    Return a valid user-entered password. A password is valid if it includes at
+    least one capital letter, one lowercase letter, and one non-letter character.
+    '''
+
+
+    valid = False
+    while not valid:
+        password = input(""Enter a valid password: "")
+        valid = password.lower() != password and \
+                password.upper() != password and \
+                not password.isalpha()
+    return password
+
+    # Alternate implementation
+    # Idiom for ""do-while""
+    while 1:
+        password = input(""Enter a valid password: "")
+        if password.lower() != password and \
+           password.upper() != password and \
+           not password.isalpha():
+            break
+    return password
+",day1.get_valid_password.py,5,"Attribute:6,Int:1,And:2,Not:3,NotEq:4,Call:8,While:2,Str:3,Return:2,Break:1,False:1,FunctionDef:1,If:1,Assign:4"
+2,"import random
+
+def guess():
+    '''() -> None
+    Engage the user in a guessing game. Repeatedly ask the user to select
+    a number between 1 and 10, until they guess the correct (randomly 
+    selected) number.
+    '''
+
+    answer = random.randint(1, 10)
+    guess = input(""Guess a number between 1 and 10: "")
+    while int(guess) != answer:
+        guess = input(""Sorry, guess again: "")
+    print(""Got it!"")
+",day1.guessing_game.py,5,"While:1,Attribute:1,Str:4,Int:1,Import:1,alias:1,FunctionDef:1,NotEq:1,Call:5,Assign:3"
+2,"def index_of(s, ch, n):
+    '''(str, str, int) -> int
+    Return the index of the nth instance of character ch in the string s or
+    -1 if there is no nth instance of ch in s.
+
+    >>> index_of('abcaca', 'a', 1)
+    0
+    >>> index_of('abcaca', 'a', 2)
+    3
+    >>> index_of('abcaca', 'a', 4)
+    -1
+    '''
+
+    index = 0
+    count = 0
+    while index < len(s) and count < n:
+        if s[index] == ch:
+            count += 1
+        index += 1
+    if count == n:
+        return index - 1
+    return -1
+",day1.index_of.py,5,"USub:1,And:1,Int:6,Assign:2,Index:1,Call:1,Eq:2,Sub:1,Add:2,AugAssign:2,Str:1,arg:1,While:1,FunctionDef:1,If:2,Lt:1,Return:2"
+2,"def all_titlecase(L):
+    '''(list of strings) -> bool
+    Return True iff all of the strings in L are titlecased.
+
+    >>> all_titlecase([])
+    True
+    >>> all_titlecase(['The Book of Three', 'The Name of the Wind', 'Snow Crash'])
+    True
+    >>> all_titlecase(['The Book of Three', 'The Name of the Wind', 'SNow Crash'])
+    False
+    '''
+
+    for title in L:
+        if title.title() != title:
+            return False
+    return True
+",day2.all_titlecase.py,5,"For:1,Attribute:1,Str:1,arg:1,NotEq:1,False:1,True:1,FunctionDef:1,If:1,Call:1,Return:2"
+2,"def get_even(L):
+    '''(list of int) -> list of int
+    Return a list containing the even elements of L.
+
+    >>> get_even([])
+    []
+    >>> get_even([1, 3])
+    []
+    >>> get_even([2, 1, 2])
+    [2, 2]
+    '''
+
+    evens = []
+    for item in L:
+        if item % 2 == 0:
+            evens.append(item)
+    return evens
+",day2.get_even.py,5,"For:1,Attribute:1,Int:1,Assign:1,Call:1,Eq:1,Mod:1,Str:1,arg:1,FunctionDef:1,If:1,List:1,Return:1"
+2,"def double_items(L):
+    '''(list) -> None
+    Double all of the values in the list of numeric values L.
+
+    >>> L = [1, 2, 3]
+    >>> double_items(L)
+    >>> L
+    [2, 4, 6]
+
+    >>> L = []
+    >>> double_items(L)
+    >>> L
+    []
+    '''
+
+    for index in range(len(L)):
+        L[index] = L[index] * 2
+",day3.double_items.py,5,"For:1,Str:1,arg:1,Int:1,Mult:1,FunctionDef:1,Index:1,Call:1,Assign:1"
+2,"def every_third(s, n):
+    '''(str) -> str
+    Return a string composed of every third character from s, starting from index n.
+
+    >>> every_third('abcd', 0)
+    'ad'
+    >>> every_third('abcd', 1)
+    'b'
+    >>> every_third('abcd', 4)
+    ''
+    '''
+
+    result = ''
+    for index in range(n, len(s), 3):
+        result += s[index]
+    return result
+",day3.every_third.py,5,"Add:1,AugAssign:1,Str:2,arg:1,Int:1,Assign:1,FunctionDef:1,Index:1,Call:1,For:1,Return:1"
+2,"def is_valid_password(password):
+    '''(str) -> bool
+    Return True iff password contains a non-letter character and contains both upper and 
+    lowercase letters.
+
+    >>> is_valid_password('aA3bc')
+    True
+    >>> is_valid_password('aa3bc')
+    False
+    >>> is_valid_password('AA3BC')
+    False
+    >>> is_valid_password('AAbBC')
+    False
+    '''
+    
+    return not password.isalpha() and \
+           password.lower() != password and \
+           password.upper() != password
+
+
+def remove_invalid(password_list):
+    '''(list of str) -> None
+    Remove invalid passwords from password_list.
+    
+    >>> L = ['aA3', 'aA3bc', 'aa3bc', 'AA3BC', 'AAbBC']
+    >>> remove_invalid(L)
+    >>> L
+    ['aA3', 'aA3bc']
+    '''
+
+    # Easier with a while loop ...
+    index = 0
+    while index < len(password_list):
+        if is_valid_password(password_list[index]):
+            index += 1
+        else:
+            password_list.pop(index)
+    
+
+def filter_invalid(password_list):
+    '''(list of str) -> list of str
+    Return a list that contains the valid passwords from password_list.
+
+    >>> L = ['aA3', 'aA3bc', 'aa3bc', 'AA3BC', 'AAbBC']
+    >>> remove_invalid(L)
+    ['aA3', 'aA3bc']
+    >>> L
+    ['aA3', 'aA3bc', 'aa3bc', 'AA3BC', 'AAbBC']
+    '''
+
+    filtered = []
+    for password in password_list:
+        if is_valid_password(password):
+            filtered.append(password)
+    return filtered
+",day3.remove_invalid.py,5,"For:1,Attribute:5,And:1,Int:2,Not:1,NotEq:2,Call:8,Index:1,Add:1,AugAssign:1,Str:3,arg:3,Return:2,While:1,FunctionDef:3,If:2,List:1,Lt:1,Assign:2"
+1,"def count_matches(s1, s2):
+    ''' (str, str) -> int
+    
+    Return the number of positions in s1 that contain the
+    same character at the corresponding position of s2.
+    
+    Precondition: len(s1) == len(s2)
+    
+    >>> count_matches('ate', 'ape')
+    2
+    >>> count_matches('head', 'hard')
+    2
+    '''
+
+    num_matches = 0
+
+    for i in range(len(s1)):
+        if s1[i] == s2[i]:
+            num_matches = num_matches + 1
+
+    return num_matches
+    
+
+def sum_items(list1, list2):
+    ''' (list of number, list of number) -> list of number
+    
+    Return a new list in which each item is the sum of the items at the
+    corresponding position of list1 and list2.
+    
+    Precondition: len(list1) == len(list2)
+    
+    >> sum_items([1, 2, 3], [2, 4, 2])
+    [3, 6, 5]
+    '''
+
+    sum_list = []
+
+    for i in range(len(list1)):
+        sum_list.append(list1[i] + list2[i])
+
+    return sum_list
+
+    
+
+    
+",_d97b99e407fadb7d9d6cf80e00caeb54_parallel_list_str.py,6,"For:2,Attribute:1,Int:2,Index:2,Call:3,Eq:1,Add:2,Str:2,arg:2,FunctionDef:2,Assign:3,List:1,If:1,Return:2"
+2,"def col_sums(lst):
+    '''(list of list of int) -> list of int
+    Return a new list that contains the sum of each column in lst. 
+    All columns in lst are of the same length.
+
+    >>> col_sums([[5, 10, 15], [1, 2, 3]])
+    [6, 12, 18]
+    '''
+
+    ans = []
+    for column in range(len(lst[0])):
+        total = 0
+        for row in range(len(lst)):
+            total = total + lst[row][column]
+        ans.append(total)
+    return ans
+",day1.column_sums.py,6,"For:2,Attribute:1,Int:2,Index:2,Call:3,Add:1,Str:1,arg:1,FunctionDef:1,Assign:3,List:1,Return:1"
+2,"def is_ok(group_list, class_list):
+    '''list of list of int, list of int) -> bool
+
+    Return True iff every student in class_list is in exactly one group 
+    according to group_list.
+
+    >>> ...
+    '''
+
+    for student in class_list:
+        num_groups = 0
+        for group in group_list:
+            if student in group:
+                num_groups = num_groups + 1
+        if num_groups != 1:
+            return False
+    return True
+",day1.is_ok.py,6,"For:2,In:1,Int:3,True:1,NotEq:1,Add:1,Str:1,arg:1,Return:2,False:1,FunctionDef:1,If:2,Assign:2"
+2,"def count_instances(group_list, item):
+    '''(list of list of int) -> int
+    Return the number of instances of item in group_list.
+
+    >>> count_instances([[1, 2], [2, 3]], 2)
+    2
+    >>> count_instances([[1, 2], [2, 3]], 3)
+    1
+    >>> count_instances([[1, 2], [2, 3]], 4)
+    0
+    '''
+
+    count = 0
+    for group in group_list:
+
+        # This works fine, but let's also look at a loop:
+        # count += group.count(item)
+
+        for el in group:
+            if el == item:
+                count += 1
+    return count
+",day2.count_instances.py,6,"For:2,AugAssign:1,Str:1,arg:1,Int:2,Assign:1,FunctionDef:1,If:1,Add:1,Eq:1,Return:1"
+2,"def find(lst, value):
+    '''(list, value) -> int
+    Return the index of the first occurrence of value in lst.
+    If value is not found, return -1.
+  
+    >>> find([20, 40, 60], 40)
+    1
+    '''
+    for i in range(lst):
+        if lst[i] == value:
+            return i
+    return -1
+
+    # let's try while-loop
+    i = 0
+    while i < len(lst):
+        if lst[i] == value:
+            return i
+        i = i + 1
+    return -1
+",day2.find.py,6,"For:1,USub:2,Int:4,Assign:2,Index:2,Call:2,Eq:2,Add:1,Str:1,arg:1,While:1,FunctionDef:1,If:2,Lt:1,Return:4"
+2,"def no_extra_members(group_list, class_list):
+    '''(list of list of int, list of int) -> bool
+    Return True iff every student in group_list is a
+    member of class_list.
+
+    >>> no_extra_members([[1, 3, 4], [2]], [1, 2, 3, 4])
+    True
+    >>> no_extra_members([[1, 2], [3, 4]], [1, 2, 4])
+    False
+    '''
+
+    # Here is a variant of a ""check property"" pattern.
+    # In this pattern, we check every item in the list
+    # (or nested list, in this case) for a property. If
+    # any item does not have that property, then we
+    # return False. If all items have the desired property,
+    # then we return True *after* the loop.
+    for group in group_list:
+        for student in group:
+            if student not in class_list:
+                 return False
+    return True
+",day2.no_extra_members.py,6,"For:2,NotIn:1,arg:1,Str:1,False:1,True:1,FunctionDef:1,If:1,Return:2"
+2,"def longest_sequence(f):
+    '''(file) -> int
+    Return the number of lines in the longest
+    consecutive sequence of blank lines in f,
+    or zero if there are no blank lines at all.
+    '''
+
+    longest = 0
+    current = 0
+    for line in f:
+        if line == '\n':
+            current += 1
+            if current > longest:
+                longest = current
+        else:
+            current = 0
+    return longest
+",day3.longest_sequence.py,6,"For:1,Int:4,Eq:1,Add:1,AugAssign:1,Str:2,arg:1,Return:1,FunctionDef:1,If:2,Gt:1,Assign:4"
+2,"# This file works with a text file containing data about
+# band preferences. For example:
+# Band,Rating,Plays
+# The Black Keys,8,193
+
+
+def get_bandnames(band_file):
+    '''(file) -> list of str
+    Return a list of all of the bandnames in a band file.
+    Assumption: Header lines have been removed
+    '''
+
+    bands = []
+    for line in band_file:
+        fields = line.strip().split("","")
+        bands.append(fields[0])
+
+    return bands
+
+
+def average_rating(band_file):
+    '''(file) -> float
+    Return the average rating for all bands in band_file.
+    Assumption: Header lines have been removed.
+    '''
+
+    sum = 0
+    count = 0
+    for line in band_file:
+        fields = line.strip().split("","")
+        sum += int(fields[1])
+        count += 1
+    return sum / count
+
+    # The following also works fine. It uses a list instead
+    # of a pair of accumulators.
+    # ratings = []
+    # for line in band_file:
+    #     fields = line.strip().split("","")
+    #     ratings.append(int(fields[1]))
+    # return sum(ratings) / len(ratings)
+",parse_bands.py,6,"For:2,Attribute:3,Int:5,Div:1,Index:2,Call:4,Add:2,AugAssign:2,Str:4,arg:2,FunctionDef:2,Return:2,List:1,Assign:5"
+1,"def read_grades(gradefile):
+    '''(file open for reading) -> list of float
+
+    Read and return the list of grades in gradefile.
+   
+    Precondition: gradefile starts with a header that contains
+    no blank lines, then has a blank line, and then lines
+    containing a student number and a grade.
+    '''
+
+    # Skip over the header.
+    line = gradefile.readline()
+    while line != '\n':
+        line = gradefile.readline()
+
+    # Read the grades, accumulating them into a list.
+
+    grades = []
+    
+    line = gradefile.readline()
+    while line != '':
+        # Now we have s string containing the info for a
+        # single student.
+        # Find the last space and take everything after that
+        # space.
+        grade = line[line.rfind(' ') + 1:]
+        grades.append(float(grade))
+        line = gradefile.readline()
+
+    return grades
+
+def count_grade_ranges(grades):
+    '''(list of float) -> list of int
+
+    Return a list of int where each index indicates how many grades were in these
+    ranges:
+
+    0-9: index 0
+    10-19: 1
+    20-29: 2
+      :
+    90-99: 9
+    100:   10
+
+    >>> count_grade_ranges([77.5, 37.5, 0.5, 9.5, 72.5, 100.0, 55.0, 70.0, 79.5])
+    [2, 0, 0, 1, 0, 1, 0, 4, 0, 0, 1]
+    '''
+
+    range_counts = [0] * 11
+
+    for grade in grades:
+        which_range = int(grade // 10)
+        range_counts[which_range] = range_counts[which_range] + 1
+
+    return range_counts
+
+
+def write_histogram(range_counts, histfile):
+    '''(list of int, file open for writing) -> NoneType
+
+    Write a histogram of *'s based on the number of grades in each range.
+
+    The output format:
+    0-9:   *
+    10-19: **
+    20-29: ******
+      :
+    90-99: **
+    100:   *
+    
+    '''
+
+    histfile.write('0-9:   ')
+    histfile.write('*' * range_counts[0])
+    histfile.write('\n')
+
+    # Write the 2-digit ranges.
+    for i in range(1, 10):
+        low = i * 10
+        high = i * 10 + 9
+        histfile.write(str(low) + '-' + str(high) + ': ')
+        histfile.write('*' * range_counts[i])
+        histfile.write('\n')
+
+    histfile.write('100:   ')
+    histfile.write('*' * range_counts[-1])
+    histfile.write('\n')
+",_d97b99e407fadb7d9d6cf80e00caeb54_grade.py,7,"Slice:1,For:2,Attribute:15,FloorDiv:1,Int:9,Mult:6,Index:4,Call:17,While:2,Add:4,USub:1,Str:15,arg:3,NotEq:2,FunctionDef:3,Return:2,List:2,Assign:11"
+2,"def count_chars(s):
+    '''(str) -> list of (str, int) tuples
+
+    Return a list that contains character counts from the str s. 
+
+    >>> count_chars('')
+    []
+    >>> count_chars('aaa')
+    [('a', 3)]
+    >>> count_chars('baaab')
+    [('a', 3), ('b', 2)]
+    '''
+
+    counts = []
+    for ch in s:
+        ch_count = s.count(ch)
+        if (ch, ch_count) not in counts:
+            counts.append((ch, ch_count))
+    return sorted(counts)
+",day1.count_chars.py,7,"For:1,Attribute:2,NotIn:1,Assign:2,Call:3,Tuple:2,Str:1,arg:1,FunctionDef:1,If:1,List:1,Return:1"
+2,"def index_chars(s):
+    '''(str) -> list of (str, list of int) tuples
+
+    Return a list that contains the indices of characters in the str s.
+
+    >>> index_chars('')
+    []
+    >>> index_chars('aaa')
+    [('a', [0, 1, 2])]
+    >>> count_chars('baaab')
+    [('a', [1, 2, 3]), ('b', [0, 4])]
+    '''
+
+    chars = []
+    for ch in s:
+        if ch not in chars:
+            chars.append(ch)
+
+    indices = []
+    for ch in sorted(chars):
+        indices.append((ch, []))
+        for index in range(len(s)):
+            if s[index] == ch:
+                indices[-1][1].append(index)
+    return indices
+
+
+def gen_string(ch_indices):
+    '''(list of (str, list of int) tuples) -> str
+
+    Return the str specified by the list of character indices.
+
+    >>> gen_string([])
+    ''
+    >>> gen_string([('a', [0, 1, 2])])
+    'aaa'
+    >>> gen_string([('a', [1, 2, 3]), ('b', [0, 4])])
+    'baaab'
+    '''
+
+    chars = []
+    for (ch, indices) in ch_indices:
+        for index in indices:
+            chars.extend([''] * (index - len(chars) + 1))
+            chars[index] = ch
+    return ''.join(chars)
+",day1.index_chars.py,7,"For:5,Attribute:5,NotIn:1,Int:2,Mult:1,Index:3,Call:7,Eq:1,Sub:1,Add:1,USub:1,Str:4,arg:2,Tuple:2,FunctionDef:2,Assign:4,List:5,If:2,Return:2"
+2,"def count_albums(albums):
+    '''(file) -> dict
+    Return a dictionary that contains mappings between 
+    the artists in the file albums and the number of 
+    albums they have authored.
+    '''
+    
+    albums.readline()
+        
+    album_dict = {}
+    for line in albums:
+        fields = line.strip().split("","")
+        artist = fields[0]
+        album_dict[artist] = album_dict.get(artist, 0) + 1
+        
+    return album_dict",day2.parse_albums.py,7,"For:1,Attribute:3,Int:2,Index:2,Call:3,Add:1,Dict:1,Str:2,arg:1,FunctionDef:1,Assign:4,Return:1"
+2,"def add_sighting(kinds, counts, sighting):
+    '''(list of str, list of int, str) -> NoneType
+    Update the list of types of items seen and the list
+    of times each item has been seen.
+
+    >>> animals = ['cat', 'dog']
+    >>> counts = [1, 2]
+    >>> add_sighting(animals, counts, 'goose')
+    >>> animals
+    ['cat', 'dog', 'goose']
+    >>> counts
+    [1, 2, 1]
+    >>> add_sighting(animals, counts, 'dog')
+    >>> animals
+    ['cat', 'dog', 'goose']
+    >>> counts
+    [1, 3, 1]
+    '''
+
+    if sighting in kinds:
+        index = kinds.index(sighting)
+        counts[index] += 1
+    else:                  # Not in the list
+        kinds.append(sighting)
+        counts.append(1)
+
+
+def add_sighting_v2(sightings, new_sighting):
+    '''(dict, str) -> None
+    Update the dictionary of sightings with the new_sighting.
+    '''
+
+    sightings[new_sighting] = sightings.get(new_sighting, 0) + 1",day2.sightings.py,7,"Attribute:4,Int:3,Index:2,Call:4,Add:2,AugAssign:1,Str:2,arg:2,FunctionDef:2,In:1,If:1,Assign:2"
+2,"def combine(d1, d2):
+    '''(dict of {v:list of int}, dict of {w:list of int}) ->
+       dict of {x:int}
+    Return the dictionary where each key is a key
+    that is in both d1 and d2.
+    The value associated with each key in the new
+    dictionary is the sum of all the integers associated
+    with that key in d1 and d2.
+
+    >>> combine({1:[2], 4:[5, 6]}, {4:[8]})
+    {4:19}
+    '''
+
+    combined = {}
+    for key in d1:
+        if key in d2:
+            combined[key] = sum(d1[key]) + sum(d2[key])
+    return combined
+",day3.combine.py,7,"For:1,In:1,Assign:2,Index:1,Call:1,Add:1,Dict:1,Str:1,arg:1,FunctionDef:1,If:1,Return:1"
+2,"def fold(d1, d2):
+    '''(dict, dict) -> dict
+    Return a new dictionary that contains all (b, c)
+    such that (a, b) is in d1 and (a, c) is in d2.
+
+    >>> fold({1:4, 9:10}, {1:5})
+    {4:5}
+    '''
+
+    folded = {}
+    for key in d1:
+        if key in d2:
+            folded[d1[key]] = d2[key]
+    return folded
+",day3.fold.py,7,"For:1,If:1,Str:1,arg:1,Return:1,Dict:1,FunctionDef:1,In:1,Index:1,Assign:2"
+2,"def invert(d):
+    '''(dict) -> dict
+
+    Return the inverted version of d.
+  
+    >>> returned = invert({1: 10, 2: 10})
+    >>> returned == {10: [1, 2]} or returned == {10: [2, 1]}
+    True
+    '''
+
+    inv = {}
+    for (k, v) in d.items():
+        inv.setdefault(k, []).append(v)
+    return inv
+
+    # Alternate form
+    inv = {}
+    for (k, v) in d.items():
+        if v in inv:
+            inv[v].append(k)
+        else:
+            inv[v] = [k]
+    return inv",day3.invert.py,7,"For:2,Attribute:4,Assign:3,Index:2,Call:4,Tuple:2,Dict:2,Str:1,arg:1,FunctionDef:1,In:1,List:2,If:1,Return:2"
+1,"def is_palindrome_v1(s):
+    """""" (str) -> bool
+
+    Return True if and only if s is a palindrome.
+
+    >>> is_palindrome_v1('noon')
+    True
+    >>> is_palindrome_v1('racecar')
+    True
+    >>> is_palindrome_v1('dented')
+    False
+    """"""
+
+    return reverse(s) == s
+
+
+def reverse(s):
+    """""" (str) -> str
+
+    Return a reversed version of s.
+
+    >>> reverse('hello')
+    'olleh'
+    >>> reverse('a')
+    'a'
+    """"""
+
+    rev = ''
+
+    # For each character in s, add that char to the beginning of rev.
+    for ch in s:
+        rev = ch + rev
+
+    return rev
+",palindrome_v1.py,8,"Add:1,Str:3,arg:2,FunctionDef:2,Return:2,Call:1,For:1,Eq:1,Assign:2"
+1,"def is_palindrome_v2(s):
+    """""" (str) -> bool
+
+    Return True if and only if s is a palindrome.
+
+    >>> is_palindrome_v2('noon')
+    True
+    >>> is_palindrome_v2('racecar')
+    True
+    >>> is_palindrome_v2('dented')
+    False
+    """"""
+
+    # The number of chars in s.
+    n = len(s)
+
+    # Compare the first half of s to the reverse of the second half.
+    # Omit the middle character of an odd-length string.
+    return s[:n // 2] == reverse(s[n - n // 2:])
+
+def reverse(s):
+    """""" (str) -> str
+
+    Return a reversed version of s.
+
+    >>> reverse('hello')
+    'olleh'
+    >>> reverse('a')
+    'a'
+    """"""
+
+    rev = ''
+
+    # For each character in s, add that char to the beginning of rev.
+    for ch in s:
+        rev = ch + rev
+
+    return rev
+
+",palindrome_v2.py,8,"Slice:1,For:1,Int:1,FloorDiv:1,Call:2,Eq:1,Sub:1,Add:1,Str:3,arg:2,FunctionDef:2,Assign:3,Return:2"
+1,"def is_palindrome_v3(s):
+    """""" (str) -> bool
+
+    Return True if and only if s is a palindrome.
+
+    >>> is_palindrome_v3('noon')
+    True
+    >>> is_palindrome_v3('racecar')
+    True
+    >>> is_palindrome_v3('dented')
+    False
+    """"""
+
+    # s[i] and s[j] are the next pair of characters to compare.
+    i = 0
+    j = len(s) - 1
+
+    # The characters in s[:i] have been successfully compared to those in s[j:].
+    while i < j and s[i] == s[j]:
+        i = i + 1
+        j = j - 1
+
+    # If we exited because we successfully compared all pairs of characters,
+    # then j <= i.
+    return j <= i
+",palindrome_v3.py,8,"Sub:2,And:1,Int:4,Index:1,Add:1,Eq:1,Call:1,LtE:1,While:1,Str:1,arg:1,FunctionDef:1,Assign:4,Lt:1,Return:1"
+1,"""""""
+A restaurant recommendation system.
+
+Here are some example dictionaries.  These correspond to the information in
+restaurants_small.txt.
+
+Restaurant name to rating:
+# dict of {str: int}
+{'Georgie Porgie': 87,
+ 'Queen St. Cafe': 82,
+ 'Dumplings R Us': 71,
+ 'Mexican Grill': 85,
+ 'Deep Fried Everything': 52}
+
+Price to list of restaurant names:
+# dict of {str, list of str}
+{'$': ['Queen St. Cafe', 'Dumplings R Us', 'Deep Fried Everything'],
+ '$$': ['Mexican Grill'],
+ '$$$': ['Georgie Porgie'],
+ '$$$$': []}
+
+Cuisine to list of restaurant names:
+# dict of {str, list of str}
+{'Canadian': ['Georgie Porgie'],
+ 'Pub Food': ['Georgie Porgie', 'Deep Fried Everything'],
+ 'Malaysian': ['Queen St. Cafe'],
+ 'Thai': ['Queen St. Cafe'],
+ 'Chinese': ['Dumplings R Us'],
+ 'Mexican': ['Mexican Grill']}
+
+With this data, for a price of '$' and cuisines of ['Chinese', 'Thai'], we
+would produce this list:
+
+    [[82, 'Queen St. Cafe'], [71, 'Dumplings R Us']]
+""""""
+
+# The file containing the restaurant data.
+FILENAME = 'restaurants_small.txt'
+
+
+def recommend(file, price, cuisines_list):
+    """"""(file open for reading, str, list of str) -> list of [int, str] list
+
+    Find restaurants in file that are priced according to price and that are
+    tagged with any of the items in cuisines_list.  Return a list of lists of
+    the form [rating%, restaurant name], sorted by rating%.
+    """"""
+
+    # Read the file and build the data structures.
+    # - a dict of {restaurant name: rating%}
+    # - a dict of {price: list of restaurant names}
+    # - a dict of {cusine: list of restaurant names}
+    name_to_rating, price_to_names, cuisine_to_names = read_restaurants(file)
+
+
+    # Look for price or cuisines first?
+    # Price: look up the list of restaurant names for the requested price.
+    names_matching_price = price_to_names[price]
+
+    # Now we have a list of restaurants in the right price range.
+    # Need a new list of restaurants that serve one of the cuisines.
+    names_final = filter_by_cuisine(names_matching_price, cuisine_to_names, cuisines_list)
+
+    # Now we have a list of restaurants that are in the right price range and serve the requested cuisine.
+    # Need to look at ratings and sort this list.
+    result = build_rating_list(name_to_rating, names_final)
+
+    # We're done!  Return that sorted list.
+    return result
+
+def build_rating_list(name_to_rating, names_final):
+    """""" (dict of {str: int}, list of str) -> list of list of [int, str]
+
+    Return a list of [rating%, restaurant name], sorted by rating%
+
+    >>> name_to_rating = {'Georgie Porgie': 87,
+     'Queen St. Cafe': 82,
+     'Dumplings R Us': 71,
+     'Mexican Grill': 85,
+     'Deep Fried Everything': 52}
+    >>> names = ['Queen St. Cafe', 'Dumplings R Us']
+    [[82, 'Queen St. Cafe'], [71, 'Dumplings R Us']]
+    """"""
+
+def filter_by_cuisine(names_matching_price, cuisine_to_names, cuisines_list):
+    """""" (list of str, dict of {str: list of str}, list of str) -> list of str
+
+    >>> names = ['Queen St. Cafe', 'Dumplings R Us', 'Deep Fried Everything']
+    >>> cuis = 'Canadian': ['Georgie Porgie'],
+     'Pub Food': ['Georgie Porgie', 'Deep Fried Everything'],
+     'Malaysian': ['Queen St. Cafe'],
+     'Thai': ['Queen St. Cafe'],
+     'Chinese': ['Dumplings R Us'],
+     'Mexican': ['Mexican Grill']}
+    >>> cuisines = ['Chinese', 'Thai']
+    >>> filter_by_cuisine(names, cuis, cuisines)
+    ['Queen St. Cafe', 'Dumplings R Us']
+    """"""
+
+def read_restaurants(file):
+    """""" (file) -> (dict, dict, dict)
+
+    Return a tuple of three dictionaries based on the information in the file:
+
+    - a dict of {restaurant name: rating%}
+    - a dict of {price: list of restaurant names}
+    - a dict of {cusine: list of restaurant names}
+    """"""
+
+    name_to_rating = {}
+    price_to_names = {'$': [], '$$': [], '$$$': [], '$$$$': []}
+    cuisine_to_names = {}
+
+",restaurants.py,8,"Dict:3,Index:1,Str:7,arg:4,Tuple:1,FunctionDef:4,Return:1,List:1,Call:3,Assign:8"
+2,"def increment_count(d, k): 
+    '''(dict of (object: int), object) -> None
+    Increment the associated with k in d. If k is not a key in d, add k with value 1.
+    k is immutable.
+    '''
+
+    d[k] = d.get(k, 0) + 1
+
+
+if __name__ == '__main__':
+    import doctest
+    doctest.testmod()
+",day2.increment_count.py,8,"Attribute:2,Import:1,Int:1,alias:1,Index:1,Call:2,Eq:1,Add:1,Str:2,arg:1,FunctionDef:1,If:1,Assign:1"
+2,"def indices(s, substr): 
+    '''(str, str) -> list of int 
+    Return the indices in s at which non-overlapping 
+    copies of substr start. substr is non-empty.
+
+    >>> indices('A Coool pool look', 'oo') 
+    [3, 9, 14] 
+    '''
+
+    index = 0
+    indices = []
+    while index != -1:
+        indices.append(big.find(small, index))
+        index = big.find(small, index + len(small))
+    return indices
+
+
+if __name__ == '__main__':
+    import doctest
+    doctest.testmod()
+",day2.indices.py,8,"Attribute:3,Import:1,Int:2,Assign:3,alias:1,Add:1,NotEq:1,Call:3,Eq:1,While:1,USub:1,Str:2,arg:1,FunctionDef:1,If:1,List:1,Return:1"
+2,"def insert_after(L, item1, item2): 
+    '''(list, object, object) -> None
+
+    Insert item2 after each occurrence of item1 in list L.
+    '''
+
+    index = 0
+    while index < len(L):
+        if L[index] == item1:
+            L.insert(index + 1, item2)
+            index += 1
+        index += 1
+
+    # Bad version ... run at your peril when item1 == item2
+    # for item in L:
+    #     if item == item1:
+    #         L.insert(L.index(item) + 1, item2)
+
+
+if __name__ == '__main__':
+    import doctest
+    doctest.testmod()
+",day2.insert_after.py,8,"Attribute:2,Import:1,Int:4,alias:1,Add:3,Index:1,Call:3,Eq:2,While:1,AugAssign:2,Str:2,arg:1,FunctionDef:1,If:2,Lt:1,Assign:1"
+2,"def ourmax(num1, num2):
+    '''(number, number) -> number
+    Return the larger of num1 and num2.
+
+
+    '''
+
+    if num1 > num2:
+        return num1
+    else:
+        return num2
+
+
+if __name__ == '__main__':
+    import doctest
+    doctest.testmod()
+",day2.max.py,8,"Attribute:1,Str:2,arg:1,Import:1,alias:1,FunctionDef:1,If:2,Gt:1,Call:1,Eq:1,Return:2"
+2,"def to_dict(lst):
+    '''(list of object) -> dict
+    Return a dict whose key/value pairs are the pairs
+    of elements in lst. lst has even length.
+  
+    >>> r = to_dict([3, 4, 1, 2])
+    >>> r == {3: 4, 1: 2}
+    True
+    '''
+
+    d = {}
+    for i in range(0, len(lst), 2):
+        d[lst[i]] = lst[i + 1]
+    return d
+
+
+def make_all_values_equal(d, v):
+    '''(dict, object) -> NoneType
+    Modify d so that each of its values equals v.
+    '''
+
+    for key in d:
+        d[key] = v
+
+
+if __name__ == '__main__':
+    import doctest
+    doctest.testmod()
+",day3.dict.py,8,"For:2,Attribute:1,Import:1,Int:2,alias:1,Index:2,Call:2,Eq:1,Add:1,Dict:1,Str:3,arg:2,FunctionDef:2,Assign:3,If:1,Return:1"
+2,"def average_grade(grade_list):
+    '''(list of list of [str, int]) -> float
+    Return the average grade for all the students in grade_list where the inner
+    lists contain a student ID and a grade.
+    >>> average_grade([['998765', 70], ['111234', 90], ['444567', 83]])
+    81.0
+    '''
+
+    total = 0
+    for item in grade_list:        
+        total += item[1]
+    return total / len(grade_list)
+
+
+def student_ids(grade_list):
+    ''' (list of list of [str, int]) -> list of str
+    Return the student IDs for all the students in grade_list where the inner
+    lists contain a student ID and a grade.
+    
+    >>> student_ids([['998765', 70], ['111234', 90], ['444567', 83]])
+    ['998765', '111234', '444567']
+    '''
+
+    id_list = []
+    for student in grade_list:
+        id_list.append(student[0])
+    return id_list
+
+
+if __name__ == ""__main__"":
+    import doctest
+    doctest.testmod()
+",day3.nested_list_examples.py,8,"For:2,Attribute:2,Import:1,Int:3,Assign:2,Div:1,alias:1,Index:2,Call:3,Eq:1,Add:1,AugAssign:1,Str:3,arg:2,FunctionDef:2,If:1,List:1,Return:2"
+2,"def abs(n):
+    '''(number) -> number
+    Return absolute value of n.
+
+    >>> abs(8)
+    8
+    '''
+
+    # try breaking this code and running doctest
+    # to see the example in the docstring fail
+    if n < 0:
+        n = -n
+    return n
+
+
+if __name__ == '__main__':
+    import doctest
+    doctest.testmod()
+",day3.numbers.py,8,"USub:1,Int:1,Import:1,alias:1,Call:1,Eq:1,Attribute:1,Str:2,arg:1,Return:1,Lt:1,If:2,FunctionDef:1,Assign:1"
+2,"def choose_chars(s1, s2, mask):
+    '''(str, str, str) -> str
+    Return a string where index i is s1[i] if mask[i] is 0 and s2[i] if mask[i] is 1.
+    Note: s1, s2, and mask are all of the same length.
+    Note: mask consists only of characters 0 and 1.
+    '''
+
+    sout = ''
+    for index in range(len(mask)):
+        if mask[index] == '0':
+            sout += s1[index]
+        else:
+            sout += s2[index]
+    return sout
+
+
+if __name__ == '__main__':
+    import doctest
+    doctest.testmod()
+",day3.strings.py,8,"For:1,Attribute:1,Import:1,alias:1,Index:3,Call:2,Eq:2,Add:2,AugAssign:2,Str:4,arg:1,Return:1,FunctionDef:1,If:2,Assign:1"
+1,"def get_divisors(num, possible_divisors):
+    ''' (int, list of int) -> list of int
+
+    Return a list of the values from possible_divisors
+    that are divisors of num.
+
+    >>> get_divisors(8, [1, 2, 3])
+    [1, 2]
+    >>> get_divisors(4, [-2, 0, 2])
+    [-2, 2]
+    '''
+
+    divisors = []
+    for item in possible_divisors:
+        # if item != 0 and num % item == 0:
+        if num % item == 0:
+            divisors.append(item)
+
+    return divisors
+
+
+if __name__ == '__main__':
+    import doctest
+    doctest.testmod()
+",divisors.pyday2.max.py,9,"For:1,Attribute:2,Int:1,Import:1,Assign:1,alias:1,Call:2,Eq:2,Mod:1,Str:2,arg:1,FunctionDef:1,If:2,List:1,Return:1"
+1,"def remove_shared(L1, L2):
+    """""" (list list)
+
+    Remove items from L1 that are in both L1 and L2.
+
+    >>> list_1 = [1, 2, 3, 4, 5, 6]
+    >>> list_2 = [2, 4, 5, 7]
+    >>> remove_shared(list_1, list_2)
+    >>> list_1
+    [1, 3, 6]
+    >>> list_2
+    [2, 4, 5, 7]
+    """"""
+
+    for v in L2:
+        if v in L1:
+            L1.remove(v)
+
+
+if __name__ == '__main__':
+    import doctest
+    doctest.testmod()
+",duplicates.py,9,"For:1,Attribute:2,Str:2,arg:1,Import:1,alias:1,FunctionDef:1,If:2,In:1,Call:2,Eq:1"
+1,"def is_palindrome_v1(s):
+    """""" (str) -> bool
+
+    Return True if and only if s is a palindrome.
+
+    >>> is_palindrome_v1('noon')
+    True
+    >>> is_palindrome_v1('racecar')
+    True
+    >>> is_palindrome_v1('dented')
+    False
+    """"""
+
+    return reverse(s) == s
+
+
+def reverse(s):
+    """""" (str) -> str
+
+    Return a reversed version of s.
+
+    >>> reverse('hello')
+    'olleh'
+    >>> reverse('a')
+    'a'
+    """"""
+
+    rev = ''
+
+    # For each character in s, add that char to the beginning of rev.
+    for ch in s:
+        rev = ch + rev
+
+    return rev
+
+if __name__ == '__main__':
+    word = input('Enter a word: ')
+    if is_palindrome_v1(word):
+        print(word, 'is a palindrome.')
+    else:
+        print(word, 'is not a palindrome.')",palindrome_v1.py,9,"Add:1,For:1,Str:7,arg:2,Return:2,FunctionDef:2,If:2,Call:5,Eq:2,Assign:3"
+1,"import palindrome_v1
+
+def is_palindrome_v2(s):
+    """""" (str) -> bool
+
+    Return True if and only if s is a palindrome.
+
+    >>> is_palindrome_v2('noon')
+    True
+    >>> is_palindrome_v2('racecar')
+    True
+    >>> is_palindrome_v2('dented')
+    False
+    """"""
+
+    # The number of chars in s.
+    n = len(s)
+
+    # Compare the first half of s to the reverse of the second half.
+    # Omit the middle character of an odd-length string.
+    return s[:n // 2] == palindrome_v1.reverse(s[n - n // 2:])
+",palindrome_v2.py,9,"Slice:1,Attribute:1,Import:1,Int:1,alias:1,FloorDiv:1,Call:2,Eq:1,Sub:1,Str:1,arg:1,FunctionDef:1,Return:1,Assign:1"
+1,"import unittest
+import divisors
+
+
+class TestDivisors(unittest.TestCase):
+    """"""Example unittest test methods for get_divisors.""""""
+
+    def test_divisors_example_1(self):
+        """"""Test get_divisors with 8 and [1, 2, 3].""""""
+
+        actual = divisors.get_divisors(8, [1, 2, 3])
+        expected = [1, 2]
+        self.assertEqual(expected, actual)
+
+    def test_divisors_example_2(self):
+        """"""Test get_divisors with 4 and [-2, 0, 2].""""""
+
+        actual = divisors.get_divisors(4, [-2, 0, 2])
+        expected = [-2, 2]
+        self.assertEqual(expected, actual)
+
+
+if __name__ == '__main__':
+    unittest.main(exit=False)
+",test_divisors.py,9,"Attribute:6,Int:4,Import:2,alias:2,Call:5,Eq:1,USub:2,Str:4,arg:2,keyword:1,False:1,ClassDef:1,FunctionDef:2,If:1,List:4,Assign:4"
+1,"import unittest
+import duplicates
+
+
+class TestRemoveShared(unittest.TestCase):
+    """"""Tests for function duplicates.remove_shared.""""""
+
+    def test_general_case(self):
+        """"""
+        Test remove_shared where there are items that
+        appear in both lists, and items that appear in
+        only one or the other list.
+        """"""
+
+        list_1 = [1, 2, 3, 4, 5, 6]
+        list_2 = [2, 4, 5, 7]
+        list_1_expected = [1, 3, 6]
+        list_2_expected = [2, 4, 5, 7]
+
+        duplicates.remove_shared(list_1, list_2)
+
+        self.assertEqual(list_1, list_1_expected)
+        self.assertEqual(list_2, list_2_expected)
+
+if __name__ == '__main__':
+    unittest.main(exit=False)
+",test_duplicates.py,9,"Attribute:5,Import:2,Int:4,alias:2,Call:4,Eq:1,Str:3,arg:1,keyword:1,False:1,ClassDef:1,FunctionDef:1,If:1,List:4,Assign:4"
+1,"def collect_vowels(s):
+    """""" (str) -> str
+
+    Return the vowels (a, e, i, o, and u) from s.
+
+    >>> collect_vowels('Happy Anniversary!')
+    'aAiea'
+    >>> collect_vowels('xyz')
+    ''
+    """"""
+
+    vowels = ''
+
+    for char in s:
+        if char in 'aeiouAEIOU':
+            vowels = vowels + char
+
+    return vowels
+
+
+def count_vowels(s):
+    """""" (str) -> int
+
+    Return the number of vowels (a, e, i, o, and u) in s.
+
+    >>> count_vowels('Happy Anniversary!')
+    5
+    >>> count_vowels('xyz')
+    0
+    """"""
+
+    num_vowels = 0
+
+    for char in s:
+        if char in 'aeiouAEIOU':
+            num_vowels = num_vowels + 1
+
+    return num_vowels
+",vowels.py,9,"Return:2,For:2,In:2,Str:5,arg:2,Int:2,FunctionDef:2,If:2,Add:2,Assign:4"
+1,"class WordplayStr(str):
+    """"""A string that can report whether it has interesting properties.""""""
+
+    
+    def same_start_and_end(self):
+        """""" (WordplayStr) -> bool
+
+        Precondition: len(self) != 0
+
+        Return whether self starts and ends with the same letter.
+
+        >>> s = WordplayStr('abracadabra')
+        >>> s.same_start_and_end()
+        True
+        >>> s = WordplayStr('canoe')
+        >>> s.same_start_and_end()
+        False
+        """"""
+
+        return self[0] == self[-1]
+
+if __name__ == '__main__':
+    import doctest
+    doctest.testmod()
+",wordplay.py,9,"Attribute:1,Int:1,Import:1,alias:1,Index:1,Call:1,Eq:2,USub:1,ClassDef:1,arg:1,Str:3,FunctionDef:1,If:1,Return:1"
+2,"def count_occurrences(L):
+    '''(list of v) -> dict of {v:int}
+    Return a dictionary in which the keys are
+    the items in L and their associated values
+    are integers denoting the number of times the item is
+    contained in L.
+
+    >>> count_occurrences([8, 9, 8, 8, 9])
+    {8: 3, 9: 2}
+    '''
+    d = {}
+    for element in L:
+        d[element] = d.get(element, 0) + 1
+    return d
+
+",day1.occurrences.py,9,"For:1,Attribute:1,Int:1,Index:1,Call:1,Add:1,Dict:1,Str:1,arg:1,FunctionDef:1,Assign:2,Return:1"
+2,"import random
+
+
+def associate_pair(d, key, value):
+    '''(dict of {object: list}, object, object) -> NoneType
+    key is immutable. Add the key-value pair to d.
+    If key occurs in d, append value to its
+    list of values. Otherwise, insert this new key and make its value be a
+    list of one element: [value].
+    '''
+
+    if key in d:
+        d[key].append(value)
+    else:
+        d[key] = [value]
+
+    # Alternately:
+    # d.setdefault(key, []).append(value)
+
+
+def make_dictionary(f):
+    '''(file) -> dict of {str: list of str}
+    Return a dictionary where the keys are words in f and the value
+    for a key is the list of words that were found to follow the key in f.
+    '''
+
+    d = {}
+    context = ''
+
+    for line in f:
+        word_list = line.split()
+
+        for word in word_list:
+            # We have a word and its context.  Remember that in the dictionary
+            associate_pair(d, context, word)
+            # The current word becomes the context for the next word.
+            context = word
+
+    return d
+
+
+def mimic_text(word_dict, num_words):
+    '''(dict of {str: list of str}, int) -> str
+    Based on the word patterns in word_dict, return a string that mimics
+    that text, and has num_words words.
+    '''
+
+    story = ''
+    context = ''
+
+    for i in range(num_words):
+        # Choose the next word, based on context
+        follow_words = word_dict[context]
+        word = follow_words[random.randint(0, len(follow_words) - 1)]
+
+        story = story + ' ' + word # add to story
+        context = word
+
+    return story
+
+
+if __name__ == '__main__':
+    # Read a text and remember the words and what comes after them in a dict
+    f = open(input(""Training text: ""))
+    d = make_dictionary(f)
+    f.close()
+    print(mimic_text(d, 100))
+",ll1.py,9,"For:3,Attribute:4,Import:1,Int:2,alias:1,In:1,Call:9,Eq:1,Sub:1,Add:1,Dict:1,Str:9,arg:3,Return:2,Index:4,FunctionDef:3,If:2,List:1,Assign:13"
+2,"import random
+
+
+def associate_pair(d, key, value):
+    '''(dict of {object: list}, object, object) -> NoneType
+    key is immutable. Add the key-value pair to d.
+    If key occurs in d, append value to its
+    list of values. Otherwise, insert this new key and make its value be a
+    list of one element: [value].
+    '''
+
+    if key in d:
+        d[key].append(value)
+    else:
+        d[key] = [value]
+
+    # Alternately:
+    # d.setdefault(key, []).append(value)
+
+
+def random_element(lst):
+    '''(list of object) -> object
+    Return a random element of nonempty lst.
+    '''
+
+    return lst[random.randint(0, len(lst) - 1)]
+
+
+def make_dictionary(f, context_length):
+    '''(file, int) -> dict of {tuple of str:list of str}
+    Return a dictionary where the keys are tuples of length context_length
+    containing words in f and the value for a key is the list of words
+    that were found to follow the key in f.
+    '''
+
+    d = {}
+    context = ('',) * context_length
+
+    for line in f:
+        word_list = line.split()
+
+        for word in word_list:
+            # We have a word and its context.  Remember that in the dictionary
+            associate_pair(d, context, word)
+            # Roll the context forward.
+            context = context[1:] + (word,)
+
+    return d
+
+
+def mimic_text(word_dict, num_words, context_length):
+    '''(dict of {tuple of str:list of str}, int, int) -> str
+    Based on the word patterns in word_dict, return a string that mimics
+    that text, and has num_words words. context_length
+    is the length of the tuples in word_dict.
+    '''
+
+    story = ''
+    context = random_element(list(word_dict.keys()))
+
+    for i in range(num_words):
+        # Choose the next word, based on context
+        if context not in d: # start at new context
+            context = random_element(list(word_dict.keys()))
+
+        word = random_element(word_dict[context])
+
+        story = story + ' ' + word # add to story
+        context = context[1:] + (word,)
+
+    return story
+
+
+if __name__ == '__main__':
+    # Read a text and remember the words and what comes after them in a dict
+    f = open(input(""Training text: ""))
+    d = make_dictionary(f)
+    f.close()
+    print(mimic_text(d, 100))
+",ll2.py,9,"Import:1,Mult:1,Index:4,Call:12,Sub:1,Add:3,Dict:1,Str:9,FunctionDef:4,If:3,Return:3,Slice:2,For:3,Attribute:6,NotIn:1,Int:4,alias:1,Eq:1,Tuple:3,arg:4,In:1,List:1,Assign:13"
+1,"def binary_search(L, v):
+    """""" (list, object) -> int
+
+    Precondition: L is sorted from smallest to largest, and
+    all the items in L can be compared to v.
+
+    Return the index of the first occurrence of v in L, or
+    return -1 if v is not in L.
+
+    >>> binary_search([2, 3, 5, 7], 2)
+    0
+    >>> binary_search([2, 3, 5, 5], 5)
+    2
+    >>> binary_search([2, 3, 5, 7], 8)
+    -1
+    """"""
+
+    b = 0
+    e = len(L) - 1
+
+    while b <= e:
+        m = (b + e) // 2
+        if L[m] < v:
+            b = m + 1
+        else:
+            e = m - 1
+
+    if b == len(L) or L[b] != v:
+        return -1
+    else:
+        return b
+
+if __name__ == '__main__':
+    import doctest
+    doctest.testmod()
+",binary (1).py,10,"FloorDiv:1,Or:1,Import:1,Index:2,Call:3,Sub:2,Add:2,USub:1,Str:2,FunctionDef:1,If:3,Return:2,Attribute:1,Int:6,alias:1,While:1,Eq:2,LtE:1,arg:1,NotEq:1,Lt:1,Assign:5"
+1,"def bubble_sort(L):
+    """""" (list) -> NoneType
+
+    Sort the items of L from smallest to largest.
+
+    >>> L = [7, 3, 5, 2]
+    >>> bubble_sort(L)
+    >>> L
+    [2, 3, 5, 7]
+    """"""
+
+    # The index of the last unsorted item.
+    end = len(L) - 1
+
+    while end != 0:
+
+        # Bubble once through the unsorted section to move the largest item
+        # to index end.
+        for i in range(end):
+            if L[i] > L[i + 1]:
+                L[i], L[i + 1] = L[i + 1], L[i]
+
+        end = end - 1
+
+    
+if __name__ == '__main__':
+    import doctest
+    doctest.testmod()
+",bubble.py,10,"For:1,Index:2,Import:1,Int:5,alias:1,NotEq:1,While:1,Eq:1,Call:3,Sub:2,Add:2,Attribute:1,Str:2,arg:1,Tuple:1,FunctionDef:1,If:2,Gt:1,Assign:3"
+1,"def insert(L, i):
+    """""" (list, int) -> NoneType
+
+    Precondition: L[:i] is sorted from smallest to largest.
+
+    Move L[i] to where it belongs in L[:i + 1].
+
+    >>> L = [7, 3, 5, 2]
+    >>> insert(L, 1)
+    >>> L
+    [3, 7, 5, 2]
+    """"""
+
+    # The value to be inserted into the sorted part of the list.
+    value = L[i]
+
+    # Find the index, j, where the value belongs.
+    # Make room for the value by shifting.
+    j = i
+    while j != 0 and L[j - 1] > value:
+        # Shift L[j - 1] one position to the right to L[j].
+        L[j] = L[j - 1]
+        j = j - 1
+
+
+    # Put the value where it belongs.
+    L[j] = value    
+
+
+def insertion_sort(L):
+    """""" (list) -> NoneType
+
+    Sort the items of L from smallest to largest.
+
+    >>> L = [7, 3, 5, 2]
+    >>> insertion_sort(L)
+    >>> L
+    [2, 3, 5, 7]
+    """"""
+
+    for i in range(len(L)):
+        insert(L, i)
+    
+    
+if __name__ == '__main__':
+    import doctest
+    doctest.testmod()
+",insertion.py,10,"For:1,NotEq:1,Import:1,Int:3,And:1,alias:1,Index:4,Call:3,Eq:1,Sub:3,While:1,Attribute:1,Str:3,arg:2,FunctionDef:2,If:1,Gt:1,Assign:5"
+1,"def linear_search(L, v):
+    """""" (list, object) -> int
+
+    Return the index of the first occurrence of v in L, or
+    return -1 if v is not in L.
+
+    >>> linear_search([2, 3, 5, 3], 2)
+    0
+    >>> linear_search([2, 3, 5, 3], 5)
+    2
+    >>> linear_search([2, 3, 5, 3], 8)
+    -1
+    """"""
+
+    i = 0
+
+    while i != len(L) and v != L[i]:
+        i = i + 1
+
+    if i == len(L):
+        return -1
+    else:
+        return i
+",linear.py,10,"Index:1,Int:3,And:1,Add:1,NotEq:1,Call:2,Eq:1,While:1,USub:1,Str:1,arg:1,Return:2,FunctionDef:1,If:1,Assign:2"
+1,"def get_index_of_smallest(L, i):
+    """""" (list, int) -> int
+
+    Return the index of the smallest item in L[i:].
+
+    >>> get_index_of_smallest([2, 7, 3, 5], 1)
+    2
+    """"""
+
+    # The index of the smallest item so far.
+    index_of_smallest = i
+
+    for j in range(i + 1, len(L)):
+        if L[j] < L[index_of_smallest]:
+            index_of_smallest = j
+
+    return index_of_smallest
+
+    
+def selection_sort(L):
+    """""" (list) -> NoneType
+
+    Sort the items of L from smallest to largest.
+
+    >>> L = [3, 7, 2, 5]
+    >>> selection_sort(L)
+    >>> L
+    [2, 3, 5, 7]
+    """"""
+
+    
+    for i in range(len(L)):
+
+        # Find the index of the smallest item in L[i:] and swap that
+        # item with the item at index i.
+
+        index_of_smallest = get_index_of_smallest(L, i)
+        L[index_of_smallest], L[i] = L[i], L[index_of_smallest]
+
+
+
+if __name__ == '__main__':
+    import doctest
+    doctest.testmod()
+",selection.py,10,"For:2,Attribute:1,Int:1,Import:1,alias:1,Add:1,Index:2,Call:4,Eq:1,Tuple:1,Str:3,arg:2,FunctionDef:2,Return:1,Lt:1,If:2,Assign:4"
+2,"def linear(L):
+    index = 0
+    while index < len(L):
+        index = index + 1
+        
+def quadratic(L):
+    index = 0                   # 1
+    while index < len(L):       # n
+        index2 = 0              # n
+        while index2 < len(L):  # n * n
+            index2 += 1         # n * n
+        index +=1               # n
+                                # 2n**2 + 3n + 1 => O(n**2)
+                    
+def cubic(L):
+    index = 0
+    while index < len(L):
+        index2 = 0
+        while index2 < len(L):
+            index3 = 0
+            while index3 < len(L):
+                index3 += 1
+            index2 += 1
+        index +=1
+                
+def log(L):
+    index = 0
+    while 2 ** index < len(L):
+        index += 1    
+    
+def exp(L):
+    index = 0
+    while index < 2 ** len(L):
+        index += 1
+        
+def constant(L):
+    index = 0
+    while index < 1000000:
+        index += 1",complexities.py,10,"Pow:2,Add:9,AugAssign:8,While:9,FunctionDef:6,Int:21,Lt:9,arg:6,Call:8,Assign:10"
+2,"# Linear search checks every item in the list in turn. It stops when the
+# item is found or when no more items are contained in the list.
+def linear_search_v1(L, item):
+    '''Return the index of item in list L. If item is not in L, return -1.
+    '''
+
+    index = 0
+    while index < len(L) and L[index] != item:
+        index += 1
+
+    if index == len(L):
+        index = -1
+
+    return index
+
+
+#  Version 1 works, but we didn't like how we had to set the index
+# to -1 at the end. We decided we would start at the end and search
+# toward the beginning instead. The complexity of the code is the
+# same, but the implementation is cleaner.
+def linear_search_v2(L, item):
+    '''Return the index of item in list L. If item is not in L, return -1.
+    '''
+
+    # The not found case should return -1, so search the list backwards.
+    index = len(L) - 1
+    while index >= 0 and L[index] != item:
+        index -= 1
+
+    return index
+
+
+def time_searchfunc(f, sz):
+    '''Return the time required to search a list of size sz using the
+    search function f. Always performs a worst-case search.
+    '''
+
+    import random
+    import time
+
+    large_L = range(sz)
+    random.shuffle(large_L)
+    t1 = time.time()
+    index = f(large_L, -1)
+    t2 = time.time()
+    return t2 - t1
+
+
+# For comparison, let's see how fast Python's search is.
+def python_search(L, item):
+    return L.index(item)
+
+
+if __name__ == ""__main__"":
+    for sz in range(10000, 160001, 10000):
+        print
+        ""%d items: %f"" % (sz, time_searchfunc(linear_search_v2, sz))
+
+    # Python's search is comparable to linear search!
+    print
+    ""Python search on %d items: %f"" % (sz, time_searchfunc(python_search, sz))",searching.py,10,"NotEq:2,Import:2,Index:2,Call:12,GtE:1,Sub:3,While:2,USub:2,Str:6,FunctionDef:4,If:2,Return:4,For:1,Attribute:4,And:2,Int:8,alias:2,Add:1,Eq:2,Mod:2,Tuple:2,AugAssign:2,arg:4,Lt:1,Assign:7"
+2,"def bubble_sort(L):
+    '''(list) -> None
+    
+    Sort the items in L in non-descending order.
+    '''
+    
+    for iteration in range(len(L)):
+        for index in range(len(L) - 1 - iteration):
+            print(L)
+            if L[index] > L[index + 1]:
+                L[index], L[index + 1] = L[index + 1], L[index]
+    print(L)
+
+# =========================================================
+        
+# The core of the insertion_sort algorithm is the ""insert"" operation. This function
+# inserts the next item in the ""unsorted"" part of the list into the correct place
+# in the sorted section of the list.
+def insert(L, index):
+    '''(list, int) -> None
+    
+    Insert the item at position index in list L into the range [0..index] so
+    that [0..index] is in sorted order. [0..index-1] is already sorted.
+    '''
+    
+    while index > 0 and L[index - 1] > L[index]:
+        L[index], L[index - 1] = L[index - 1], L[index]
+        index -= 1
+
+def insertion_sort(L):
+    '''(list) -> None
+    
+    Sort the items in L in non-descending order.
+    '''
+    
+    print(L)
+    for index in range(len(L)):
+        insert(L, index)
+        print(L)
+        
+# =========================================================
+  
+# The core of the selection sort algorithm is the ""find minimum"" operation. This
+# finds the next item to be placed into the sorted section of the list.
+def find_min(L, index):
+    '''(list, int) -> int
+    
+    Return the index of the smallest number in list L that is at or after
+    position index.
+    '''
+
+    # Useful trick: When you need to find the smallest (or largest) item in a list,
+    # set the initial value to the first item in the list.
+    smallest_index = index
+    for i in range(index, len(L)):
+        if L[smallest_index] > L[i]:
+            smallest_index = i
+    return smallest_index
+                
+def selection_sort(L):
+    '''(list) -> None
+    
+    Sort the items in L in non-descending order.
+    '''
+   
+    print(L) 
+    for index in range(len(L)):
+        swap_index = find_min(L, index)
+        L[index], L[swap_index] = L[swap_index], L[index]
+        print(L)
+
+# ========================================================
+
+def mergesort(L):
+    '''(list) -> list
+    
+    Return a list that contains the items in L in non-descending order.
+    '''
+    
+    # Recursive algorithm: base case. 
+    if len(L) < 2:
+        return L
+
+    # Recursive case. Note how the problem gets smaller (sorting a smaller 
+    # list) on each call.  
+    midpt = len(L) // 2
+    L1 = mergesort(L[: midpt])
+    L2 = mergesort(L[midpt: ])
+    merged = merge(L1, L2)
+    return merged
+
+def merge(L1, L2):
+    '''(list, list) -> list
+    
+    Return a new list that contains the items in L1 and L2 in 
+    non-descending order. L1 and L2 are both already in that order.
+    '''
+    
+    merged = []
+    index1, index2 = 0, 0
+    # merge the two lists until one is empty
+    while index1 < len(L1) and index2 < len(L2):
+        if L1[index1] < L2[index2]:
+            merged.append(L1[index1])
+            index1 += 1
+        else:
+            merged.append(L2[index2])
+            index2 += 1
+
+    # If a list is empty, it doesn't change the accumulated list if we add it.    
+    merged += L1[index1:]
+    merged += L2[index2:]
+    return merged
+
+# ========================================================
+ 
+def system_sort(L):
+    '''(list) -> None
+    
+    Sort the items in L in non-descending order.
+    '''
+    L.sort()
+        
+if __name__ == ""__main__"":
+    from timing import time_listfunc
+
+    bubble_sort([7, 4, -1, 9, 3, 6, 42])
+
+    #for sz in range(1000, 8001, 1000):
+    #    print(""Bubble Sort on %d items: %f"" % (sz, time_listfunc(bubble_sort, sz, 1)))
+    #    print(""Selection Sort on %d items: %f"" % (sz, time_listfunc(selection_sort, sz, 3)))
+    #    print(""Insertion Sort on %d items: %f"" % (sz, time_listfunc(insertion_sort, sz, 3)))
+    #    print(""Merge Sort on %d items: %f"" % (sz, time_listfunc(mergesort, sz, 3)))
+    #    print(""System Sort on %d items: %f"" % (sz, time_listfunc(system_sort, sz, 3)))
+",sorts.py,10,"FloorDiv:1,Gt:3,Index:9,Call:23,Sub:4,Add:6,USub:1,Str:9,FunctionDef:8,If:5,Return:4,Slice:4,For:5,Attribute:3,And:2,Int:12,ImportFrom:1,alias:1,While:2,Eq:1,Tuple:4,AugAssign:5,arg:8,Lt:3,List:2,Assign:12"
+2,"def make_list(n):
+ '''(int) -> list of int
+ 
+ Return a random list of n ints.
+ '''
+ 
+ import random
+ res = list(range(n))
+ random.shuffle(res)
+ return res
+
+def time_listfunc(f, n, m):
+ '''(func, int, int) -> float
+ 
+ Return how many seconds it takes to run function f on a shuffled 
+ list with n items, on average over m times.
+ '''
+
+ import time
+ total = 0
+ for i in range(m):
+  L = make_list(n)
+  t1 = time.time()
+  L = f(L)
+  t2 = time.time()
+  total += t2 - t1
+ return total / m
+",timing.py,10,"For:1,Attribute:3,Int:1,Import:2,Div:1,alias:2,Call:7,Sub:1,Add:1,AugAssign:1,Str:2,arg:2,FunctionDef:2,Assign:6,Return:2"
+1,"class CashRegister:
+    """"""A cash register.""""""
+
+    def __init__(self, loonies, toonies, fives, tens, twenties):
+        """""" (CashRegister, int, int, int, int, int) -> NoneType
+
+        A CashRegister with loonies, toonies, fives, tens, and twenties.
+        """"""
+
+        self.loonies = loonies
+        self.toonies = toonies
+        self.fives = fives
+        self.tens = tens
+        self.twenties = twenties
+
+    def __str__(self):
+        """""" (CashRegister) -> str
+
+        Return a string representation of this CashRegister.
+        
+        >>> reg1 = CashRegister(1, 2, 3, 4, 5)
+        >>> reg1.__str__()
+        CashRegister: $160 ($1x1, $2x2, $5x3, $10x4, $20x5)
+        """"""
+
+        return 'CashRegister: ' + \
+               '${0} ($1x{1}, $2x{2}, $5x{3}, $10x{4}, $20x{5})'.format(
+                   self.get_total(), self.loonies, self.toonies,
+                   self.fives, self.tens, self.twenties)
+    
+##        return 'CashRegister: $' + str(self.get_total()) + ' ($1x' + str(self.loonies) + \
+##               ', $2x' + str(self.toonies) + ', $5x' + str(self.fives) + ', $10x' + \
+##               str(self.tens) + ', $20x' + str(self.twenties) + ')'
+
+    def __eq__(self, other):
+        """""" (CashRegister, CashRegister) -> bool
+
+        Return True iff this CashRegister has the same amount of money as other.
+        
+        >>> reg1 = CashRegister(2, 0, 0, 0, 0)
+        >>> reg2 = CashRegister(0, 1, 0, 0, 0)
+        >>> reg1 == reg2
+        True
+        """"""
+
+        return self.get_total() == other.get_total()
+
+    def get_total(self):
+        """""" (CashRegister) -> int
+
+        Return the total amount of cash in the register.
+        """"""
+
+        return self.loonies + self.toonies * 2 + self.fives * 5 + \
+               self.tens * 10 + self.twenties * 20
+    
+    def add(self, count, denomination):
+        """""" (CashRegister, int, str) -> NoneType
+
+        Add count items of denomination to the register.
+        denomination is one of 'loonies', 'toonies',
+        'fives', 'tens', and 'twenties'.
+        """"""
+
+        if denomination == 'loonies':
+            self.loonies += count
+        elif denomination == 'toonies':
+            self.toonies += count
+        elif denomination == 'fives':
+            self.fives += count
+        elif denomination == 'tens':
+            self.tens += count
+        elif denomination == 'twenties':
+            self.twenties += count
+
+
+    def remove(self, count, denomination):
+        """""" (CashRegister, int, str) -> NoneType
+
+        Remove count items of denomination from the register.
+        denomination is one of 'loonies', 'toonies',
+        'fives', 'tens', and 'twenties'.
+        """"""
+
+        if denomination == 'loonies':
+            self.loonies -= count
+        elif denomination == 'toonies':
+            self.toonies -= count
+        elif denomination == 'fives':
+            self.fives -= count
+        elif denomination == 'tens':
+            self.tens -= count
+        elif denomination == 'twenties':
+            self.twenties -= count
+
+
+if __name__ == '__main__':
+
+    cr1 = CashRegister(2, 0, 0, 0, 0)
+    cr2 = CashRegister(0, 1, 0, 0, 0)
+    cr3 = CashRegister(1, 1, 0, 0, 0)
+    print(cr1)
+    print(cr2)
+    
+    print(cr1 == cr2)
+    print(cr3 == cr2)
+    
+",cash_register_complete.py,11,"Attribute:21,Int:5,Mult:2,Call:10,Eq:14,Sub:5,Add:8,AugAssign:10,Str:20,arg:6,Return:3,ClassDef:1,FunctionDef:6,If:11,Assign:8"
+1,"class CashRegister:
+    """"""A cash register.""""""
+
+    def __init__(self, loonies, toonies, fives, tens, twenties):
+        """""" (CashRegister, int, int, int, int, int) -> NoneType
+
+        A CashRegister with loonies, toonies, fives, tens, and twenties.
+        """"""
+
+        self.loonies = loonies
+        self.toonies = toonies
+        self.fives = fives
+        self.tens = tens
+        self.twenties = twenties
+
+    def __eq__(self, other):
+        """""" (CashRegister, CashRegister) -> bool
+
+        Return True iff this CashRegister has the same amount of money as other.
+        
+        >>> reg1 = CashRegister(2, 0, 0, 0, 0)
+        >>> reg2 = CashRegister(0, 1, 0, 0, 0)
+        >>> reg1 == reg2
+        True
+        """"""
+
+        return self.get_total() == other.get_total()
+
+    def get_total(self):
+        """""" (CashRegister) -> int
+
+        Return the total amount of cash in the register.
+        """"""
+
+        return self.loonies + self.toonies * 2 + self.fives * 5 + \
+               self.tens * 10 + self.twenties * 20
+    
+    def add(self, count, denomination):
+        """""" (CashRegister, int, str) -> NoneType
+
+        Add count items of denomination to the register.
+        denomination is one of 'loonies', 'toonies',
+        'fives', 'tens', and 'twenties'.
+        """"""
+
+        if denomination == 'loonies':
+            self.loonies += count
+        elif denomination == 'toonies':
+            self.toonies += count
+        elif denomination == 'fives':
+            self.fives += count
+        elif denomination == 'tens':
+            self.tens += count
+        elif denomination == 'twenties':
+            self.twenties += count
+
+
+    def remove(self, count, denomination):
+        """""" (CashRegister, int, str) -> NoneType
+
+        Remove count items of denomination from the register.
+        denomination is one of 'loonies', 'toonies',
+        'fives', 'tens', and 'twenties'.
+        """"""
+
+        if denomination == 'loonies':
+            self.loonies -= count
+        elif denomination == 'toonies':
+            self.toonies -= count
+        elif denomination == 'fives':
+            self.fives -= count
+        elif denomination == 'tens':
+            self.tens -= count
+        elif denomination == 'twenties':
+            self.twenties -= count
+
+
+if __name__ == '__main__':
+
+    cr1 = CashRegister(2, 0, 0, 0, 0)
+    cr2 = CashRegister(0, 1, 0, 0, 0)
+    cr3 = CashRegister(1, 1, 0, 0, 0)
+    print(cr1 == cr2)
+    print(cr3 == cr2)
+    
+",cash_register_eq.py,11,"Attribute:18,Int:5,Assign:8,Mult:2,Call:6,Eq:14,Sub:5,Add:7,AugAssign:10,Str:17,arg:5,ClassDef:1,FunctionDef:5,If:11,Return:2"
+1,"class CashRegister:
+    """"""A cash register.""""""
+
+    def __init__(self, loonies, toonies, fives, tens, twenties):
+        """""" (CashRegister, int, int, int, int, int) -> NoneType
+
+        A CashRegister with loonies, toonies, fives, tens, and twenties.
+        
+        >>> register = CashRegister(5, 5, 5, 5, 5)
+        >>> register.loonies
+        5
+        >>> register.toonies
+        5
+        >>> register.fives
+        5
+        >>> register.tens
+        5
+        >>> register.twenties
+        5
+        """"""
+
+        self.loonies = loonies
+        self.toonies = toonies
+        self.fives = fives
+        self.tens = tens
+        self.twenties = twenties
+
+    def get_total(self):
+        """""" (CashRegister) -> int
+
+        Return the total amount of cash in the register.
+        
+        >>> register = CashRegister(5, 5, 5, 5, 5)
+        >>> register.get_total()
+        190
+        """"""
+
+        return self.loonies + self.toonies * 2 + self.fives * 5 + \
+               self.tens * 10 + self.twenties * 20
+    
+    def add(self, count, denomination):
+        """""" (CashRegister, int, str) -> NoneType
+
+        Add count items of denomination to the register.
+        denomination is one of 'loonies', 'toonies',
+        'fives', 'tens', and 'twenties'.
+        
+        >>> register = CashRegister(5, 5, 5, 5, 5)
+        >>> register.add(2, 'toonies')
+        >>> register.toonies
+        7
+        >>> register.add(1, 'tens')
+        >>> register.tens
+        6
+        """"""
+
+        if denomination == 'loonies':
+            self.loonies += count
+        elif denomination == 'toonies':
+            self.toonies += count
+        elif denomination == 'fives':
+            self.fives += count
+        elif denomination == 'tens':
+            self.tens += count
+        elif denomination == 'twenties':
+            self.twenties += count
+
+
+    def remove(self, count, denomination):
+        """""" (CashRegister, int, str) -> NoneType
+
+        Remove count items of denomination from the register.
+        denomination is one of 'loonies', 'toonies',
+        'fives', 'tens', and 'twenties'.
+        
+        >>> register = CashRegister(5, 5, 5, 5, 5)
+        >>> register.remove(2, 'toonies')
+        >>> register.toonies
+        3
+        >>> register.remove(1, 'tens')
+        >>> register.tens
+        4
+        """"""
+
+        if denomination == 'loonies':
+            self.loonies -= count
+        elif denomination == 'toonies':
+            self.toonies -= count
+        elif denomination == 'fives':
+            self.fives -= count
+        elif denomination == 'tens':
+            self.tens -= count
+        elif denomination == 'twenties':
+            self.twenties -= count
+
+
+if __name__ == '__main__':
+    # A cash register with 5 loonies, 5 toonies, 5 fives, 5 tens, and 5 twenties,
+    # for a total of $190.
+    register = CashRegister(5, 5, 5, 5, 5)
+    print(register.get_total())
+
+    register.add(3, 'toonies')
+    register.remove(2, 'twenties')
+
+    print(register.get_total())
+",cash_register.pyday2.account.py,11,"Attribute:21,Int:5,Mult:2,Call:5,Eq:11,Sub:5,Add:7,AugAssign:10,Str:18,arg:4,Return:1,ClassDef:1,FunctionDef:4,If:11,Assign:6"
+1,"import song
+
+class Playlist:
+
+    def __init__(self, title):
+        """""" (Playlist, str) -> NoneType
+
+        >>> playlist = Playlist('Canadian Artists')
+        >>> playlist.title
+        'Canadian Artists'
+        >>> playlist.songs
+        []
+        """"""
+
+        self.title = title
+        self.songs = []
+
+    def add(self, song):
+        """""" (Playlist, Song) -> NoneType
+
+        Add song to this playlist.
+
+        >>> stompa = song.Song(""Serena Ryder"", ""Stompa"", 3, 15)
+        >>> playlist = Playlist('Canadian Artists')
+        >>> playlist.add(stompa)
+        >>> playlist.songs
+        [stompa]
+        """"""
+
+        self.songs.append(song)
+
+    def get_duration(self):
+        """""" (Playlist) -> (int, int)
+
+        Return the duration of this playlist as tuple of minutes and
+        seconds.
+
+        >>> playlist = Playlist('Canadian Artists')
+        >>> playlist.add(song.Song('Neil Young', 'Harvest Moon', 5, 3))
+        >>> playlist.add(song.Song('Serena Ryder', 'Stompa', 3, 15)
+        >>> playlist.duration()
+        (8, 18)
+        """"""
+
+        total_minutes = 0
+        total_seconds = 0
+
+        for song in self.songs:
+            total_minutes += song.minutes
+            total_seconds += song.seconds
+
+        return (total_minutes + total_seconds // 60,  total_seconds % 60)
+
+    def __str__(self):
+        """""" (Song) -> str
+
+        Return a string representation of this playlist.
+
+        >>> playlist = Playlist('Canadian Artists')
+        >>> playlist.add(song.Song('Neil Young', 'Harvest Moon', 5, 3))
+        >>> playlist.add(song.Song('Serena Ryder', 'Stompa', 3, 15)
+        '''Canadian Artists (8:18)
+        Neil Young, Harvest Moon (5:03)
+        Serena Ryder, Stompa (3:15)'''
+        """"""
+
+        duration = self.get_duration()
+        minutes = str(duration[0])
+        seconds = str(duration[1]).rjust(2, '0')
+
+        result = self.title + ' (' + minutes + ':' + seconds + ')'
+
+        # Append the songs in the playlist.
+        i = 1
+        for song in self.songs:
+            result += '\n' + str(i) + '. ' + str(song)
+            i += 1
+
+        return result
+
+
+if __name__ == '__main__':
+
+    playlist = Playlist('Canadian Artists')
+    playlist.add(song.Song(""Neil Young"", ""Harvest Moon"", 5, 3))
+    playlist.add(song.Song(""Serena Ryder"", ""Stompa"", 3, 15))
+    playlist.add(song.Song(""Stompin' Tom Connors"", ""The Hockey Song"", 2, 17))
+
+    print(playlist)
+",playlist.py,11,"For:2,Attribute:13,FloorDiv:1,Import:1,Int:10,alias:1,Index:2,Call:10,Eq:1,Mod:1,Add:6,AugAssign:4,Str:12,arg:4,Tuple:1,ClassDef:1,FunctionDef:4,Return:2,List:1,If:1,Assign:10"
+1,"class Song:
+    """"""A song.""""""
+
+    def __init__(self, artist, title, minutes, seconds):
+        """""" (Song, str, str, int, int) -> NoneType
+
+        A Song with an artist, title, minutes, and seconds.
+
+        >>> song = Song('Neil Young', 'Harvest Moon', 5, 3)
+        >>> song.artist
+        'Neil Young'
+        >>> song.title
+        'Harvest Moon'
+        >>> song.minutes
+        5
+        >>> song.seconds
+        3
+        """"""
+
+        self.title = title
+        self.artist = artist
+        self.minutes = minutes
+        self.seconds = seconds
+
+    def __str__(self):
+        """""" (Song) -> str
+
+        Return a string representation of this song.
+
+        >>> song = Song('Neil Young', 'Harvest Moon', 5, 3)
+        >>> str(song)
+        'Neil Young, Harvest Moon (5:03)'
+        """"""
+
+        return self.artist + ', ' + self.title + ' (' + str(self.minutes) \
+            + ':' + str(self.seconds).rjust(2, '0') + ')'
+
+if __name__ == '__main__':
+
+    s1 = Song(""Neil Young"", ""Harvest Moon"", 5, 3)
+    s2 = Song(""Serena Ryder"", ""Stompa"", 3, 15)
+
+    print(s1)
+    print(s2)
+",song.py,11,"Attribute:6,Int:3,Call:6,Eq:1,Add:2,Str:8,arg:2,Return:1,ClassDef:1,FunctionDef:2,If:1,Assign:6"
+2,"## 
+# This module defines the Counter class. 
+# 
+
+class Counter:
+  '''Tally counters that can be incremented, viewed, or reset.'''
+
+  def get_value(self):
+    '''() -> int  
+    Return current value of this Counter.
+    '''
+    return self._value 
+
+  def click(self):
+    '''() -> NoneType
+    Advances the value of this Counter by 1.
+    '''
+    self._value = self._value + 1 
+
+  def reset(self):
+    '''() -> NoneType
+    Reset the value of this Counter to 0.
+    '''
+    self._value = 0 
+
+",day1.counter.py,11,"Add:1,Attribute:3,Str:4,arg:3,Int:2,ClassDef:1,FunctionDef:3,Return:1,Assign:2"
+2,"class Point:
+  '''Two-dimensional points'''
+
+  def __init__(self):
+    '''() -> Point
+    Create two-dimensional point
+    '''
+    self.x = 0
+    self.y = 0
+",day1.point1.py,11,"Attribute:2,Str:2,arg:1,Int:2,ClassDef:1,FunctionDef:1,Assign:2"
+2,"class Point:
+  '''Two-dimensional points'''
+
+  def __init__(self, x, y):
+    '''(int, int) -> Point
+    Create two-dimensional Point at (x, y)
+    '''
+    self.x = x
+    self.y = y
+",day1.point2.py,11,"Attribute:2,Str:2,arg:1,ClassDef:1,FunctionDef:1,Assign:2"
+2,"class Account:
+
+  def __init__(self):
+    '''() -> Account
+    
+    Create bank account with 0 gold.
+    '''
+    self.gold = 0
+    
+  def add_gold(self, amount):
+    '''(int) -> NoneType
+    
+    Add amount gold to Account.
+    '''
+    self.gold += amount
+        
+  def zero_gold(self):
+    '''() -> NoneType
+    
+    Make the Account have 0 gold.
+    '''
+    self.gold = 0
+    
+  def double_gold(self):
+    '''() -> NoneType
+    
+    Double the gold in the Account.
+    '''
+    self.gold *= 2
+    
+",day2.account.py,11,"Add:1,Attribute:4,Str:4,arg:4,Int:3,ClassDef:1,Mult:1,FunctionDef:4,AugAssign:2,Assign:2"
+2,"import math
+
+
+class Point:
+  '''Two-dimensional points'''
+
+  def __init__ (self, x, y):
+    '''(int, int) -> Point
+    Create two-dimensional Point at (x, y)
+    '''
+    self.x = x
+    self.y = y
+
+  def __str__(self):
+    '''() -> str
+    Return string form of Point.
+    '''
+    return '({0}, {1})'.format(self.x, self.y)
+
+  def translate(self, dx, dy):
+    '''(int, int) -> NoneType
+    Move Point dx horizontally and dy vertically.
+    '''
+    self.x += dx
+    self.y += dy
+
+  def distance(self, other):
+    '''(Point) -> float
+    Return distance between this Point and other.
+    '''
+    a = (other.x - self.x) ** 2
+    b = (other.y - self.y) ** 2
+    return math.sqrt(a + b)
+
+
+class Segment:
+
+  def __init__(self, p1, p2):
+    '''(Point, Point) -> Segment
+    '''
+    self.p1 = p1
+    self.p2 = p2
+
+  def translate(self, dx, dy):
+    '''(int, int) -> NoneType
+
+    Move Segment by dx horizontally and dy vertically.
+    '''
+    self.p1.translate(dx, dy)
+    self.p2.translate(dx, dy)
+
+  def length(self):
+    '''() -> float
+
+    Return length of Segment.
+    '''
+    return self.p1.distance(self.p2)
+
+",day2.point3.py,11,"Attribute:13,Int:2,Import:1,alias:1,Pow:2,Call:5,Sub:2,Add:3,AugAssign:2,Str:9,arg:7,ClassDef:2,FunctionDef:7,Return:3,Assign:6"
+2,"class Point(object):
+    def __init__(self, x=0, y=0):
+        self.x = x
+        self.y = y
+
+
+    # Conversions
+    def __str__(self):
+        return ""({0}, {1})"".format(self.x, self.y)
+
+    def __repr__(self):
+        return ""Point({0}, {1})"".format(repr(self.x), repr(self.y))
+
+        
+    # Equality operators
+    # __lt__, __gt__, __le__, __ge__, __eq__, __ne__
+    def __eq__(self, rhs):
+        return (self.x ** 2 + self.y ** 2) == (rhs.x ** 2 + rhs.y ** 2)
+
+    def __lt__(self, rhs):
+        return (self.x ** 2 + self.y ** 2) < (rhs.x ** 2 + rhs.y ** 2)
+
+    def __le__(self, rhs):
+        return self < rhs or self == rhs
+
+    def __gt__(self, rhs):
+        return not (self <= rhs)
+
+    def __ge__(self, rhs):
+        return not (self < rhs)
+
+    def __ne__(self, rhs):
+        return not (self == rhs)
+            
+        
+",day3.point4.py,11,"Attribute:6,Or:1,Int:3,Not:3,Call:2,Eq:3,LtE:1,Add:2,Pow:2,Str:2,arg:9,ClassDef:1,Lt:3,Assign:2,FunctionDef:9,Return:8"
+2,"import functools 
+
+@functools.total_ordering
+class Point(object):
+    def __init__(self, x=0, y=0):
+        self.x = x
+        self.y = y
+
+
+    # Conversions
+    def __str__(self):
+        return ""({0}, {1})"".format(self.x, self.y)
+
+    def __repr__(self):
+        return ""Point({0}, {1})"".format(repr(self.x), repr(self.y))
+
+
+    # Arithmetic operators
+    def __sub__(self, rhs):
+        # Here's an error checking example: we want subtraction to only
+        # be defined between two points.
+        if type(rhs) is not Point:
+            raise TypeError(""unsupported operand type(s) for -: "" + 
+                  ""'Point' and '{0}'"".format(type(rhs).__name__))
+        return Point(self.x - rhs.x, self.y - rhs.y)
+
+        
+    # Equality operators
+    # functools.total_ordering gets us the other operators once we have
+    # defined __eq__ and one other
+    def __eq__(self, rhs):
+        return (self.x ** 2 + self.y ** 2) == (rhs.x ** 2 + rhs.y ** 2)
+
+    def __lt__(self, rhs):
+        return (self.x ** 2 + self.y ** 2) < (rhs.x ** 2 + rhs.y ** 2)
+",day3.point5.py,11,"Raise:1,Attribute:9,Import:1,Int:3,IsNot:1,alias:1,Assign:2,Call:6,Eq:1,Sub:1,Add:3,Pow:2,Str:4,arg:6,ClassDef:1,FunctionDef:6,If:1,Lt:1,Return:5"
+1,"def raise_an_exception(v):
+    raise ValueError(
+        ""{} is not a valid value."".format(v))
+
+def main():
+    raise_an_exception(3)
+
+if __name__ == '__main__':
+    try:
+        main()
+    except ValueError as ve:
+        print(ve)
+
+
+        
+",example1.py,12,"Raise:1,Attribute:1,Str:2,arg:1,Try:1,ExceptHandler:1,Int:1,FunctionDef:2,If:1,Call:5,Eq:1"
+1,"def function_runner(f):
+    """""" (function) -> NoneType
+
+    Call f.
+    """"""
+
+    f()
+
+
+def function_1():
+    print(""function_1 was called."")
+
+
+def function_2():
+    print(""function_2 was called."")
+
+
+if __name__ == '__main__':
+    function_runner(function_1)
+    function_runner(function_2)
+",function_passing.py,12,"Str:4,arg:1,FunctionDef:3,If:1,Call:5,Eq:1"
+1,"def add_greeting(L=[]):
+    """""" (list) -> NoneType
+
+    Append 'hello' to L and print L.
+
+    >>> L = ['hi', 'bonjour']
+    >>> f(L)
+    >>> L
+    ['hi', 'bonjour', 'hello']
+    """"""
+
+    L.append('hello')
+    print(L)
+
+    
+",greeting.py,12,"Attribute:1,Str:2,arg:1,FunctionDef:1,List:1,Call:2"
+1,"def every_nth(L, n=1):
+    """""" (list, int) -> list
+
+    Precondition: 0 <= n < len(L)
+
+    Return a list containing every nth item of L,
+    starting at index 0.
+    
+    >>> every_nth([1, 2, 3, 4, 5, 6], n=2)
+    [1, 3, 5]
+    >>> every_nth([1, 2, 3, 4, 5, 6], 3)
+    [1, 4]
+    >>> every_nth([1, 2, 3, 4, 5, 6])
+    [1, 2, 3, 4, 5, 6]
+    """"""
+
+    assert 0 <= n < len(L), \
+           '{} is out of range.'.format(n)
+    
+    result = []
+
+    for i in range(0, len(L), n):
+        result.append(L[i])
+
+    return result
+
+
+if __name__ == '__main__':
+    import doctest
+    doctest.testmod()
+",nth_precondition.py,12,"For:1,Attribute:3,Import:1,Int:3,alias:1,Index:1,Call:5,Eq:1,Assert:1,LtE:1,Str:3,arg:1,FunctionDef:1,Return:1,List:1,Lt:1,If:1,Assign:1"
+1,"def every_nth(L, n=1):
+    """""" (list, int) -> list
+
+    Precondition: 0 <= n < len(L)
+
+    Return a list containing every nth item of L,
+    starting at index 0.
+    
+    >>> every_nth([1, 2, 3, 4, 5, 6], n=2)
+    [1, 3, 5]
+    >>> every_nth([1, 2, 3, 4, 5, 6], 3)
+    [1, 4]
+    >>> every_nth([1, 2, 3, 4, 5, 6])
+    [1, 2, 3, 4, 5, 6]
+    """"""
+    
+    result = []
+
+    for i in range(0, len(L), n):
+        result.append(L[i])
+
+    return result
+
+
+if __name__ == '__main__':
+    import doctest
+    doctest.testmod()
+",nth.py,12,"For:1,Attribute:2,Import:1,Int:2,alias:1,Index:1,Call:3,Eq:1,Str:2,arg:1,Return:1,FunctionDef:1,If:1,List:1,Assign:1"
+2,"class C(object):
+    def __init__(self):
+        self._x = None
+
+    @property
+    def x(self):
+        """"""I'm the 'x' property.""""""
+        print(""getter"")
+        return self._x
+
+    @x.setter
+    def x(self, value):
+        print(""setter"")
+        self._x = value
+
+    @x.deleter
+    def x(self):
+        del self._x",day2.properties.py,12,"Delete:1,Attribute:6,Str:3,arg:4,ClassDef:1,FunctionDef:4,Return:1,None:1,Call:2,Del:1,Assign:2"
+2,"class BankAccount(object):
+    interest_rate = .03             # A class attribute
+    
+    # Constructor with default parameter
+    def __init__(self, owner, balance=0):
+        self.owner = owner
+        self._balance = balance     # A ""private"" member
+        
+    def withdraw(self, amt):
+        '''(int) -> bool
+        Return True iff there are sufficient funds to cover the 
+        withdrawal. If there are enough funds, deduct from balance.
+        '''
+        if self._balance >= amt:
+            self._balance -= amt
+            return True
+        return False
+    
+    def deposit(self, amt):
+        '''(int) -> int
+        Return the new balance after depositing amt.
+        '''
+        self._balance += amt
+        return self._balance
+
+    @property
+    def balance(self):
+        '''() -> int
+        Return the account's balance.
+        '''
+        return self._balance
+        
+    # With the two functions below, this no longer functions like a bank
+    # account. Do you want someone to be able to delete their balance?
+    # Or modify it directly?  We would not normally provide these. If we 
+    # didn't, it wouldn't be possible for someone to directly manipulate 
+    # the balance variable.
+    @balance.setter
+    def balance(self, value):
+        self._balance = value
+        
+    @balance.deleter
+    def balance(self):
+        self._balance = 0
+
+    # Remember: attributes and methods that start with __ are used by the
+    # system. In this case, __str__ is invoked whenever you use str(...)
+    def __str__(self):
+        '''() -> str
+        Return a str representation of the object.
+        '''
+        return ""%s's bankaccount (%d)"" % (self.owner, self._balance)
+        ",day2.getters.py,12,"Sub:1,Attribute:12,Int:2,Float:1,True:1,Add:1,GtE:1,Mod:1,Tuple:1,AugAssign:2,Str:5,arg:7,Return:5,False:1,ClassDef:1,FunctionDef:7,If:1,Assign:5"
+2,"# From Lambert, Fundamentals of Python: From First Programs through Data Structures
+
+from bank import SavingsAccount
+
+class RestrictedSavingsAccount(SavingsAccount):
+    '''Restricted savings accounts.'''
+
+    MAX_WITHDRAWALS = 3
+        
+    def __init__(self, name, pin, balance = 0.0):
+        '''(str, str, int) -> RestrictedSavingsAccount
+        Create RestrictedSavingsAccount with given name, pin, and balance.
+        '''
+        SavingsAccount.__init__(self, name, pin, balance)
+        self._counter = 0
+
+    def withdraw(self, amount):
+        '''(int) -> str or NoneType
+        Withdraw the given amount. Return None if successful,
+        or an error message if unsuccessful.
+        '''
+        if self._counter == \
+           RestrictedSavingsAccount.MAX_WITHDRAWALS:
+            return 'No more withdrawals this month'
+        else:
+            message = SavingsAccount.withdraw(self, amount)
+            if message == None:
+                self._counter += 1
+            return message
+
+    def reset_counter(self):
+        '''() -> NoneType
+        Reset the number of withdrawals.
+        '''
+        self._counter = 0
+",day1.restricted_savings.py,12,"Attribute:7,Int:4,Float:1,ImportFrom:1,alias:1,Call:2,Eq:2,Add:1,AugAssign:1,Str:5,arg:3,Return:2,ClassDef:1,FunctionDef:3,If:2,None:1,Assign:4"
+2,"# From Lambert, Fundamentals of Python: From First Programs through Data Structures
+
+class SavingsAccount:
+    '''Savings accounts with owner's name, PIN, and balance.'''
+    
+    RATE = 0.02
+        
+    def __init__(self, name, pin, balance = 0.0):
+        '''(str, str, int) -> SavingsAccount
+        Create SavingsAccount with given name, pin, and balance.
+        '''
+        self._name = name
+        self._pin = pin
+        self._balance = balance
+
+    def __str__(self):
+        '''() -> str
+        Return string representation of SavingsAccount.
+        '''
+        result =  'Name:    ' + self._name + '\n' 
+        result += 'PIN:     ' + self._pin + '\n' 
+        result += 'Balance: ' + str(self._balance)
+        return result
+
+    def get_balance(self):
+        '''() -> int
+        Return balance of this SavingsAccount.
+        '''
+        return self._balance
+
+    def get_name(self):
+        '''() -> str
+        Return name of this SavingsAccount.
+        '''
+        return self._name
+
+    def get_pin(self):
+        '''() -> int
+        Return PIN of this SavingsAccount.
+        '''
+        return self._pin
+
+    def deposit(self, amount):
+        '''(int) -> int
+        Deposit the given amount and return the new balance.
+        '''
+        self._balance += amount
+        return self._balance
+
+    def withdraw(self, amount):
+        '''(int) -> str or NoneType
+        Withdraw the given amount. Return None if successful,
+        or an error message if unsuccessful.
+        '''
+        if amount < 0:
+            return 'Amount must be >= 0'
+        elif self._balance < amount:
+            return 'Insufficient funds'
+        else:
+            self._balance -= amount
+            return None
+
+    def compute_interest(self):
+        '''() -> int
+        Compute, deposit, and return the interest.
+        '''
+        interest = self._balance * SavingsAccount.RATE
+        self.deposit(interest)
+        return interest
+
+",day1.bank.py,12,"Attribute:15,Int:1,Float:2,Mult:1,Call:2,Sub:1,Add:4,AugAssign:4,Str:14,arg:8,ClassDef:1,FunctionDef:8,Return:9,None:1,Lt:2,If:2,Assign:6"
