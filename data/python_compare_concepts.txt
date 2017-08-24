@@ -1,3 +1,3 @@
-The common concepts: ['In', 'Sub', 'Import', 'Div', 'Mult', 'Assign', 'Index', 'And', 'arg', 'List', 'Float', 'Pow', 'Dict', 'Tuple', 'Attribute', 'Or', 'Call', 'AugAssign', 'Int', 'USub', 'FloorDiv', 'ExceptHandler', 'True', 'ClassDef', 'GtE', 'If', 'For', 'Lt', 'alias', 'FunctionDef', 'Str', 'Mod', 'Return', 'LtE', 'Eq', 'False', 'Not', 'Gt', 'Add', 'While', 'NotEq', 'Try']
-The concepts taught in C1 but nor C2: []
-ZThe concepts taught in C2 but nor C1: ['Slice', 'Delete', 'IsNot', 'keyword', 'NotIn', 'Break', 'None', 'ImportFrom', 'Del', 'Raise', 'Assert']
+The common concepts (42): ['Div', 'Not', 'Assign', 'If', 'FloorDiv', 'Call', 'Import', 'LtE', 'arg', 'Mod', 'Index', 'In', 'Int', 'True', 'Eq', 'Try', 'Gt', 'Str', 'Sub', 'Attribute', 'Return', 'FunctionDef', 'Lt', 'ExceptHandler', 'While', 'Mult', 'USub', 'False', 'And', 'Tuple', 'Float', 'Or', 'NotEq', 'List', 'Dict', 'AugAssign', 'Pow', 'ClassDef', 'GtE', 'Add', 'alias', 'For']
+The concepts taught in C1 but nor C2 (0): []
+The concepts taught in C2 but nor C1 (11): ['keyword', 'Raise', 'NotIn', 'Slice', 'ImportFrom', 'Break', 'Delete', 'Assert', 'Del', 'None', 'IsNot']

@@ -35,5 +35,5 @@ def assignments(type, file_input_name, file_output_name):
                 print(row)
                 # print(line)
 
-assignments(0,"material-topics-and-examples-with-concepts.csv", "material-topics-and-examples-processed.csv")
+assignments(0,"data/arto.examples.csv", "data/arto.examples_with_concepts.csv")
 # assignments(1,"assignment-baselines-and-solutions-with-concepts.csv", "assignment-baselines-and-solutions-with-concepts-processed.csv")
