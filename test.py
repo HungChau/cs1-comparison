@@ -1,61 +1,21 @@
-# Linear search checks every item in the list in turn. It stops when the
-# item is found or when no more items are contained in the list.
-def linear_search_v1(L, item):
-    '''Return the index of item in list L. If item is not in L, return -1.
-    '''
 
-    index = 0
-    while index < len(L) and L[index] != item:
-        index += 1
+def currency_converter():
+    currency_type = (input("Which currency would you like to convert (enter 3-letter code)?"))
+    exchange_rate = float(input("What is the value of one Euro in this currency?"))
+    print ("Please enter the amount of", currency_type, "to be converted")
+    amount = float(input(""))
+    print("{0:0.2f} {1} is equal to {2:0.2f} EUR".format(amount, currency_type, amount/exchange_rate))
 
-    if index == len(L):
-        index = -1
+#Whether to continue conversion rate is implemented in the main function.  A while loop keeps asking user if they
+#want to continue, and assumes the user will enter the correct values
+def main():
+    want_continue = 1
+    print("Program to convert money in different currecies to Euro.")
+    while (want_continue == 1):
+        currency_converter()
 
-    return index
-
-
-#  Version 1 works, but we didn't like how we had to set the index
-# to -1 at the end. We decided we would start at the end and search
-# toward the beginning instead. The complexity of the code is the
-# same, but the implementation is cleaner.
-def linear_search_v2(L, item):
-    '''Return the index of item in list L. If item is not in L, return -1.
-    '''
-
-    # The not found case should return -1, so search the list backwards.
-    index = len(L) - 1
-    while index >= 0 and L[index] != item:
-        index -= 1
-
-    return index
+        want_continue = int(input("Do you want to continue (1 = yes / 0 = no)?"))
 
 
-def time_searchfunc(f, sz):
-    '''Return the time required to search a list of size sz using the
-    search function f. Always performs a worst-case search.
-    '''
 
-    import random
-    import time
-
-    large_L = range(sz)
-    random.shuffle(large_L)
-    t1 = time.time()
-    index = f(large_L, -1)
-    t2 = time.time()
-    return t2 - t1
-
-
-# For comparison, let's see how fast Python's search is.
-def python_search(L, item):
-    return L.index(item)
-
-
-if __name__ == "__main__":
-    for sz in range(10000, 160001, 10000):
-        print
-        "%d items: %f" % (sz, time_searchfunc(linear_search_v2, sz))
-
-    # Python's search is comparable to linear search!
-    print
-    "Python search on %d items: %f" % (sz, time_searchfunc(python_search, sz))
+main()

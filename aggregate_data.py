@@ -84,11 +84,12 @@ def aggregate_arto(input_file, output_file):
                                         new_concept_list.append(c.split(":")[0])
                                         current_concept_list.append(c.split(":")[0])
             writer.writerow([week, dic_concept, new_concept_list])
-# aggregate("data/peter.examples_with_concepts.csv", "data/peter.examples_with_concepts.aggregated.csv")
+
 # aggregate("data/andrew.examples_with_concepts.csv", "data/andrew.examples_with_concepts.aggregated.csv")
 # aggregate("data/andrew.problems_with_concepts.csv", "data/andrew.problems_with_concepts.aggregated.csv")
-
-aggregate_arto("data/arto.examples_with_concepts.csv", "data/arto.examples_with_concepts.aggregated.csv")
+# aggregate("data/peter.problems_with_concepts.csv", "data/peter.problems_with_concepts.aggregated.csv")
+aggregate("data/peter.examples_with_concepts.csv", "data/peter.examples_with_concepts.aggregated.csv")
+# aggregate_arto("data/arto.examples_with_concepts.csv", "data/arto.examples_with_concepts.aggregated.csv")
 
 # assignments(1,"assignment-baselines-and-solutions-with-concepts.csv", "assignment-baselines-and-solutions-with-concepts-processed.csv")
 # dic = {'Hung':15, "Cuong":14}

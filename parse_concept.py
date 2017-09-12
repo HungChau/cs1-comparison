@@ -4,6 +4,7 @@ import json
 import collections
 
 def parse_concepts(source, mode):
+    # source = source.replace("\"\"","\"")
     data = {'code': source, 'mode': mode}
     req = requests.post(url='http://acos.cs.hut.fi/python-parser', data=data)
     #parse Json format to string (concept and count)
@@ -37,10 +38,10 @@ def add_concept_to_content(input_file, output_file):
                 problemWriter.writerow(problemList)
                 print(problemList)
 
-# add_concept_to_content('data/peter.examples.csv', 'data/peter.examples_with_concepts.csv')
+add_concept_to_content('data/peter.examples.csv', 'data/peter.examples_with_concepts.csv')
 # add_concept_to_content('data/andrew.examples.csv', 'data/andrew.examples_with_concepts.csv')
-add_concept_to_content('data/andrew.problems.csv', 'data/andrew.problems_with_concepts.csv')
-
+# add_concept_to_content('data/peter.problems.csv', 'data/peter.problems_with_concepts.csv')
+# add_concept_to_content('data/peter/andrew.problems.csv', 'data/peter/peter.problems_with_concepts.csv')
 # your source code here
 # source = '''
 # print("Hello, world!")
