@@ -6,18 +6,18 @@ print(""2 * 3.1415 = "", 2 * 3.1415)
 print(""5 / 2 = "", 5 / 2) 
 print(""5 // 2 = "", 5 // 2)    
 print(""5 % 2 = "", 5 % 2)
-",calculate.py,1,"Int:5,Div:1,Call:6,Str:6,Add:1,Mod:1,FloorDiv:1,Float:1,Mult:1"
+",calculate.py,1,"Div:1,Add:1,Int:5,Mod:1,Float:1,Mult:1,Str:6,FloorDiv:1,Call:6"
 1,"# Temperature Converter
 
 print(""100 Fahrenheit ="", (5.0 / 9.0 ) * (100 - 32), ""Celsius"") 
-",converter.py,1,"Int:1,Float:1,Call:1,Str:1,Sub:1,Div:1,Mult:1"
+",converter.py,1,"Sub:1,Mult:1,Float:1,Str:1,Div:1,Call:1,Int:1"
 1,"# Example: Printing primitive data with print
 
 print(""Hello, World!"")
 print(""Here are integers:"", 10, 99)
 print(""Here are floats: "", 3.1415, 0.001)
 print(""Here are strings: "", ""IS12"", ""hello!"")
-",printing.py,1,"Int:1,Float:1,Call:4,Str:4"
+",printing.py,1,"Float:1,Str:4,Int:1,Call:4"
 1,"def main():
  
 # get data 
@@ -32,15 +32,15 @@ print(""Here are strings: "", ""IS12"", ""hello!"")
  print(""For"", euro, ""you will get"", dollars, ""dollars"")
 
 
-",exchangekiosk.py,1,"Assign:4,Int:2,Call:1,Str:1,FunctionDef:1,Sub:1,Float:1,Mult:1"
+",exchangekiosk.py,1,"FunctionDef:1,Int:2,Mult:1,Assign:4,Float:1,Sub:1,Str:1,Call:1"
 1,"# This is our first program!
 def main():
- print(""Hello World!"")",mainhello.py,1,"FunctionDef:1,Call:1,Str:1"
+ print(""Hello World!"")",mainhello.py,1,"FunctionDef:1,Str:1,Call:1"
 1,"def main(count):
  half_count = count // 2
  print(count, half_count)
 
-",mainvariables.py,1,"Assign:1,FunctionDef:1,arg:1,Call:1,Int:1,FloorDiv:1"
+",mainvariables.py,1,"arg:1,FunctionDef:1,Int:1,Assign:1,FloorDiv:1,Call:1"
 1,"count = 44; 
 half_count = count // 2
 print(count, half_count)
@@ -57,21 +57,21 @@ print(count, half_count)
 count = ""100""
 half_count = ""count""
 print(count, half_count)
-",variables.py,1,"Assign:7,Int:5,FloorDiv:1,Call:5,Str:2,Add:1,Div:1"
+",variables.py,1,"Int:5,Assign:7,Div:1,Add:1,Str:2,FloorDiv:1,Call:5"
 1,"# This program prints absolute difference (distance) of its parameters
 
 def main(x,y):
  if x - y > 0:
   print(""The distance is"", x - y)
  else:
-  print(""The distance is"", y - x)",abs-if-else.py,2,"FunctionDef:1,arg:1,Call:2,Str:2,Int:1,Sub:3,If:1,Gt:1"
+  print(""The distance is"", y - x)",abs-if-else.py,2,"arg:1,FunctionDef:1,Call:2,Gt:1,If:1,Str:2,Sub:3,Int:1"
 1,"# This program prints the max of its parameters
 
 def main(x,y):
  if x > y:
   print(x, ""is the maximum"")
  else:
-  print(y, ""is the maximum"")",max-if-else.py,2,"FunctionDef:1,arg:1,Call:2,Str:2,If:1,Gt:1"
+  print(y, ""is the maximum"")",max-if-else.py,2,"arg:1,FunctionDef:1,Gt:1,If:1,Str:2,Call:2"
 1,"#prints max of two floating point numbers
 
 def main():
@@ -90,7 +90,7 @@ def main():
  print(max, ""is the maximum"")
 
 
-",max-if-input.py,2,"Assign:4,FunctionDef:1,Call:3,Str:3,If:1,Gt:1"
+",max-if-input.py,2,"FunctionDef:1,Assign:4,Gt:1,If:1,Str:3,Call:3"
 1,"# This program prints the max of its parameters
 
 def main(x,y,z):
@@ -104,7 +104,7 @@ def main(x,y,z):
    print(y, ""is the maximum"")
   else:
    print(z, ""is the maximum"")
-",max3-nested.py,2,"FunctionDef:1,arg:1,Call:4,Gt:3,If:3,Str:4"
+",max3-nested.py,2,"arg:1,If:3,Gt:3,FunctionDef:1,Str:4,Call:4"
 1,"# makes decision about your BSIS admission
 def main(general_req, is_req):
 # read data 
@@ -117,7 +117,7 @@ def main(general_req, is_req):
  else: 
 # here gen_qpa >= general_req and is_qpi >= is_req 
   print(""Congratulations! You are admitted to BSIS program!"")
-",qpa-and.py,2,"Assign:2,FunctionDef:1,arg:1,Call:4,Str:4,Lt:1,Or:1,If:1"
+",qpa-and.py,2,"Or:1,arg:1,If:1,Lt:1,Assign:2,FunctionDef:1,Str:4,Call:4"
 1,"# makes decision about your BSIS admission
 def main(general_req, is_req):
 # read data 
@@ -132,7 +132,7 @@ def main(general_req, is_req):
  else: 
 # here gen_qpa >= general_req and is_qpi < is_req 
   print(""Congratulations! You are admitted to BSIS program!"")
-",qpa.py,2,"Assign:2,FunctionDef:1,arg:1,Call:5,Str:5,Lt:2,If:2"
+",qpa.py,2,"arg:1,If:2,Lt:2,Assign:2,FunctionDef:1,Str:5,Call:5"
 1,"# calculates interest and new capital for variable rate with two thresholds
 
 def main(rate1, threshold1, rate2, threshold2, rate3):
@@ -153,7 +153,7 @@ def main(rate1, threshold1, rate2, threshold2, rate3):
  annual_interest = capital * interest_rate / 100;
  print(""Interest is $"", annual_interest)
  print(""New capital is $"", capital + annual_interest)
-",variable-rate-elif-down.py,2,"Assign:5,FunctionDef:1,Mult:1,arg:1,GtE:2,Str:4,Add:1,Int:1,Call:4,Div:1,If:2"
+",variable-rate-elif-down.py,2,"arg:1,If:2,Int:1,Mult:1,Assign:5,FunctionDef:1,Div:1,Add:1,Str:4,Call:4,GtE:2"
 1,"# calculates interest and new capital for variable rate with two thresholds
 
 def main(rate1, threshold1, rate2, threshold2, rate3):
@@ -174,7 +174,7 @@ def main(rate1, threshold1, rate2, threshold2, rate3):
  annual_interest = capital * interest_rate / 100;
  print(""Interest is $"", annual_interest)
  print(""New capital is $"", capital + annual_interest)
-",variable-rate-elif-up.py,2,"Assign:5,FunctionDef:1,arg:1,Call:4,Str:4,Add:1,Int:1,Mult:1,Div:1,Lt:2,If:2"
+",variable-rate-elif-up.py,2,"arg:1,Mult:1,If:2,Int:1,Lt:2,Assign:5,FunctionDef:1,Div:1,Add:1,Str:4,Call:4"
 1,"def main(rate1, threshold, rate2):
 # get data 
  capital = float(input(""Enter your capital: ""))
@@ -189,7 +189,7 @@ def main(rate1, threshold1, rate2, threshold2, rate3):
  annual_interest = capital * interest_rate / 100;
  print(""Interest is $"", annual_interest)
  print(""New capital is $"", capital + annual_interest)
-",variable-rate.py,2,"Assign:4,FunctionDef:1,arg:1,Call:4,Str:4,Lt:1,Int:1,Mult:1,Add:1,Div:1,If:1"
+",variable-rate.py,2,"Mult:1,If:1,Int:1,Lt:1,Assign:4,FunctionDef:1,Div:1,Add:1,Str:4,arg:1,Call:4"
 1,"# Example: sum and average of the entered sequence
 # Counter-controlled loop
 
@@ -207,7 +207,7 @@ def main():
   print(""Sum ="", sum, ""Average ="", sum / count)
  else:
   print(""Can't calculate average of"", count, ""numbers"")
-",average_fixed.py,2,"While:1,FunctionDef:1,Str:4,LtE:1,Assign:4,Int:4,AugAssign:2,Add:2,Call:4,Div:1,If:1,Gt:1"
+",average_fixed.py,2,"FunctionDef:1,While:1,Gt:1,LtE:1,Call:4,If:1,Int:4,AugAssign:2,Assign:4,Add:2,Str:4,Div:1"
 1,"# Example: sum and average of temperature observations
 # Sentinel-controlled loop, sentinel < 300
 
@@ -229,7 +229,7 @@ def main():
   print(""Average temperature ="", sum / count)
  else:
   print(""No valid data entered"")
-",average_sentinel.py,2,"While:1,FunctionDef:1,Str:5,Float:2,Assign:4,Int:3,Call:5,Add:2,USub:1,AugAssign:2,Div:1,If:1,Gt:2"
+",average_sentinel.py,2,"FunctionDef:1,USub:1,While:1,Gt:2,Float:2,Call:5,If:1,Int:3,AugAssign:2,Assign:4,Add:2,Str:5,Div:1"
 1,"# Example: Accumulation of interest over years
 
 def main():
@@ -246,7 +246,7 @@ def main():
   capital += interest
   year += 2
  print(""Capital afrer"", years, ""years in bank is $"", capital)
-",even_interest.py,2,"Assign:5,Int:3,While:1,Call:5,Str:5,Add:2,FunctionDef:1,AugAssign:2,LtE:1,Div:1,Mult:1"
+",even_interest.py,2,"While:1,Mult:1,FunctionDef:1,Int:3,AugAssign:2,Assign:5,LtE:1,Add:2,Str:5,Div:1,Call:5"
 1,"# Example: Table of squares with for
 #   Course IS0012 
 #   Author: Peter Brusilovsky
@@ -261,7 +261,7 @@ def main():
   print(i, ""squared ="", square)
  print(""Done!"")
 
-main()",for_squares.py,2,"Assign:2,FunctionDef:1,Call:4,Str:2,Add:1,Int:2,For:1,Mult:1"
+main()",for_squares.py,2,"FunctionDef:1,Int:2,Mult:1,Assign:2,For:1,Add:1,Str:2,Call:4"
 1,"print(""This int, {0:5} occupies 5 positions"".format(7))
 print(""This float, {0:0} occupies 10 positions"".format(3.1415926))
 print(""This float, {0:10.5} has width 10 and precision 5"".format(3.1415926))
@@ -271,7 +271,7 @@ print(""Compare {0} and {0:0.20}"".format(3.1415926))
 print(""Left justification, five positions =={0:<5}=="".format(""Hi!""))
 print(""Right justification, five positions =={0:>5}=="".format(""Hi!""))
 print(""Centered, five positions =={0:^5}=="".format(""Hi!""))
-",format.py,2,"Int:1,Attribute:9,Call:9,Str:9,Float:5"
+",format.py,2,"Float:5,Str:9,Int:1,Call:9,Attribute:9"
 1,"# Example: Accumulation of interest over years
 
 def main():
@@ -288,7 +288,7 @@ def main():
   capital += interest
   year += 1
  print(""Capital afrer"", years, ""years in bank is $"", capital)
-",interest_years.py,2,"Assign:5,Int:3,While:1,AugAssign:2,Str:5,Add:2,FunctionDef:1,Call:5,LtE:1,Div:1,Mult:1"
+",interest_years.py,2,"While:1,Mult:1,FunctionDef:1,Int:3,AugAssign:2,Assign:5,LtE:1,Add:2,Str:5,Div:1,Call:5"
 1,"# A nested loop example. Prints hours and minutes in a day
 
 def main():
@@ -297,7 +297,7 @@ def main():
    print(""{0:2}:{1:2}"".format(hour, minute))
 
 main()
-",nested_loop.py,2,"Int:2,Call:4,Str:1,FunctionDef:1,Attribute:1,For:2"
+",nested_loop.py,2,"FunctionDef:1,Int:2,Attribute:1,For:2,Str:1,Call:4"
 1,"# Printing Pretty Fahrenheit to Celsius conversion table
 
 def main ():
@@ -316,7 +316,7 @@ def main ():
  
 main()
 
-",nice_temp_table_for.py,2,"Assign:4,Int:3,Div:1,Call:7,Str:5,FunctionDef:1,Sub:1,Attribute:2,Float:1,For:1,Mult:1"
+",nice_temp_table_for.py,2,"For:1,FunctionDef:1,Call:7,Mult:1,Assign:4,Float:1,Attribute:2,Str:5,Div:1,Sub:1,Int:3"
 1,"# Printing Fahrenheit to Celsius conversion table
 
 def main ():
@@ -332,7 +332,7 @@ def main ():
   
 main()
 
-",temp_table.py,2,"While:1,FunctionDef:1,Str:1,Add:1,Float:1,AugAssign:1,Mult:1,Assign:5,Int:3,Call:2,Lt:1,Sub:1,Div:1"
+",temp_table.py,2,"FunctionDef:1,Lt:1,While:1,Float:1,AugAssign:1,Call:2,Int:3,Mult:1,Assign:5,Add:1,Str:1,Div:1,Sub:1"
 1,"# Example: counting to zero
 #   Course IS0012 
 #   Author: Peter Brusilovsky
@@ -349,7 +349,7 @@ def main():
  print(""Fire!"")
 
 main()
-",while_countdown.py,2,"While:1,FunctionDef:1,Call:4,Gt:1,Assign:2,Int:3,Sub:1,Str:2"
+",while_countdown.py,2,"While:1,FunctionDef:1,Int:3,Assign:2,Gt:1,Sub:1,Str:2,Call:4"
 1,"# Example: Table of squares
 #   Course IS0012 
 #   Author: Peter Brusilovsky
@@ -367,7 +367,7 @@ def main():
  print(""Done!"")
 
 main()
-",while_squares.py,2,"Assign:3,FunctionDef:1,While:1,AugAssign:1,Str:2,Add:1,Int:3,Call:3,LtE:1,Mult:1"
+",while_squares.py,2,"While:1,Mult:1,FunctionDef:1,Int:3,AugAssign:1,Assign:3,LtE:1,Add:1,Str:2,Call:3"
 1,"# Function to calculate quotient and remainder
 
 def div_mod(dividend, divisor):
@@ -388,7 +388,7 @@ def main():
  print(""{0} apples left."".format(left))
  
 
-",div_mod_apples.py,3,"While:1,FunctionDef:2,Return:1,arg:1,GtE:1,Str:4,Tuple:2,Assign:4,Int:2,Call:5,Add:1,Sub:1,AugAssign:2,Attribute:2"
+",div_mod_apples.py,3,"Return:1,FunctionDef:2,Attribute:2,While:1,Call:5,arg:1,Tuple:2,Int:2,AugAssign:2,Assign:4,Add:1,Str:4,Sub:1,GtE:1"
 1,"#  Exchange kiosk using function
 
 def convert(euro, dollars_for_euro, commission):
@@ -402,7 +402,7 @@ def main():
  dollars = convert(euros, 1.33, 1.5)
  print(""For {0} Euro you will get {1} dollars!"".format(euros, dollars))
 
-main()",exchange_function.py,3,"Assign:4,FunctionDef:2,Return:1,Float:3,Call:5,Str:2,Int:2,arg:1,Sub:1,Attribute:2,Mult:1"
+main()",exchange_function.py,3,"Call:5,Return:1,arg:1,FunctionDef:2,Int:2,Mult:1,Assign:4,Float:3,Attribute:2,Str:2,Sub:1"
 1,"#  Exchange kiosk with foolproof input
 def pos_input(prompt):
  number = float(input(prompt))
@@ -421,7 +421,7 @@ def main():
  dollars = convert(euros, rate, comm)
  print(""For {0} Euro you will get {1} dollars!"".format(euros, dollars))
 
-main()",foolproofinput.py,3,"While:1,FunctionDef:3,Return:2,arg:2,Str:5,LtE:1,Mult:1,Assign:6,Int:1,Call:9,Sub:1,Attribute:1"
+main()",foolproofinput.py,3,"Return:2,FunctionDef:3,Attribute:1,While:1,LtE:1,Call:9,arg:2,Int:1,Mult:1,Assign:6,Str:5,Sub:1"
 1,"def happy():
  print(""Happy Birthday to you!"")
  
@@ -431,7 +431,7 @@ def main():
  print(""Happy Birthday, dear John!"")
  happy()
  
-main()",happy_bday_john.py,3,"FunctionDef:2,Call:6,Str:2"
+main()",happy_bday_john.py,3,"Str:2,FunctionDef:2,Call:6"
 1,"def happy():
  print(""Happy Birthday to you!"")
  
@@ -448,7 +448,7 @@ def main():
  print()
  bday(""Professor Flynn"")
  
-main()",happy_bday.py,3,"arg:1,FunctionDef:3,Attribute:1,Call:11,Str:5"
+main()",happy_bday.py,3,"FunctionDef:3,arg:1,Str:5,Call:11,Attribute:1"
 1,"# Dividing apples among kids
 
 def main():
@@ -465,7 +465,7 @@ def main():
  print(""Each kid got {0} apples."".format(rounds))
  print(""{0} apples left."".format(apples))
 
-",kids_apples.py,3,"Assign:3,While:1,FunctionDef:1,Call:5,Str:5,Add:1,Int:2,GtE:1,Sub:1,Attribute:2,AugAssign:2"
+",kids_apples.py,3,"AugAssign:2,While:1,Add:1,FunctionDef:1,Int:2,Attribute:2,Assign:3,Sub:1,Str:5,Call:5,GtE:1"
 1,"# power: raise base to n-th power n >= 0 
 def power(base, n):
  p = 1;
@@ -487,7 +487,7 @@ def main():
   print(""| {0:2} | {1:5} | {2:5} |"".format(i, x, y))
  hl()
 
-",power.py,3,"Assign:4,Int:4,Return:1,arg:1,Call:10,Str:3,FunctionDef:3,USub:1,Attribute:2,For:2,Mult:1"
+",power.py,3,"Return:1,arg:1,FunctionDef:3,Int:4,Mult:1,Assign:4,For:2,Attribute:2,Str:3,Call:10,USub:1"
 1,"# Example: list processing with functions
 def readlist(lis, len):
  for i in range(len):
@@ -516,7 +516,7 @@ def main():
  print(""average = {0}; sum = {1}"".format(ave, sum))
  print(""max = {0}; min = {1}"".format(max, min))
 
-",listfunctions.py,4,"Index:5,Assign:7,Return:2,Div:1,Str:3,FunctionDef:4,Add:1,Tuple:4,Int:4,List:1,arg:3,Call:9,Lt:1,AugAssign:1,Attribute:3,For:3,If:2,Gt:1"
+",listfunctions.py,4,"Return:2,Add:1,FunctionDef:4,Attribute:3,Gt:1,For:3,Lt:1,Index:5,Call:9,arg:3,Tuple:4,If:2,Int:4,AugAssign:1,Assign:7,List:1,Str:3,Div:1"
 1,"# Example: collect temperature observations into a list and print it
 # Sentinel-controlled loop, sentinel < 300
 
@@ -534,7 +534,7 @@ def main():
   temp = float(input(""Next temperature: ""))
 
  print(""These are your observation"", templist)
-",listinput.py,4,"While:1,Assign:3,List:1,Attribute:1,Call:5,Gt:1,FunctionDef:1,USub:1,Float:1,Str:4"
+",listinput.py,4,"Assign:3,FunctionDef:1,USub:1,Attribute:1,While:1,Gt:1,Float:1,List:1,Str:4,Call:5"
 1,"# Example: list processing: sum and average
 
 def main(listlen):
@@ -561,7 +561,7 @@ def main(listlen):
  print(""min ="", min)
 
 main(10)
-",listmaxmin.py,4,"Index:4,FunctionDef:1,arg:1,Str:3,Assign:6,Int:4,List:1,Call:7,Lt:1,Attribute:1,For:3,If:2,Gt:1"
+",listmaxmin.py,4,"FunctionDef:1,Attribute:1,Gt:1,For:3,Lt:1,Index:4,Call:7,arg:1,If:2,Int:4,Assign:6,List:1,Str:3"
 1,"# This testfunction just prints and changes its parameters
 def testfunction(lis, sca):
  print(""Start: Scalar = {0}, List = {1}"".format(sca, lis))
@@ -583,7 +583,7 @@ def main():
 # printing the values  of actual parameters  after call */
  print(""After : Scalar = {0}, List = {1}"".format(tscal, tlist))
 
-",listparameter.py,4,"Assign:4,FunctionDef:2,List:1,arg:1,Call:6,Str:4,Index:1,Int:4,Attribute:4,For:1"
+",listparameter.py,4,"arg:1,FunctionDef:2,Int:4,Attribute:4,Assign:4,For:1,List:1,Str:4,Index:1,Call:6"
 1,"# Example: filling and printing a list
 
 def main():
@@ -606,7 +606,7 @@ def main():
   print (templist[len(templist) - 1 - i])
 
 main()
-",listprocess.py,4,"Assign:3,Int:2,Index:1,Call:9,Str:3,FunctionDef:1,Sub:1,Attribute:1,For:3,List:1"
+",listprocess.py,4,"Call:9,FunctionDef:1,Int:2,Attribute:1,Assign:3,For:3,List:1,Str:3,Index:1,Sub:1"
 1,"# Example: filling lists with 10 squares
 
 def main():
@@ -620,7 +620,7 @@ def main():
  print(""These are your squares"", squarelist)
  
 main()
-",listsquares.py,4,"Assign:1,Int:1,List:1,Call:4,Str:1,FunctionDef:1,Attribute:1,For:1,Mult:1"
+",listsquares.py,4,"FunctionDef:1,Int:1,Mult:1,Assign:1,Str:1,For:1,List:1,Attribute:1,Call:4"
 1,"# Example: list processing: sum and average
 
 def main(listlen):
@@ -644,7 +644,7 @@ def main(listlen):
   print(""list is empty"")
 
 main(10)
-",listsum.py,4,"FunctionDef:1,arg:1,Str:4,Assign:3,Int:3,List:1,Call:8,Add:1,Div:1,AugAssign:1,Attribute:1,For:2,If:1,Gt:1"
+",listsum.py,4,"Add:1,FunctionDef:1,Attribute:1,Gt:1,For:2,Call:8,arg:1,If:1,Int:3,AugAssign:1,Assign:3,List:1,Str:4,Div:1"
 1,"# returns True if s is a palindrome, False otherwise
 def is_palindrome(s):
  bottom = 0;
@@ -670,7 +670,7 @@ def main ():
  if is_palindrome(test_string):
   print (test_string, ""is a palindrome"")
  else:
-  print (test_string, ""is not a palindrome"")",palindrome.py,5,"While:1,Index:1,Return:2,arg:1,Eq:1,Str:3,FunctionDef:2,True:1,And:1,Call:5,Assign:3,Int:4,AugAssign:2,Lt:1,Sub:2,GtE:1,Add:1,False:1,If:2"
+  print (test_string, ""is not a palindrome"")",palindrome.py,5,"Return:2,True:1,Eq:1,FunctionDef:2,Lt:1,While:1,Index:1,Call:5,False:1,arg:1,If:2,Int:4,AugAssign:2,Assign:3,And:1,Add:1,Str:3,Sub:2,GtE:1"
 1,"# Example: count the number of groups of each size coming to a party
 # Sentinel-controlled loop, sentinel = 0
 
@@ -693,7 +693,7 @@ def main():
  for i in range(9):
   print(""Number of {0:0}s is {1:0}"".format(i + 1, nparties[i]))
  print(""Number of large groups is {0:0}"".format(nparties[9]))
-",party_counter.py,5,"Index:4,While:1,Str:6,FunctionDef:1,Mult:1,For:1,Assign:3,Int:8,List:1,AugAssign:2,Add:3,Sub:1,Call:7,Attribute:2,Lt:1,If:1,Gt:1"
+",party_counter.py,5,"Lt:1,Add:3,FunctionDef:1,Attribute:2,While:1,Gt:1,For:1,AugAssign:2,Index:4,Call:7,If:1,Int:8,Mult:1,Assign:3,List:1,Str:6,Sub:1"
 1,"
 # Returns a list of positions of the value in the list?   
 def which_teams (tlist, value):
@@ -722,7 +722,7 @@ def main ():
  if len(res_list) > 0:
   print (""The following teams have"", number, ""members"", res_list)
  else:
-  print (""None of the teams has {0:0} members"".format(number))",team_search_list.py,5,"Index:2,FunctionDef:3,Return:2,arg:1,Eq:1,Str:6,Mult:1,Assign:7,Int:2,List:2,Call:12,Attribute:2,For:2,If:2,Gt:1"
+  print (""None of the teams has {0:0} members"".format(number))",team_search_list.py,5,"Return:2,Eq:1,FunctionDef:3,Attribute:2,Gt:1,For:2,Index:2,Call:12,arg:1,If:2,Int:2,Mult:1,Assign:7,List:2,Str:6"
 1,"# This function will create a list of teams
 # Each value indicates number of members in a team
 def make_list ():
@@ -742,7 +742,7 @@ def main ():
   tnum = teams.index(number)
   print (""Team number {0:0} has {1:0} members"".format(tnum, number))
  else:
-  print (""None of the teams has {0:0} members"".format(number))",team_search_simple.py,5,"Index:1,FunctionDef:2,Return:1,Str:6,In:1,Mult:1,Assign:6,Int:1,List:1,Call:9,Attribute:3,For:1,If:1"
+  print (""None of the teams has {0:0} members"".format(number))",team_search_simple.py,5,"Return:1,List:1,FunctionDef:2,Attribute:3,For:1,Index:1,Call:9,If:1,Int:1,Mult:1,Assign:6,In:1,Str:6"
 1,"# This function will create a list of teams
 # Each value indicates number of members in a team
 def make_list ():
@@ -775,7 +775,7 @@ def main ():
   print (""Team number {0:0} has {1:0} members"".format(tnum, number))
  else:
   print (""None of the teams has {0:0} members"".format(number))
-",team_search.py,5,"Index:3,FunctionDef:4,Return:5,arg:2,Eq:2,Str:6,True:1,Mult:1,False:1,Assign:6,Int:2,List:1,Call:12,USub:1,Attribute:2,For:3,If:3"
+",team_search.py,5,"Return:5,True:1,Eq:2,FunctionDef:4,USub:1,Attribute:2,For:3,Index:3,Call:12,False:1,arg:2,If:3,Int:2,Mult:1,Assign:6,List:1,Str:6"
 1,"# This program simulates a phonebook
 
 def make_phonebook():
@@ -807,7 +807,7 @@ def main():
  
  
 main()
-",phonebook.py,5,"While:1,Index:4,Return:1,arg:1,Gt:1,FunctionDef:3,In:1,Assign:9,Int:4,Call:15,If:1,Attribute:1,For:1,Dict:1,Str:8"
+",phonebook.py,5,"Return:1,FunctionDef:3,Attribute:1,While:1,Gt:1,For:1,Index:4,Call:15,arg:1,If:1,Int:4,Dict:1,Assign:9,In:1,Str:8"
 1,"# Standard String search not protected from not finding
 
 def main ():
@@ -815,7 +815,7 @@ def main ():
  mysym = input (""Enter symbold to search for?"")
  print(mysym in mystring)  
  print(mystring.index(mysym))
-",string_search_bad.py,5,"Assign:2,FunctionDef:1,Call:4,Str:2,In:1,Attribute:1"
+",string_search_bad.py,5,"FunctionDef:1,Attribute:1,Assign:2,In:1,Str:2,Call:4"
 1,"# Standard String search protected from not finding
 
 def main ():
@@ -825,7 +825,7 @@ def main ():
   print(mystring.index(mysym))
  else:
   print(mysym + "" not in "" + mystring)
-",string_search_protected.py,5,"Assign:2,FunctionDef:1,Call:4,Str:3,Add:1,In:1,Attribute:1,If:1"
+",string_search_protected.py,5,"Add:1,FunctionDef:1,Attribute:1,Assign:2,If:1,In:1,Str:3,Call:4"
 1,"# demonstration of string search
 
 # Is there symbol in the string?   
@@ -847,7 +847,7 @@ def main ():
  mystring = input (""Enter string to search?"")
  mysym = input (""Enter symbold to search for?"")
  print(in_string(mystring, mysym), index_string(mystring, mysym))
-",string_search.py,5,"Index:1,FunctionDef:3,Return:4,arg:2,Eq:2,Str:2,True:1,False:1,Assign:2,Int:1,Call:4,USub:1,For:2,If:2"
+",string_search.py,5,"Return:4,True:1,Eq:2,FunctionDef:3,USub:1,For:2,Index:1,Call:4,False:1,arg:2,If:2,Int:1,Assign:2,Str:2"
 1,"# Example: count the number of each symbol occurrences in a string
 # use a dictionary as a set of counters
 
@@ -867,7 +867,7 @@ def main():
   print(el, counters[el])
 
 
-",SymbolCounterDict.py,5,"Index:3,FunctionDef:1,Str:2,In:1,Assign:3,Int:2,Call:3,Dict:1,Add:1,AugAssign:1,For:2,If:1"
+",SymbolCounterDict.py,5,"In:1,FunctionDef:1,For:2,AugAssign:1,Index:3,Call:3,If:1,Int:2,Dict:1,Assign:3,Add:1,Str:2"
 1,"def main():
  fname = input(""Enter File Name: "")
  try:
@@ -883,7 +883,7 @@ def main():
   print(fname, ""File not found"")
  except IOError:
   print(""Problem with the file"", fname)
-",file_count.py,6,"Assign:4,Int:2,Call:8,Str:5,Add:2,FunctionDef:1,AugAssign:2,Try:1,Attribute:3,ExceptHandler:2,For:1"
+",file_count.py,6,"Try:1,Add:2,ExceptHandler:2,Int:2,Attribute:3,Assign:4,FunctionDef:1,For:1,AugAssign:2,Str:5,Call:8"
 1,"# Printing a file
 
 def main():
@@ -901,7 +901,7 @@ def main():
  except IOError:
   print(""Problem with the file!"")
   
-main()",file_print.py,6,"Assign:3,While:1,Call:8,Str:4,FunctionDef:1,ExceptHandler:2,Attribute:4,NotEq:1,Try:1"
+main()",file_print.py,6,"While:1,ExceptHandler:2,NotEq:1,Attribute:4,Assign:3,FunctionDef:1,Try:1,Str:4,Call:8"
 1,"def main():
  fname = input(""Enter File Name: "")
  str = input(""Enter String to Find: "")
@@ -920,7 +920,7 @@ main()",file_print.py,6,"Assign:3,While:1,Call:8,Str:4,FunctionDef:1,ExceptHandl
   print(fname, ""File not found"")
  except IOError:
   print(""Problem with the file"", fname)
-",file_search.py,6,"FunctionDef:1,Attribute:1,Str:7,In:1,True:1,For:1,Assign:5,Call:8,Try:1,ExceptHandler:2,False:1,If:2"
+",file_search.py,6,"True:1,ExceptHandler:2,Attribute:1,For:1,Try:1,False:1,Call:8,If:2,Assign:5,FunctionDef:1,In:1,Str:7"
 1,"def main():
  fname = input(""Enter File Name: "")
  str = input(""Enter String to Find: "")
@@ -934,7 +934,7 @@ main()",file_print.py,6,"Assign:3,While:1,Call:8,Str:4,FunctionDef:1,ExceptHandl
   print(fname, ""File not found"")
  except IOError:
   print(""Problem with the file"", fname)
-",grep.py,6,"Assign:3,FunctionDef:1,Try:1,Call:7,Str:5,In:1,ExceptHandler:2,Attribute:2,For:1,If:1"
+",grep.py,6,"Try:1,If:1,FunctionDef:1,Attribute:2,Assign:3,ExceptHandler:2,For:1,In:1,Str:5,Call:7"
 1,"def main():
  fname = input(""Enter File Name: "")
  max = 0
@@ -950,7 +950,7 @@ main()",file_print.py,6,"Assign:3,While:1,Call:8,Str:4,FunctionDef:1,ExceptHandl
   print(fname, ""File not found"")
  except IOError:
   print(""Problem with the file"", fname)
-",longest_line.py,6,"Assign:5,Int:1,Call:9,Str:5,FunctionDef:1,Try:1,ExceptHandler:2,Attribute:1,For:1,If:1,Gt:1"
+",longest_line.py,6,"If:1,Int:1,FunctionDef:1,Attribute:1,Assign:5,Gt:1,For:1,Try:1,Str:5,ExceptHandler:2,Call:9"
 1,"# Converting Pounds to KG with exception handling
 
 def main ():
@@ -968,7 +968,7 @@ def main ():
    print (""Error: Program processes pounds as integer!"")
    print(""Try again!"")
 
-main ()",pound2kilos_loop.py,6,"While:1,FunctionDef:1,Float:1,Str:5,Not:1,True:1,Mult:1,False:1,Assign:6,Call:7,ExceptHandler:1,Attribute:1,Try:1"
+main ()",pound2kilos_loop.py,6,"True:1,ExceptHandler:1,Attribute:1,While:1,Float:1,Try:1,False:1,Call:7,Mult:1,Assign:6,FunctionDef:1,Str:5,Not:1"
 1,"# Converting Pounds to KG with exception handling
 
 def main ():
@@ -982,7 +982,7 @@ def main ():
  except ValueError:
   print (""Error: Enter pounds as integer!"")
 
-main ()",pound2kilos.py,6,"Assign:4,FunctionDef:1,Float:1,Call:6,Str:4,Try:1,Attribute:1,ExceptHandler:1,Mult:1"
+main ()",pound2kilos.py,6,"Mult:1,FunctionDef:1,Attribute:1,Assign:4,ExceptHandler:1,Float:1,Try:1,Str:4,Call:6"
 1,"def main():
  fname = input(""Enter File Name: "")
  sum, count = 0.0, 0
@@ -1002,13 +1002,13 @@ main ()",pound2kilos.py,6,"Assign:4,FunctionDef:1,Float:1,Call:6,Str:4,Try:1,Att
   print(""Line is not a number:"", line)
  except ZeroDivisionError:
   print(""No numbers read from"", fname)
-",summing_file.py,6,"Tuple:1,Div:1,Str:7,FunctionDef:1,Float:1,Assign:4,Int:2,Try:1,Call:9,Add:2,AugAssign:2,ExceptHandler:4,Attribute:2,For:1"
+",summing_file.py,6,"Float:1,ExceptHandler:4,Attribute:2,For:1,Try:1,Call:9,Tuple:1,Int:2,AugAssign:2,Assign:4,FunctionDef:1,Add:2,Str:7,Div:1"
 1,"try:
  handle = open(""some"")
  
 except OSError:
  print (""ioerror"")
-",try.py,6,"Assign:1,Try:1,ExceptHandler:1,Call:2,Str:2"
+",try.py,6,"Assign:1,Str:2,Try:1,ExceptHandler:1,Call:2"
 1,"def main():
  print(""This program record your guest list to a file"")
  fname = input(""Enter File Name: "")
@@ -1026,7 +1026,7 @@ except OSError:
   print(fname, ""file not found"")
  except IOError:
   print(""Problem with file:"", fname)
-",write_file.py,6,"Assign:4,While:1,Call:11,Str:9,Add:1,FunctionDef:1,Try:1,Attribute:2,NotEq:1,ExceptHandler:2"
+",write_file.py,6,"While:1,Add:1,ExceptHandler:2,NotEq:1,Attribute:2,Assign:4,FunctionDef:1,Try:1,Str:9,Call:11"
 1,"class Point:
  def __init__(self, x, y):
   self.x = x
@@ -1055,7 +1055,7 @@ def main():
    print(""This point is above base point"")
   else:
    print(""This point is not above base point"")
-   ",above_methods.py,7,"FunctionDef:4,Return:3,arg:2,Str:6,True:1,False:1,Assign:7,Int:1,Call:11,ClassDef:1,Attribute:4,For:1,If:2,Gt:1"
+   ",above_methods.py,7,"Return:3,True:1,FunctionDef:4,Attribute:4,Gt:1,For:1,False:1,Call:11,arg:2,If:2,Int:1,Assign:7,ClassDef:1,Str:6"
 1,"class Point:
  def __init__(self, x, y):
   self.x = x
@@ -1083,7 +1083,7 @@ def main():
    print(""This point is above base point"")
   else:
    print(""This point is not above base point"")
-   ",above_or_under.py,7,"FunctionDef:4,Return:3,arg:2,Str:6,True:1,False:1,Assign:7,Int:1,Call:11,ClassDef:1,Attribute:3,For:1,If:2,Gt:1"
+   ",above_or_under.py,7,"Return:3,True:1,FunctionDef:4,Attribute:3,Gt:1,For:1,False:1,Call:11,arg:2,If:2,Int:1,Assign:7,ClassDef:1,Str:6"
 1,"import math
 
 class Point:
@@ -1120,7 +1120,7 @@ def main():
  print(""Distance between A and B"", a.distance(b))
  print(""Distance between A and midpoint"", a.distance(c))
  print(""Distance between B and midpoint"", b.distance(c))
-",distance.py,7,"Import:1,FunctionDef:6,Return:5,arg:4,Gt:1,True:1,Assign:8,Int:2,alias:1,Call:13,ClassDef:1,Add:2,Div:1,Sub:1,Attribute:9,Pow:1,False:1,If:1,Str:7"
+",distance.py,7,"Return:5,True:1,FunctionDef:6,Attribute:9,Import:1,Div:1,Pow:1,False:1,Call:13,arg:4,If:1,Int:2,Gt:1,Assign:8,ClassDef:1,alias:1,Add:2,Str:7,Sub:1"
 1,"# gpa.py
 #    Program to find student with highest GPA
 
@@ -1172,7 +1172,7 @@ def main():
     print(""hours:"", best.getHours())
     print(""GPA:"", best.gpa())
 
-",gpa.py,7,"FunctionDef:7,Return:5,arg:6,Str:6,For:1,Assign:9,Tuple:1,Call:13,ClassDef:1,Attribute:14,Div:1,If:1,Gt:1"
+",gpa.py,7,"Return:5,FunctionDef:7,Attribute:14,Gt:1,Div:1,Call:13,arg:6,Tuple:1,If:1,Assign:9,ClassDef:1,Str:6,For:1"
 1,"class Student:
 
     def __init__(self, name, hours, qpoints):
@@ -1260,7 +1260,7 @@ def main():
     else:
         print(""With this GPA, you can't be a TA!"")
 
-",assistant.py,7,"Index:2,FunctionDef:12,Return:9,arg:11,GtE:1,Gt:3,In:1,True:2,Mult:2,Assign:17,ClassDef:2,Add:4,Attribute:25,False:2,If:5,Str:13,Float:1,And:1,Int:5,AugAssign:4,Call:19,Div:1,For:1,Dict:1"
+",assistant.py,7,"True:2,FunctionDef:12,Attribute:25,Float:1,AugAssign:4,False:2,Call:19,For:1,If:5,Mult:2,ClassDef:2,In:1,Str:13,Return:9,Add:4,Gt:3,Index:2,arg:11,Int:5,Dict:1,Assign:17,And:1,Div:1,GtE:1"
 1,"# Class BankAccount
 
 class BankAccount:
@@ -1330,7 +1330,7 @@ class BankAccount:
         str = ""Account {:s}, Owner {:s}, Balance ${:.2f}"".format (
                 self.account_number, self.name, self.balance)
         return str
-",bankaccount.py,7,"FunctionDef:8,Return:8,arg:8,Gt:3,Float:5,True:1,AugAssign:2,And:1,Assign:4,Call:3,ClassDef:1,Add:1,LtE:1,Sub:1,Attribute:13,False:1,If:3,Str:1"
+",bankaccount.py,7,"Return:8,True:1,FunctionDef:8,Attribute:13,Gt:3,Float:5,False:1,Call:3,arg:8,If:3,ClassDef:1,AugAssign:2,Assign:4,And:1,Add:1,Str:1,LtE:1,Sub:1"
 1,"# gpa.py
 #    Program to find student with highest GPA
 
@@ -1390,7 +1390,7 @@ def main():
     print(""hours:"", best.getHours())
     print(""GPA:"", best.gpa())
 
-",gpa_get.py,7,"FunctionDef:8,Return:6,arg:7,Gt:2,ClassDef:1,Tuple:1,For:1,Assign:10,Int:2,Call:11,Mult:1,Add:2,AugAssign:2,Attribute:17,Div:1,If:2,Str:6"
+",gpa_get.py,7,"Return:6,FunctionDef:8,Attribute:17,Gt:2,Div:1,Mult:1,Call:11,arg:7,Tuple:1,If:2,Int:2,AugAssign:2,Assign:10,ClassDef:1,Add:2,Str:6,For:1"
 1,"# gpa.py
 #    Program to find student with highest GPA
 
@@ -1438,7 +1438,7 @@ def main():
     print(""hours:"", best.hours)
     print(""GPA:"", best.gpa())
 
-",gpa.py,7,"FunctionDef:4,Return:3,arg:3,Str:6,Tuple:1,Int:2,Call:11,ClassDef:1,Assign:10,Div:1,Attribute:12,For:1,If:2,Gt:2"
+",gpa.py,7,"Return:3,FunctionDef:4,Attribute:12,Gt:2,Div:1,Call:11,arg:3,Tuple:1,If:2,Int:2,Assign:10,ClassDef:1,Str:6,For:1"
 1,"class Mytest():
     
     def __init__(self):
@@ -1465,4 +1465,4 @@ def main():
  print(a.__priv)
 
 main()
- ",privatetest.py,7,"Assign:4,FunctionDef:5,Return:3,arg:4,Call:8,Str:3,Attribute:12,ClassDef:1"
+ ",privatetest.py,7,"Return:3,arg:4,FunctionDef:5,Attribute:12,Assign:4,ClassDef:1,Str:3,Call:8"

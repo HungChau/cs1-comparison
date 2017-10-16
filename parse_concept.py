@@ -38,10 +38,11 @@ def add_concept_to_content(input_file, output_file):
                 problemWriter.writerow(problemList)
                 print(problemList)
 
-add_concept_to_content('data/peter.examples.csv', 'data/peter.examples_with_concepts.csv')
+# add_concept_to_content('data/peter.examples.csv', 'data/peter.examples_with_concepts.csv')
 # add_concept_to_content('data/andrew.examples.csv', 'data/andrew.examples_with_concepts.csv')
-# add_concept_to_content('data/peter.problems.csv', 'data/peter.problems_with_concepts.csv')
-# add_concept_to_content('data/peter/andrew.problems.csv', 'data/peter/peter.problems_with_concepts.csv')
+add_concept_to_content('data/peter.problems.csv', 'data/peter.problems_with_concepts.csv')
+#
+#  add_concept_to_content('data/peter/andrew.problems.csv', 'data/peter/peter.problems_with_concepts.csv')
 # your source code here
 # source = '''
 # print("Hello, world!")
