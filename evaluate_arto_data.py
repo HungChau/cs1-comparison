@@ -87,6 +87,9 @@ def recommendation(exampleFileName, problemFileName, alpha, beta, gamma):
         # print(len(problemsByTopic[i]))
         rankedList = sorted(rankedList, key=itemgetter(0), reverse=True)
         # print(rankedList,"\n")
+        concepts_in_current_problems = set()
+        for key, value in problemsByTopic[i].items():
+            concepts_in_current_problems = concepts_in_current_problems | value
 
         for t in range(0,len(top)):
             TP = 0
@@ -102,7 +105,7 @@ def recommendation(exampleFileName, problemFileName, alpha, beta, gamma):
 
 
         # print(passConcepts)
-        passConcepts = passConcepts | currentConcepts
+        passConcepts = passConcepts | concepts_in_current_problems
         currentConcepts = set()
 
     precision = [x/len(examples) for x in precision]
@@ -115,7 +118,7 @@ def recommendation(exampleFileName, problemFileName, alpha, beta, gamma):
     # print(len(problemsByTopic))
     # print(problemsByTopic[2])
 
-def recommendation(exampleFileName, problemFileName):
+def recommendation_tfidf(exampleFileName, problemFileName):
     examples = list()
     with open(exampleFileName, 'r') as f:
         reader = csv.reader(f)
@@ -157,7 +160,7 @@ def recommendation(exampleFileName, problemFileName):
                             conceptSet.add(c.split(":")[0])
                     problems[int(row[1])] = conceptSet
         problemsByTopic.append(problems)
-    print(examples)
+    print(examples[9][2])
 
 
 def FindBestParameters():
@@ -237,4 +240,5 @@ def DrawContour():
 
 # DrawContour()
 # recommendation("data/arto.examples_with_concepts.aggregated.csv", "data/arto.assignment.csv", 0.2, 1, 1.5)
-recommendation("data/arto.examples_with_concepts.aggregated.csv", "data/arto.assignment.csv")
+# recommendation("data/arto.examples_with_concepts.aggregated.csv", "data/arto.assignment.csv")
+FindBestParameters()
