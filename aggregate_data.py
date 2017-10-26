@@ -47,6 +47,7 @@ def aggregate_arto(input_file, output_file):
         current_concept_list =[]
         new_concept_list =[]
         dic_concept = dict()
+        count =0
         with open(output_file, 'w') as w:
             writer = csv.writer(w)
             week = -2
@@ -59,6 +60,7 @@ def aggregate_arto(input_file, output_file):
                         week = int(row[week_column])
                 else:
                     if row[4] == "code_sample":
+                        count+=1
                         row[concept_column] = row[concept_column][0:len(row[concept_column]) - 1]
                         if int(row[3]) > week:
                             writer.writerow([week, dic_concept, new_concept_list])
@@ -84,6 +86,7 @@ def aggregate_arto(input_file, output_file):
                                         new_concept_list.append(c.split(":")[0])
                                         current_concept_list.append(c.split(":")[0])
             writer.writerow([week, dic_concept, new_concept_list])
+        print("Count: ", count)
 
 # aggregate("data/andrew.examples_with_concepts.csv", "data/andrew.examples_with_concepts.aggregated.csv")
 # aggregate("data/andrew.problems_with_concepts.csv", "data/andrew.problems_with_concepts.aggregated.csv")

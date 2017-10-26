@@ -3,7 +3,9 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/../../pycharm/nlp/ass1/.idea/ass1.iml" filepath="$PROJECT_DIR$/../../pycharm/nlp/ass1/.idea/ass1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../pycharm/contour3D/.idea/contour3D.iml" filepath="$PROJECT_DIR$/../../pycharm/contour3D/.idea/contour3D.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/cs1-comparison.iml" filepath="$PROJECT_DIR$/.idea/cs1-comparison.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../eclipse-luna/ConceptExtraction/data/.idea/data.iml" filepath="$PROJECT_DIR$/../../eclipse-luna/ConceptExtraction/data/.idea/data.iml" />
     </modules>
   </component>
 </project>
