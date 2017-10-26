@@ -24,10 +24,10 @@ def recommendation(exampleFileName, problemFileName, alpha, beta, gamma):
             # print(row)
             if row[0] != "Week":
                 if int(row[3]) == topic:
-                    if row[1] not in problems:
+                    if int(row[1]) not in problems:
                         conceptSet = set()
                     else:
-                        conceptSet = problems[row[1]]
+                        conceptSet = problems[int(row[1])]
                     conceptList = row[5].split(",")
                     for c in conceptList:
                         if c != '':
@@ -117,7 +117,7 @@ def recommendation(exampleFileName, problemFileName, alpha, beta, gamma):
     #     print("F1 at top  ",top[i],": ", 2*precision[i]*recall[i]/(recall[i]+precision[i]))
 
     #return F1 at top 10, since top 10 is best, so choose top 10 at standard
-    return 2*precision[2]*recall[2]/(recall[2]+precision[2])
+    return 2*precision[0]*recall[0]/(recall[0]+precision[0]),2*precision[1]*recall[1]/(recall[1]+precision[1]),2*precision[2]*recall[2]/(recall[2]+precision[2]),2*precision[3]*recall[3]/(recall[3]+precision[3])
     # print(len(problemsByTopic))
     # print(problemsByTopic[2])
 
@@ -138,6 +138,7 @@ def recommendation_tfidf(exampleFileName, problemFileName):
         reader = csv.reader(f)
         topic = 1
         problems = dict()
+        idf = dict()
         for row in reader:
             # print(row)
             if row[0] != "Week":
@@ -149,7 +150,12 @@ def recommendation_tfidf(exampleFileName, problemFileName):
                     conceptList = row[5].split(",")
                     for c in conceptList:
                         if c != '':
-                            conceptSet.add(c.split(":")[0])
+                            conceptSet.add((c.split(":")[0],float(c.split(":")[1])))
+                            if c.split(":")[0] in idf:
+                                idf[c.split(":")[0]] += 1
+                            else:
+                                idf[c.split(":")[0]] = 1
+
                     problems[int(row[1])] = conceptSet
                     # print(row[1])
                 else:
@@ -160,14 +166,22 @@ def recommendation_tfidf(exampleFileName, problemFileName):
                     conceptList = row[5].split(",")
                     for c in conceptList:
                         if c != '':
-                            conceptSet.add(c.split(":")[0])
+                            conceptSet.add((c.split(":")[0], float(c.split(":")[1])))
+                            if c.split(":")[0] in idf:
+                                idf[c.split(":")[0]] += 1
+                            else:
+                                idf[c.split(":")[0]] = 1
+
                     problems[int(row[1])] = conceptSet
         problemsByTopic.append(problems)
     print(examples[9][2])
 
 
 def FindBestParameters():
-    best_f1 = 0
+    best_f1_3 = 0
+    best_f1_5 = 0
+    best_f1_10 = 0
+    best_f1_15 = 0
     for a in range(0, 101):
         print("###########################")
         print(a)
@@ -177,17 +191,40 @@ def FindBestParameters():
                 if a == 0 and b == 0 and c == 0:
                     break
                 # print(a,b,c)
-                f1_15 = recommendation("data/arto.examples_with_concepts.aggregated.csv", "data/arto.assignment.csv", a,
-                                       b, c)
-                if f1_15 > best_f1:
-                    best_f1 = f1_15
-                    alpha_best = a
-                    beta_best = b
-                    gamma_best = c
-                    print(best_f1, alpha_best, beta_best, gamma_best)
+                f1_3, f1_5, f1_10, f1_15 = recommendation("data/arto.examples_with_concepts.aggregated.csv", "data/arto.assignment.csv", a, b, c)
+                if f1_3 > best_f1_3:
+                    best_f1_3 = f1_3
+                    alpha_best_3 = a
+                    beta_best_3 = b
+                    gamma_best_3 = c
+                    print("Current best at top 3:",best_f1_3, alpha_best_3, beta_best_3, gamma_best_3)
+
+                if f1_5 > best_f1_5:
+                    best_f1_5 = f1_5
+                    alpha_best_5 = a
+                    beta_best_5 = b
+                    gamma_best_5 = c
+                    print("Current best at top 5:",best_f1_5, alpha_best_5, beta_best_5, gamma_best_5)
+
+                if f1_10 > best_f1_10:
+                    best_f1_10 = f1_10
+                    alpha_best_10 = a
+                    beta_best_10 = b
+                    gamma_best_10 = c
+                    print("Current best at top 10:",best_f1_10, alpha_best_10, beta_best_10, gamma_best_10)
+
+                if f1_15 > best_f1_15:
+                    best_f1_15 = f1_15
+                    alpha_best_15 = a
+                    beta_best_15 = b
+                    gamma_best_15 = c
+                    print("Current best at top 15:",best_f1_15, alpha_best_15, beta_best_15, gamma_best_15)
 
     print("RESULT")
-    print(best_f1, alpha_best, beta_best, gamma_best)
+    print("Top 3: ",best_f1_3, alpha_best_3, beta_best_3, gamma_best_3)
+    print("Top 5: ", best_f1_5, alpha_best_5, beta_best_5, gamma_best_5)
+    print("Top 10: ", best_f1_10, alpha_best_10, beta_best_10, gamma_best_10)
+    print("Top 15: ", best_f1_15, alpha_best_15, beta_best_15, gamma_best_15)
 
 def DrawContour():
     best_f1 = 0
@@ -242,6 +279,6 @@ def DrawContour():
     print(best_f1,alpha_best, beta_best, 26)
 
 # DrawContour()
-# recommendation("data/arto.examples_with_concepts.aggregated.csv", "data/arto.assignment.csv", 0.2, 1, 1.5)
-# recommendation("data/arto.examples_with_concepts.aggregated.csv", "data/arto.assignment.csv")
+# recommendation("data/arto.examples_with_concepts.aggregated.csv", "data/arto.assignment.csv", 0.2, 1, 2.6)
+# recommendation_tfidf("data/arto.examples_with_concepts.aggregated.csv", "data/arto.assignment.csv")
 FindBestParameters()
