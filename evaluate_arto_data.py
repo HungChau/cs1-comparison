@@ -106,6 +106,7 @@ def recommendation(exampleFileName, problemFileName, alpha, beta, gamma):
 
         # print(passConcepts)
         passConcepts = passConcepts | concepts_in_current_problems
+        # passConcepts = passConcepts | currentConcepts
         currentConcepts = set()
 
     precision = [x/len(examples) for x in precision]
@@ -114,7 +115,9 @@ def recommendation(exampleFileName, problemFileName, alpha, beta, gamma):
     #     print("Precision at top ",top[i],": ", precision[i])
     #     print("Recall at top  ",top[i],": ", recall[i])
     #     print("F1 at top  ",top[i],": ", 2*precision[i]*recall[i]/(recall[i]+precision[i]))
-    return 2*precision[3]*recall[3]/(recall[3]+precision[3])
+
+    #return F1 at top 10, since top 10 is best, so choose top 10 at standard
+    return 2*precision[2]*recall[2]/(recall[2]+precision[2])
     # print(len(problemsByTopic))
     # print(problemsByTopic[2])
 
