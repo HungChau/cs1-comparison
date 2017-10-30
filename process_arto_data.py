@@ -59,6 +59,6 @@ def ProcessAssignment(fileInputName, fileOutputName, fileExampleName):
 
     print(problems)
 
-# ReformatFile(0,"data/arto.examples.csv", "data/arto.examples_with_concepts.csv")
+ReformatFile(0,"data/arto.examples.csv", "data/arto.examples_with_concepts.csv")
 # ReformatFile(1,"assignment-baselines-and-solutions-with-concepts.csv", "assignment-baselines-and-solutions-with-concepts-processed.csv")
-ProcessAssignment("data/arto/assignment-baselines-and-solutions-with-concepts-processed.csv", "data/arto.assignment.csv", "data/arto.examples_with_concepts.csv")
+# ProcessAssignment("data/arto/assignment-baselines-and-solutions-with-concepts-processed.csv", "data/arto.assignment.csv", "data/arto.examples_with_concepts.csv")

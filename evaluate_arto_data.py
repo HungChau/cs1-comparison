@@ -4,7 +4,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import math
 
-def recommendation(exampleFileName, problemFileName, alpha, beta, gamma):
+def recommendation(exampleFileName, problemFileName, alpha, beta, gamma, output = 1):
     examples = list()
     with open(exampleFileName, 'r') as f:
         reader = csv.reader(f)
@@ -104,17 +104,18 @@ def recommendation(exampleFileName, problemFileName, alpha, beta, gamma):
 
     precision = [x/len(examples) for x in precision]
     recall = [x/len(examples) for x in recall]
-    # for i in range(0,len(recall)):
-    #     print("Precision at top ",top[i],": ", precision[i])
-    #     print("Recall at top  ",top[i],": ", recall[i])
-    #     print("F1 at top  ",top[i],": ", 2*precision[i]*recall[i]/(recall[i]+precision[i]))
+    if output == 1:
+        for i in range(0,len(recall)):
+            print("Precision at top ",top[i],": ", precision[i])
+            print("Recall at top  ",top[i],": ", recall[i])
+            print("F1 at top  ",top[i],": ", 2*precision[i]*recall[i]/(recall[i]+precision[i]))
 
     #return F1 at top 10, since top 10 is best, so choose top 10 at standard
     return 2*precision[0]*recall[0]/(recall[0]+precision[0]),2*precision[1]*recall[1]/(recall[1]+precision[1]),2*precision[2]*recall[2]/(recall[2]+precision[2]),2*precision[3]*recall[3]/(recall[3]+precision[3])
     # print(len(problemsByTopic))
     # print(problemsByTopic[2])
 
-def recommendation_combined(exampleFileName, problemFileName, alpha, beta, gamma):
+def recommendation_combined(exampleFileName, problemFileName, alpha, beta, gamma, output = 1):
     examples = list()
     with open(exampleFileName, 'r') as f:
         reader = csv.reader(f)
@@ -265,17 +266,18 @@ def recommendation_combined(exampleFileName, problemFileName, alpha, beta, gamma
 
     precision = [x/len(examples) for x in precision]
     recall = [x/len(examples) for x in recall]
-    for i in range(0,len(recall)):
-        print("Precision at top ",top[i],": ", precision[i])
-        print("Recall at top  ",top[i],": ", recall[i])
-        print("F1 at top  ",top[i],": ", 2*precision[i]*recall[i]/(recall[i]+precision[i]))
+    if output ==1:
+        for i in range(0,len(recall)):
+            print("Precision at top ",top[i],": ", precision[i])
+            print("Recall at top  ",top[i],": ", recall[i])
+            print("F1 at top  ",top[i],": ", 2*precision[i]*recall[i]/(recall[i]+precision[i]))
 
     #return F1 at top 10, since top 10 is best, so choose top 10 at standard
     return 2*precision[0]*recall[0]/(recall[0]+precision[0]),2*precision[1]*recall[1]/(recall[1]+precision[1]),2*precision[2]*recall[2]/(recall[2]+precision[2]),2*precision[3]*recall[3]/(recall[3]+precision[3])
     # print(len(problemsByTopic))
     # print(problemsByTopic[2])
 
-def recommendation_tfidf_wizard(exampleFileName, problemFileName, alpha, beta, gamma):
+def recommendation_tfidf_wizard(exampleFileName, problemFileName, alpha, beta, gamma, output = 1):
     examples = list()
     with open(exampleFileName, 'r') as f:
         reader = csv.reader(f)
@@ -433,10 +435,11 @@ def recommendation_tfidf_wizard(exampleFileName, problemFileName, alpha, beta, g
 
     precision = [x / len(examples) for x in precision]
     recall = [x / len(examples) for x in recall]
-    for i in range(0, len(recall)):
-        print("Precision at top ", top[i], ": ", precision[i])
-        print("Recall at top  ", top[i], ": ", recall[i])
-        print("F1 at top  ", top[i], ": ", 2 * precision[i] * recall[i] / (recall[i] + precision[i]))
+    if output ==1:
+        for i in range(0, len(recall)):
+            print("Precision at top ", top[i], ": ", precision[i])
+            print("Recall at top  ", top[i], ": ", recall[i])
+            print("F1 at top  ", top[i], ": ", 2 * precision[i] * recall[i] / (recall[i] + precision[i]))
 
     # return F1 at top 10, since top 10 is best, so choose top 10 at standard
     return 2 * precision[0] * recall[0] / (recall[0] + precision[0]), 2 * precision[1] * recall[1] / (
@@ -596,43 +599,41 @@ def FindBestParameters():
     best_f1_5 = 0
     best_f1_10 = 0
     best_f1_15 = 0
-    for a in range(0, 101):
+    for a in range(1, 101):
         print("###########################")
         print(a)
-        for b in range(0, 101):
+        for b in range(1, 101):
             print(b)
-            for c in range(0, 101):
-                if a == 0 and b == 0 and c == 0:
-                    break
-                # print(a,b,c)
-                f1_3, f1_5, f1_10, f1_15 = recommendation("data/arto.examples_with_concepts.aggregated.csv", "data/arto.assignment.csv", a, b, c)
-                if f1_3 > best_f1_3:
-                    best_f1_3 = f1_3
-                    alpha_best_3 = a
-                    beta_best_3 = b
-                    gamma_best_3 = c
-                    print("Current best at top 3:",best_f1_3, alpha_best_3, beta_best_3, gamma_best_3)
+            for c in range(1, 101):
+                if a != 0 or b != 0 or c != 0:
+                    f1_3, f1_5, f1_10, f1_15 = recommendation_combined("data/arto.examples_with_concepts.aggregated.csv", "data/arto.assignment.csv", a, b, c,0)
+                    if f1_3 > best_f1_3:
+                        best_f1_3 = f1_3
+                        alpha_best_3 = a
+                        beta_best_3 = b
+                        gamma_best_3 = c
+                        print("Current best at top 3:",best_f1_3, alpha_best_3, beta_best_3, gamma_best_3)
 
-                if f1_5 > best_f1_5:
-                    best_f1_5 = f1_5
-                    alpha_best_5 = a
-                    beta_best_5 = b
-                    gamma_best_5 = c
-                    print("Current best at top 5:",best_f1_5, alpha_best_5, beta_best_5, gamma_best_5)
+                    if f1_5 > best_f1_5:
+                        best_f1_5 = f1_5
+                        alpha_best_5 = a
+                        beta_best_5 = b
+                        gamma_best_5 = c
+                        print("Current best at top 5:",best_f1_5, alpha_best_5, beta_best_5, gamma_best_5)
 
-                if f1_10 > best_f1_10:
-                    best_f1_10 = f1_10
-                    alpha_best_10 = a
-                    beta_best_10 = b
-                    gamma_best_10 = c
-                    print("Current best at top 10:",best_f1_10, alpha_best_10, beta_best_10, gamma_best_10)
+                    if f1_10 > best_f1_10:
+                        best_f1_10 = f1_10
+                        alpha_best_10 = a
+                        beta_best_10 = b
+                        gamma_best_10 = c
+                        print("Current best at top 10:",best_f1_10, alpha_best_10, beta_best_10, gamma_best_10)
 
-                if f1_15 > best_f1_15:
-                    best_f1_15 = f1_15
-                    alpha_best_15 = a
-                    beta_best_15 = b
-                    gamma_best_15 = c
-                    print("Current best at top 15:",best_f1_15, alpha_best_15, beta_best_15, gamma_best_15)
+                    if f1_15 > best_f1_15:
+                        best_f1_15 = f1_15
+                        alpha_best_15 = a
+                        beta_best_15 = b
+                        gamma_best_15 = c
+                        print("Current best at top 15:",best_f1_15, alpha_best_15, beta_best_15, gamma_best_15)
 
     print("RESULT")
     print("Top 3: ",best_f1_3, alpha_best_3, beta_best_3, gamma_best_3)
@@ -651,12 +652,12 @@ def DrawContour():
             # z[4] = recommendation("data/arto.examples_with_concepts.aggregated.csv", "data/arto.assignment.csv", 2,
             #                        b, c)
             f1_15.append(recommendation("data/arto.examples_with_concepts.aggregated.csv",
-                                           "data/arto.assignment.csv", b,c, 26))
+                                           "data/arto.assignment.csv", 0,b, c,0)[3])
             if f1_15[-1] > best_f1:
                 best_f1 = f1_15[-1]
-                alpha_best = b
-                beta_best = c
-                print(best_f1, alpha_best, beta_best, 26)
+                beta_best = b
+                gamma_best = c
+                print(best_f1, 0, beta_best, gamma_best)
 
     # print(z)
     z = np.copy(f1_15)
@@ -672,9 +673,9 @@ def DrawContour():
     plt.imshow(z, vmin=z.min(), vmax=z.max(), origin='lower',
                extent=[x.min(), x.max(), y.min(), y.max()])
     # plt.scatter(x, y, c=z)
-    plt.title(r'$\gamma$ = -2.6')
-    plt.ylabel(r'$\alpha$')
-    plt.xlabel(r'$\beta$')
+    plt.title(r'$\alpha$ = 0')
+    plt.ylabel(r'$\beta$')
+    plt.xlabel(r'$\gamma$')
     plt.colorbar()
     plt.show()
     # # print(z)
@@ -690,10 +691,10 @@ def DrawContour():
 
 
     print("RESULT")
-    print(best_f1,alpha_best, beta_best, 26)
+    print(best_f1,0, beta_best, gamma_best)
 
 # DrawContour()
-# recommendation("data/arto.examples_with_concepts.aggregated.csv", "data/arto.assignment.csv", 1, 2, 8)
+# recommendation("data/arto.examples_with_concepts.aggregated.csv", "data/arto.assignment.csv", 0.5, 1, 4)
 # recommendation_tfidf_wizard("data/arto.examples_with_concepts.aggregated.csv", "data/arto.assignment.csv", 0,2,3)
 # recommendation_combined("data/arto.examples_with_concepts.aggregated.csv", "data/arto.assignment.csv", 0, 1, 12)
 # recommendation_tfidf("data/arto.examples_with_concepts.aggregated.csv", "data/arto.assignment.csv")
