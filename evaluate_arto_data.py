@@ -3,8 +3,17 @@ from operator import itemgetter
 import numpy as np
 import matplotlib.pyplot as plt
 import math
+from random import randint, seed
+import aggregate_data
 
 def recommendation(exampleFileName, problemFileName, alpha, beta, gamma, output = 1):
+    if alpha==0:
+        alpha=0.000001
+    if beta==0:
+        beta =0.000001
+    if gamma==0:
+        gamma=0.000001
+
     examples = list()
     with open(exampleFileName, 'r') as f:
         reader = csv.reader(f)
@@ -45,6 +54,140 @@ def recommendation(exampleFileName, problemFileName, alpha, beta, gamma, output 
                         if c != '':
                             conceptSet.add(c.split(":")[0])
                     problems[int(row[1])] = conceptSet
+        # if int(row[3]) not in [11,12]:
+        #     problemsByTopic.append(problems)
+        problemsByTopic.append(problems)
+
+
+    passConcepts = set()
+    currentConcepts = set()
+    top = [3,5,10,15]
+    precision = [0,0,0,0]
+    recall = [0, 0, 0, 0]
+    f1 = [0, 0, 0, 0]
+    for i in range(0, len(examples)):
+        # print(e)
+        # e = examples[i]
+        # e[1] = e[1].replace("{", "")
+        # e[1] = e[1].replace("}", "")
+        # e[1] = e[1].replace("'", "")
+        # e[1] = e[1].replace(" ", "")
+        # example = 0
+        # for c in e[1].split(","):
+        #     if c != '':
+        #         currentConcepts.add(c.split(':')[0])
+
+        e = examples[i]
+        e[2] = e[2].replace("[","")
+        e[2] = e[2].replace("]", "")
+        e[2] = e[2].replace("'", "")
+        e[2] = e[2].replace(" ", "")
+        for c in e[2].split(","):
+            if c!= '':
+                currentConcepts.add(c)
+
+        # print(len(currentConcepts), len(currentConcepts-passConcepts))
+        currentConcepts = currentConcepts - passConcepts
+
+        # print(currentConcepts)
+        rankedList = list()
+        for j in range(i,len(problemsByTopic)):
+            for key,value in problemsByTopic[j].items():
+                concepts_in_problem = value
+                currentConcepts_in_problem = concepts_in_problem & currentConcepts
+                passConcepts_in_problem = concepts_in_problem & passConcepts
+                futureConcepts_in_problem =concepts_in_problem - (currentConcepts_in_problem|passConcepts_in_problem)
+                if len(currentConcepts_in_problem) > 0 or len(futureConcepts_in_problem) > 0:
+                    score = len(passConcepts_in_problem)*alpha+len(currentConcepts_in_problem)*beta-len(futureConcepts_in_problem)*gamma
+                    rankedList.append((score,key,j+1))
+
+        # print(len(problemsByTopic[i]))
+        rankedList = sorted(rankedList, key=itemgetter(0), reverse=True)
+        # print(rankedList,"\n")
+        concepts_in_current_problems = set()
+        for key, value in problemsByTopic[i].items():
+            concepts_in_current_problems = concepts_in_current_problems | value
+
+        for t in range(0,len(top)):
+            TP = 0
+            for idx in range(0,top[t]):
+                if idx < len(rankedList):
+                    if rankedList[idx][2] == (i+1):
+                        TP+= 1
+            if top[t] <= len(rankedList):
+                precision[t] += TP/top[t]
+            else:
+                precision[t] += TP / len(rankedList)
+            recall[t] += TP/len(problemsByTopic[i])
+        # print(passConcepts)
+        passConcepts = passConcepts | concepts_in_current_problems
+        # passConcepts = passConcepts | currentConcepts
+        currentConcepts = set()
+
+    precision = [x/len(examples) for x in precision]
+    recall = [x/len(examples) for x in recall]
+    for i in range(0, len(recall)):
+        if recall[i] == 0 and precision[i] == 0:
+            f1[i] = 0
+        else:
+            f1[i] = 2 * precision[i] * recall[i] / (recall[i] + precision[i])
+
+    if output == 1:
+        for i in range(0, len(recall)):
+            print("Precision at top ", top[i], ": ", precision[i])
+            print("Recall at top  ", top[i], ": ", recall[i])
+            print("F1 at top  ", top[i], ": ", f1[i])
+
+            # return F1 at top 10, since top 10 is best, so choose top 10 at standard
+    return f1
+    # print(len(problemsByTopic))
+    # print(problemsByTopic[2])
+
+# difference with recommendation() is that this function doesn't save the performance metrics of the previous topics, only care about the current topic.
+# To compare the performances of wizard with different numbers of examples
+def recommendation_error_rate(exampleFileName, problemFileName, alpha, beta, gamma, topic_to_eval, output = 1):
+    examples = list()
+    with open(exampleFileName, 'r') as f:
+        reader = csv.reader(f)
+        for row in reader:
+            if row[0] != "Week":
+                examples.append(row)
+
+    # print(examples)
+    #remove the last two topics
+    examples = examples[:-2]
+    # get
+    problemsByTopic = list()
+    with open(problemFileName, 'r') as f:
+        reader = csv.reader(f)
+        topic =1
+        problems = dict()
+        for row in reader:
+            # print(row)
+            if row[0] != "Week":
+                if int(row[3]) == topic:
+                    if int(row[1]) not in problems:
+                        conceptSet = set()
+                    else:
+                        conceptSet = problems[int(row[1])]
+                    conceptList = row[5].split(",")
+                    for c in conceptList:
+                        if c != '':
+                            conceptSet.add(c.split(":")[0])
+                    problems[int(row[1])] = conceptSet
+                    # print(row[1])
+                else:
+                    topic +=1
+                    problemsByTopic.append(problems)
+                    problems = dict()
+                    conceptSet = set()
+                    conceptList = row[5].split(",")
+                    for c in conceptList:
+                        if c != '':
+                            conceptSet.add(c.split(":")[0])
+                    problems[int(row[1])] = conceptSet
+        # if int(row[3]) not in [11,12]:
+        #     problemsByTopic.append(problems)
         problemsByTopic.append(problems)
 
 
@@ -91,27 +234,44 @@ def recommendation(exampleFileName, problemFileName, alpha, beta, gamma, output 
                     if rankedList[idx][2] == (i+1):
                         TP+= 1
             if top[t] <= len(rankedList):
-                precision[t] += TP/top[t]
+                precision[t] = TP/top[t]
             else:
-                precision[t] += TP / len(rankedList)
-            recall[t] += TP/len(problemsByTopic[i])
+                precision[t] = TP / len(rankedList)
+            recall[t] = TP/len(problemsByTopic[i])
 
+        for idx in range(0, len(recall)):
+            if recall[idx] == 0 and precision[idx] == 0:
+                f1[idx] = 0
+            else:
+                f1[idx] = 2 * precision[idx] * recall[idx] / (recall[idx] + precision[idx])
+
+        if (i+1) == topic_to_eval:
+            break
 
         # print(passConcepts)
         passConcepts = passConcepts | concepts_in_current_problems
         # passConcepts = passConcepts | currentConcepts
         currentConcepts = set()
 
-    precision = [x/len(examples) for x in precision]
-    recall = [x/len(examples) for x in recall]
+    # precision = [x/len(examples) for x in precision]
+    # recall = [x/len(examples) for x in recall]
+    for i in range(0, len(recall)):
+        if recall[i] == 0 and precision[i] == 0:
+            f1[i] = 0
+        else:
+            f1[i] = 2 * precision[i] * recall[i] / (recall[i] + precision[i])
     if output == 1:
         for i in range(0,len(recall)):
             print("Precision at top ",top[i],": ", precision[i])
             print("Recall at top  ",top[i],": ", recall[i])
-            print("F1 at top  ",top[i],": ", 2*precision[i]*recall[i]/(recall[i]+precision[i]))
+            if recall[i]==0 and precision[i]==0:
+                f1[i] = 0
+            else:
+                f1[i] = 2*precision[i]*recall[i]/(recall[i]+precision[i])
+            print("F1 at top  ",top[i],": ", f1[i])
 
     #return F1 at top 10, since top 10 is best, so choose top 10 at standard
-    return 2*precision[0]*recall[0]/(recall[0]+precision[0]),2*precision[1]*recall[1]/(recall[1]+precision[1]),2*precision[2]*recall[2]/(recall[2]+precision[2]),2*precision[3]*recall[3]/(recall[3]+precision[3])
+    return f1
     # print(len(problemsByTopic))
     # print(problemsByTopic[2])
 
@@ -277,7 +437,7 @@ def recommendation_combined(exampleFileName, problemFileName, alpha, beta, gamma
     # print(len(problemsByTopic))
     # print(problemsByTopic[2])
 
-def recommendation_tfidf_wizard(exampleFileName, problemFileName, alpha, beta, gamma, output = 1):
+def recommendation_tfidf_for_wizard(exampleFileName, problemFileName, alpha, beta, gamma, output = 1):
     examples = list()
     with open(exampleFileName, 'r') as f:
         reader = csv.reader(f)
@@ -288,7 +448,7 @@ def recommendation_tfidf_wizard(exampleFileName, problemFileName, alpha, beta, g
     # print(examples)
     # remove the last two topics
     examples = examples[:-2]
-    # get
+    # read problems from file and organize for computation
     number_of_problems = 0
     problemsByTopic = list()
     with open(problemFileName, 'r') as f:
@@ -448,7 +608,6 @@ def recommendation_tfidf_wizard(exampleFileName, problemFileName, alpha, beta, g
     # print(len(problemsByTopic))
     # print(problemsByTopic[2])
 
-
 def recommendation_tfidf(exampleFileName, problemFileName):
     examples = list()
     with open(exampleFileName, 'r') as f:
@@ -542,8 +701,8 @@ def recommendation_tfidf(exampleFileName, problemFileName):
         example = 0
         for c in e[1].split(","):
             if c != '':
-                currentConcepts.append((c.split(':')[0],int(c.split(':')[1])))
-                example += int(c.split(':')[1])*int(c.split(':')[1])
+                currentConcepts.append((c.split(':')[0], int(c.split(':')[1])))
+                example += int(c.split(':')[1]) * int(c.split(':')[1])
         example = math.sqrt(example)
 
         rankedList = list()
@@ -553,14 +712,14 @@ def recommendation_tfidf(exampleFileName, problemFileName):
                 problem = 0
 
                 for v in concepts_in_problem.values():
-                    problem += v*v
+                    problem += v * v
                 problem = math.sqrt(problem)
                 score = 0
                 for c in currentConcepts:
                     if c[0] in concepts_in_problem:
                         # print()
-                        score += c[1]*concepts_in_problem[c[0]]
-                score = score/(example*problem)
+                        score += c[1] * concepts_in_problem[c[0]]
+                score = score / (example * problem)
                 rankedList.append((score, key, j + 1))
 
                 # currentConcepts_in_problem = concepts_in_problem & currentConcepts
@@ -584,15 +743,205 @@ def recommendation_tfidf(exampleFileName, problemFileName):
             else:
                 precision[t] += TP / len(rankedList)
             recall[t] += TP / len(problemsByTopic[i])
+        something = 0
         # print(rankedList)
+
     precision = [x / len(examples) for x in precision]
     recall = [x / len(examples) for x in recall]
     for i in range(0, len(recall)):
+        if recall[i] == 0 and precision[i] == 0:
+            f1[i] = 0
+        else:
+            f1[i] = 2 * precision[i] * recall[i] / (recall[i] + precision[i])
+    for i in range(0, len(recall)):
         print("Precision at top ", top[i], ": ", precision[i])
         print("Recall at top  ", top[i], ": ", recall[i])
-        print("F1 at top  ", top[i], ": ", 2 * precision[i] * recall[i] / (recall[i] + precision[i]))
-    #print(examples[9][2])
+        print("F1 at top  ", top[i], ": ", f1[i])
+        # print(examples[9][2])
 
+def recommendation_wizard_for_tfidf(exampleFileName, problemFileName, alpha, beta, gamma, output = 1):
+    examples = list()
+    with open(exampleFileName, 'r') as f:
+        reader = csv.reader(f)
+        for row in reader:
+            if row[0] != "Week":
+                examples.append(row)
+
+    # print(examples)
+    # remove the last two topics
+    examples = examples[:-2]
+    # read problems
+    number_of_problems = 0
+    problemsByTopic = list()
+    with open(problemFileName, 'r') as f:
+        reader = csv.reader(f)
+        topic = 1
+        problems = dict()
+        idf = dict()
+        for row in reader:
+            # print(row)
+            if row[0] != "Week":
+                if int(row[3]) == topic:
+                    if int(row[1]) not in problems:
+                        conceptSet = dict()
+                    else:
+                        conceptSet = problems[int(row[1])]
+                    conceptList = row[5].split(",")
+                    for c in conceptList:
+                        if c != '':
+                            # conceptSet.add((c.split(":")[0],float(c.split(":")[1])))
+                            # conceptSet = AddConcept(conceptSet,c)
+                            if c.split(':')[0] in conceptSet:
+                                conceptSet[c.split(':')[0]] +=  float(c.split(':')[1])
+                            else:
+                                conceptSet[c.split(':')[0]] = float(c.split(':')[1])
+                                if c.split(":")[0] in idf:
+                                    idf[c.split(":")[0]] += 1
+                                else:
+                                    idf[c.split(":")[0]] = 1
+
+
+                    problems[int(row[1])] = conceptSet
+                    # print(row[1])
+                else:
+                    topic += 1
+                    problemsByTopic.append(problems)
+                    number_of_problems+= len((problems))
+                    problems = dict()
+                    conceptSet = dict()
+                    conceptList = row[5].split(",")
+                    for c in conceptList:
+                        if c != '':
+                            # conceptSet.add((c.split(":")[0], float(c.split(":")[1])))
+                            # conceptSet = AddConcept(conceptSet, c)
+                            if c.split(':')[0] in conceptSet:
+                                conceptSet[c.split(':')[0]] +=  float(c.split(':')[1])
+                            else:
+                                conceptSet[c.split(':')[0]] = float(c.split(':')[1])
+                                if c.split(":")[0] in idf:
+                                    idf[c.split(":")[0]] += 1
+                                else:
+                                    idf[c.split(":")[0]] = 1
+
+
+                    problems[int(row[1])] = conceptSet
+        problemsByTopic.append(problems)
+        number_of_problems += len((problems))
+
+    #calculate tf-idf for each problem
+    for i in range(0,len(problemsByTopic)):
+        for k1,v1 in problemsByTopic[i].items():
+            for v2 in v1:
+                # print(v2)
+                # print(number_of_problems*1.0/idf[v2])
+                v1[v2] = (1 + math.log(v1[v2]))*math.log10(number_of_problems*1.0/idf[v2])
+            problemsByTopic[i][k1] = v1
+
+    passConcepts = set()
+    currentConcepts = list()
+    top = [3, 5, 10, 15]
+    precision = [0, 0, 0, 0]
+    recall = [0, 0, 0, 0]
+    f1 = [0, 0, 0, 0]
+    for i in range(0, len(examples)):
+        # print(e)
+        e = examples[i]
+        e[1] = e[1].replace("{", "")
+        e[1] = e[1].replace("}", "")
+        e[1] = e[1].replace("'", "")
+        e[1] = e[1].replace(" ", "")
+        example = 0
+        for c in e[1].split(","):
+            if c != '':
+                #this includes only new concepts
+                if c.split(':')[0] not in passConcepts:
+                    currentConcepts.append((c.split(':')[0],int(c.split(':')[1])))
+                    example += int(c.split(':')[1])*int(c.split(':')[1])
+        example = math.sqrt(example)
+
+        rankedList = list()
+        for j in range(i, len(problemsByTopic)):
+            currentConcepts_in_problem = set()
+            passConcepts_in_problem = set()
+            futureConcepts_in_problem = set()
+            for key, value in problemsByTopic[j].items():
+                concepts_in_problem = value
+                # currentConcepts_in_problem = concepts_in_problem & currentConcepts
+                for c in currentConcepts:
+                    if c[0] in concepts_in_problem:
+                        currentConcepts_in_problem.add(c[0])
+                for c in passConcepts:
+                    if c in concepts_in_problem:
+                        passConcepts_in_problem.add(c)
+
+                # passConcepts_in_problem = concepts_in_problem & passConcepts
+                # futureConcepts_in_problem = concepts_in_problem - (currentConcepts_in_problem | passConcepts_in_problem)
+
+                problem = 0
+                for k,v in concepts_in_problem.items():
+                    if k in currentConcepts_in_problem:
+                        problem += v*v*beta*beta
+                    elif k in passConcepts_in_problem:
+                        problem += v*v*alpha*alpha
+                    else:
+                        problem += v * v * gamma* gamma
+                problem = math.sqrt(problem)
+                score = 0
+                for c in currentConcepts:
+                    if c[0] in concepts_in_problem:
+                        # print()
+                        if c[0] in currentConcepts_in_problem:
+                            score += beta*c[1]*concepts_in_problem[c[0]]
+                        elif c[0] in passConcepts_in_problem:
+                            score += alpha * c[1] * concepts_in_problem[c[0]]
+                        else:
+                            score -= gamma * c[1] * concepts_in_problem[c[0]]
+                score = score/(example*problem)
+                rankedList.append((score, key, j + 1))
+
+        rankedList = sorted(rankedList, key=itemgetter(0), reverse=True)
+
+        concepts_in_current_problems = set()
+        for key, value in problemsByTopic[i].items():
+            for c in value:
+                concepts_in_current_problems.add(c)
+
+        for t in range(0, len(top)):
+            TP = 0
+            for idx in range(0, top[t]):
+                if idx < len(rankedList):
+                    if rankedList[idx][2] == (i + 1):
+                        TP += 1
+            if top[t] <= len(rankedList):
+                precision[t] += TP / top[t]
+            else:
+                precision[t] += TP / len(rankedList)
+            recall[t] += TP / len(problemsByTopic[i])
+
+        # print(rankedList)
+        passConcepts = passConcepts | concepts_in_current_problems
+        # add the concepts appear in examples but not in problems chosen by instructor
+        for c in currentConcepts:
+            if c not in passConcepts:
+                passConcepts.add(c)
+        currentConcepts = list()
+
+    precision = [x / len(examples) for x in precision]
+    recall = [x / len(examples) for x in recall]
+    for i in range(0, len(recall)):
+        if recall[i] == 0 and precision[i] == 0:
+            f1[i] = 0
+        else:
+            f1[i] = 2 * precision[i] * recall[i] / (recall[i] + precision[i])
+
+    if output == 1:
+        for i in range(0, len(recall)):
+            print("Precision at top ", top[i], ": ", precision[i])
+            print("Recall at top  ", top[i], ": ", recall[i])
+            print("F1 at top  ", top[i], ": ", f1[i])
+
+            # return F1 at top 10, since top 10 is best, so choose top 10 at standard
+    return f1
 
 def FindBestParameters():
     best_f1_3 = 0
@@ -606,34 +955,34 @@ def FindBestParameters():
             print(b)
             for c in range(1, 101):
                 if a != 0 or b != 0 or c != 0:
-                    f1_3, f1_5, f1_10, f1_15 = recommendation_combined("data/arto.examples_with_concepts.aggregated.csv", "data/arto.assignment.csv", a, b, c,0)
+                    f1_3, f1_5, f1_10, f1_15 = recommendation("data/arto.examples_with_concepts.aggregated.csv", "data/arto.assignment.csv", a, b, c,0)
                     if f1_3 > best_f1_3:
                         best_f1_3 = f1_3
                         alpha_best_3 = a
                         beta_best_3 = b
                         gamma_best_3 = c
-                        print("Current best at top 3:",best_f1_3, alpha_best_3, beta_best_3, gamma_best_3)
+                        print("Current best at top 3:",best_f1_3,"\t", alpha_best_3, beta_best_3, gamma_best_3)
 
                     if f1_5 > best_f1_5:
                         best_f1_5 = f1_5
                         alpha_best_5 = a
                         beta_best_5 = b
                         gamma_best_5 = c
-                        print("Current best at top 5:",best_f1_5, alpha_best_5, beta_best_5, gamma_best_5)
+                        print("Current best at top 5:",best_f1_5,"\t", alpha_best_5, beta_best_5, gamma_best_5)
 
                     if f1_10 > best_f1_10:
                         best_f1_10 = f1_10
                         alpha_best_10 = a
                         beta_best_10 = b
                         gamma_best_10 = c
-                        print("Current best at top 10:",best_f1_10, alpha_best_10, beta_best_10, gamma_best_10)
+                        print("Current best at top 10:",best_f1_10,"\t", alpha_best_10, beta_best_10, gamma_best_10)
 
                     if f1_15 > best_f1_15:
                         best_f1_15 = f1_15
                         alpha_best_15 = a
                         beta_best_15 = b
                         gamma_best_15 = c
-                        print("Current best at top 15:",best_f1_15, alpha_best_15, beta_best_15, gamma_best_15)
+                        print("Current best at top 15:",best_f1_15,"\t", alpha_best_15, beta_best_15, gamma_best_15)
 
     print("RESULT")
     print("Top 3: ",best_f1_3, alpha_best_3, beta_best_3, gamma_best_3)
@@ -652,12 +1001,12 @@ def DrawContour():
             # z[4] = recommendation("data/arto.examples_with_concepts.aggregated.csv", "data/arto.assignment.csv", 2,
             #                        b, c)
             f1_15.append(recommendation("data/arto.examples_with_concepts.aggregated.csv",
-                                           "data/arto.assignment.csv", 0,b, c,0)[3])
-            if f1_15[-1] > best_f1:
+                                           "data/arto.assignment.csv", b,10,c,0)[3])
+            if f1_15[-1] >= best_f1:
                 best_f1 = f1_15[-1]
-                beta_best = b
-                gamma_best = c
-                print(best_f1, 0, beta_best, gamma_best)
+                para1_best = b
+                para2_best = c
+                print(best_f1, para1_best,10,para2_best)
 
     # print(z)
     z = np.copy(f1_15)
@@ -673,9 +1022,9 @@ def DrawContour():
     plt.imshow(z, vmin=z.min(), vmax=z.max(), origin='lower',
                extent=[x.min(), x.max(), y.min(), y.max()])
     # plt.scatter(x, y, c=z)
-    plt.title(r'$\alpha$ = 0')
-    plt.ylabel(r'$\beta$')
-    plt.xlabel(r'$\gamma$')
+    plt.title(r'$\gamma$ = -2.3')
+    plt.ylabel(r'$\alpha$')
+    plt.xlabel(r'$\beta$')
     plt.colorbar()
     plt.show()
     # # print(z)
@@ -688,17 +1037,60 @@ def DrawContour():
     # # plt.scatter(x, y, c=z1)
     # plt.colorbar()
     # plt.show()
-
-
     print("RESULT")
-    print(best_f1,0, beta_best, gamma_best)
+    print(best_f1,para1_best, 10,para2_best)
+
+#This function perform error rates of different number of examples
+def CheckErrorRate():
+    topic = [(2,32),(3,13),(4,18),(5,22),(6,12),(7,30),(8,35),(9,37)]
+    # topic = [(2,32),(3, 13), (6, 12), (7, 30), (9, 37)]
+    # topic = [(2, 32)]
+    label = list() #save the scatters to add legend
+    name_of_topic = list()  #names of the scatters by topic
+    for t in topic:
+        name_of_topic.append("Topic "+str(t[0]))
+        max = 12
+        number_of_examples = np.arange(1,max+1)
+        f1 = [0]*(max)
+        for time in range(0, 10):
+            for i in range(1,max+1):
+                seed(time+1)
+                examples = list()
+                for j in range(0,i):
+                    ranNum = randint(1,t[1])
+                    while ranNum in examples:
+                        ranNum = randint(1, topic[0][1])
+                    examples.append((ranNum))
+                # print(examples)
+                if i ==max:
+                    hkc =0
+                aggregate_data.aggregate_arto_with_random_examples("data/arto.examples_with_concepts.csv", "data/arto.examples_with_concepts.aggregated.csv",examples,t[0])
+                f1[i-1] += recommendation_error_rate("data/arto.examples_with_concepts.aggregated.csv", "data/arto.assignment.csv", 0.2, 1, 1.5, t[0],0)[3]
+        f1 = [x / 10 for x in f1]
+        label.append(plt.scatter(number_of_examples,f1, s =5, alpha=0.8))
+        plt.plot(number_of_examples, f1)
+    # print(f1)
+    plt.xlabel("Number of examples")
+    plt.ylabel("F1 score at top 15")
+    plt.legend(label,
+               name_of_topic,
+               scatterpoints=1,
+               loc='upper left',
+               bbox_to_anchor=(0.8, 0.5),
+               ncol=1,
+               fontsize=8)
+    plt.show()
+        # print(examples
 
 # DrawContour()
-# recommendation("data/arto.examples_with_concepts.aggregated.csv", "data/arto.assignment.csv", 0.5, 1, 4)
-# recommendation_tfidf_wizard("data/arto.examples_with_concepts.aggregated.csv", "data/arto.assignment.csv", 0,2,3)
+# recommendation("data/arto.examples_with_concepts.aggregated.csv", "data/arto.assignment.csv", 1, 8, 19)
+# print("\n\n")
+# recommendation_wizard_for_tfidf("data/arto.examples_with_concepts.aggregated.csv", "data/arto.assignment.csv", 0.2, 1, 1.5)
+# CheckErrorRate()
+# recommendation_tfidf_wizard("data/arto.examples_with_concepts.aggregated.csv", "data/arto.assignment.csv",0.1, 0.8, 2.1)
 # recommendation_combined("data/arto.examples_with_concepts.aggregated.csv", "data/arto.assignment.csv", 0, 1, 12)
 # recommendation_tfidf("data/arto.examples_with_concepts.aggregated.csv", "data/arto.assignment.csv")
-FindBestParameters()
+# FindBestParameters()
 
 # a ="dsadafgert"
 # a = a.replace("\[asf]","")
