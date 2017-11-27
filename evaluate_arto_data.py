@@ -23,7 +23,7 @@ def recommendation(exampleFileName, problemFileName, alpha, beta, gamma, output 
 
     # print(examples)
     #remove the last two topics
-    examples = examples[:-2]
+    # examples = examples[:-1]
     # get
     problemsByTopic = list()
     with open(problemFileName, 'r') as f:
@@ -72,7 +72,6 @@ def recommendation(exampleFileName, problemFileName, alpha, beta, gamma, output 
         # e[1] = e[1].replace("}", "")
         # e[1] = e[1].replace("'", "")
         # e[1] = e[1].replace(" ", "")
-        # example = 0
         # for c in e[1].split(","):
         #     if c != '':
         #         currentConcepts.add(c.split(':')[0])
@@ -89,6 +88,8 @@ def recommendation(exampleFileName, problemFileName, alpha, beta, gamma, output 
         # print(len(currentConcepts), len(currentConcepts-passConcepts))
         currentConcepts = currentConcepts - passConcepts
 
+        # print(currentConcepts,"\n")
+
         # print(currentConcepts)
         rankedList = list()
         for j in range(i,len(problemsByTopic)):
@@ -99,6 +100,7 @@ def recommendation(exampleFileName, problemFileName, alpha, beta, gamma, output 
                 futureConcepts_in_problem =concepts_in_problem - (currentConcepts_in_problem|passConcepts_in_problem)
                 if len(currentConcepts_in_problem) > 0 or len(futureConcepts_in_problem) > 0:
                     score = len(passConcepts_in_problem)*alpha+len(currentConcepts_in_problem)*beta-len(futureConcepts_in_problem)*gamma
+                    # score = score/len(concepts_in_problem)
                     rankedList.append((score,key,j+1))
 
         # print(len(problemsByTopic[i]))
@@ -108,17 +110,22 @@ def recommendation(exampleFileName, problemFileName, alpha, beta, gamma, output 
         for key, value in problemsByTopic[i].items():
             concepts_in_current_problems = concepts_in_current_problems | value
 
-        for t in range(0,len(top)):
+        for t in range(0, len(top)):
             TP = 0
-            for idx in range(0,top[t]):
+            for idx in range(0, top[t]):
                 if idx < len(rankedList):
-                    if rankedList[idx][2] == (i+1):
-                        TP+= 1
+                    if rankedList[idx][2] == (i + 1):
+                        TP += 1
             if top[t] <= len(rankedList):
-                precision[t] += TP/top[t]
+                precision[t] += TP / top[t]
+                # precision[t] = TP / top[t]
             else:
                 precision[t] += TP / len(rankedList)
-            recall[t] += TP/len(problemsByTopic[i])
+                # precision[t] = TP / len(rankedList)
+            recall[t] += TP / len(problemsByTopic[i])
+            # recall[t] = TP / len(problemsByTopic[i])
+        # print("precision",i,precision)
+        # print("recall",i, precision)
         # print(passConcepts)
         passConcepts = passConcepts | concepts_in_current_problems
         # passConcepts = passConcepts | currentConcepts
@@ -533,6 +540,8 @@ def recommendation_tfidf_for_wizard(exampleFileName, problemFileName, alpha, bet
             if c != '':
                 currentConcepts.add(c)
         # print(currentConcepts)
+
+        currentConcepts = currentConcepts - passConcepts
         rankedList = list()
 
         for j in range(i, len(problemsByTopic)):
@@ -618,7 +627,7 @@ def recommendation_tfidf(exampleFileName, problemFileName):
 
     # print(examples)
     # remove the last two topics
-    examples = examples[:-2]
+    # examples = examples[:-1]
     # get
     number_of_problems = 0
     problemsByTopic = list()
@@ -690,8 +699,9 @@ def recommendation_tfidf(exampleFileName, problemFileName):
     precision = [0, 0, 0, 0]
     recall = [0, 0, 0, 0]
     f1 = [0, 0, 0, 0]
-    currentConcepts = list()
+
     for i in range(0, len(examples)):
+        currentConcepts = list()
         # print(e)
         e = examples[i]
         e[1] = e[1].replace("{", "")
@@ -702,8 +712,6 @@ def recommendation_tfidf(exampleFileName, problemFileName):
         for c in e[1].split(","):
             if c != '':
                 currentConcepts.append((c.split(':')[0], int(c.split(':')[1])))
-                example += int(c.split(':')[1]) * int(c.split(':')[1])
-        example = math.sqrt(example)
 
         rankedList = list()
         for j in range(i, len(problemsByTopic)):
@@ -719,7 +727,8 @@ def recommendation_tfidf(exampleFileName, problemFileName):
                     if c[0] in concepts_in_problem:
                         # print()
                         score += c[1] * concepts_in_problem[c[0]]
-                score = score / (example * problem)
+                score = score / (problem)
+                # score = score/len(concepts_in_problem)
                 rankedList.append((score, key, j + 1))
 
                 # currentConcepts_in_problem = concepts_in_problem & currentConcepts
@@ -740,9 +749,14 @@ def recommendation_tfidf(exampleFileName, problemFileName):
                         TP += 1
             if top[t] <= len(rankedList):
                 precision[t] += TP / top[t]
+                # precision[t] = TP / top[t]
             else:
                 precision[t] += TP / len(rankedList)
+                # precision[t] = TP / len(rankedList)
             recall[t] += TP / len(problemsByTopic[i])
+            # recall[t] = TP / len(problemsByTopic[i])
+        # print("precision",i,precision)
+        # print("recall",i, precision)
         something = 0
         # print(rankedList)
 
@@ -1001,12 +1015,12 @@ def DrawContour():
             # z[4] = recommendation("data/arto.examples_with_concepts.aggregated.csv", "data/arto.assignment.csv", 2,
             #                        b, c)
             f1_15.append(recommendation("data/arto.examples_with_concepts.aggregated.csv",
-                                           "data/arto.assignment.csv", b,10,c,0)[3])
+                                           "data/arto.assignment.csv",1.25, b,c,0)[3])
             if f1_15[-1] >= best_f1:
                 best_f1 = f1_15[-1]
                 para1_best = b
                 para2_best = c
-                print(best_f1, para1_best,10,para2_best)
+                print(best_f1,1.25, para1_best,para2_best)
 
     # print(z)
     z = np.copy(f1_15)
@@ -1022,9 +1036,9 @@ def DrawContour():
     plt.imshow(z, vmin=z.min(), vmax=z.max(), origin='lower',
                extent=[x.min(), x.max(), y.min(), y.max()])
     # plt.scatter(x, y, c=z)
-    plt.title(r'$\gamma$ = -2.3')
-    plt.ylabel(r'$\alpha$')
-    plt.xlabel(r'$\beta$')
+    plt.title(r'$\alpha$ = 0.125')
+    plt.ylabel(r'$\beta$')
+    plt.xlabel(r'$\gamma$')
     plt.colorbar()
     plt.show()
     # # print(z)
@@ -1038,7 +1052,7 @@ def DrawContour():
     # plt.colorbar()
     # plt.show()
     print("RESULT")
-    print(best_f1,para1_best, 10,para2_best)
+    print(best_f1,1.25,para1_best, para2_best)
 
 #This function perform error rates of different number of examples
 def CheckErrorRate():
@@ -1083,13 +1097,16 @@ def CheckErrorRate():
         # print(examples
 
 # DrawContour()
-# recommendation("data/arto.examples_with_concepts.aggregated.csv", "data/arto.assignment.csv", 1, 8, 19)
-# print("\n\n")
+recommendation("data/arto.examples_with_concepts.aggregated.csv", "data/arto.assignment.csv", 0.2, 1, 1.5)
+print("\n\n")
+recommendation_tfidf("data/arto.examples_with_concepts.aggregated.csv", "data/arto.assignment.csv")
+print("\n\n")
 # recommendation_wizard_for_tfidf("data/arto.examples_with_concepts.aggregated.csv", "data/arto.assignment.csv", 0.2, 1, 1.5)
 # CheckErrorRate()
-# recommendation_tfidf_wizard("data/arto.examples_with_concepts.aggregated.csv", "data/arto.assignment.csv",0.1, 0.8, 2.1)
-# recommendation_combined("data/arto.examples_with_concepts.aggregated.csv", "data/arto.assignment.csv", 0, 1, 12)
-# recommendation_tfidf("data/arto.examples_with_concepts.aggregated.csv", "data/arto.assignment.csv")
+# print("\n\n")
+# recommendation_tfidf_for_wizard("data/arto.examples_with_concepts.aggregated.csv", "data/arto.assignment.csv",0.2, 1, 1.5)
+# recommendation_combined("data/arto.examples_with_concepts.aggregated.csv", "data/arto.assignment.csv", 0.2, 1, 1.5)
+
 # FindBestParameters()
 
 # a ="dsadafgert"

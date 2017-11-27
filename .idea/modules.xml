@@ -2,10 +2,12 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/../django_apps/UPitt_activity_finder/.idea/UPitt_activity_finder.iml" filepath="$PROJECT_DIR$/../django_apps/UPitt_activity_finder/.idea/UPitt_activity_finder.iml" />
       <module fileurl="file://$PROJECT_DIR$/../../pycharm/nlp/ass1/.idea/ass1.iml" filepath="$PROJECT_DIR$/../../pycharm/nlp/ass1/.idea/ass1.iml" />
       <module fileurl="file://$PROJECT_DIR$/../../pycharm/contour3D/.idea/contour3D.iml" filepath="$PROJECT_DIR$/../../pycharm/contour3D/.idea/contour3D.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/cs1-comparison.iml" filepath="$PROJECT_DIR$/.idea/cs1-comparison.iml" />
       <module fileurl="file://$PROJECT_DIR$/../../eclipse-luna/ConceptExtraction/data/.idea/data.iml" filepath="$PROJECT_DIR$/../../eclipse-luna/ConceptExtraction/data/.idea/data.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../tagging/data-analysis/.idea/data-analysis.iml" filepath="$PROJECT_DIR$/../tagging/data-analysis/.idea/data-analysis.iml" />
     </modules>
   </component>
 </project>

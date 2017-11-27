@@ -72,11 +72,10 @@ def recommendation(exampleFileName, problemFileName, alpha, beta, gamma, output 
         # e[1] = e[1].replace("}", "")
         # e[1] = e[1].replace("'", "")
         # e[1] = e[1].replace(" ", "")
-        # example = 0
         # for c in e[1].split(","):
         #     if c != '':
         #         currentConcepts.add(c.split(':')[0])
-
+        #
         e = examples[i]
         e[2] = e[2].replace("[","")
         e[2] = e[2].replace("]", "")
@@ -99,6 +98,7 @@ def recommendation(exampleFileName, problemFileName, alpha, beta, gamma, output 
                 futureConcepts_in_problem =concepts_in_problem - (currentConcepts_in_problem|passConcepts_in_problem)
                 if len(currentConcepts_in_problem) > 0 or len(futureConcepts_in_problem) > 0:
                     score = len(passConcepts_in_problem)*alpha+len(currentConcepts_in_problem)*beta-len(futureConcepts_in_problem)*gamma
+                    # score = score/len(concepts_in_problem)
                     rankedList.append((score,key,j+1))
 
         # print(len(problemsByTopic[i]))
@@ -108,20 +108,20 @@ def recommendation(exampleFileName, problemFileName, alpha, beta, gamma, output 
         for key, value in problemsByTopic[i].items():
             concepts_in_current_problems = concepts_in_current_problems | value
 
-        for t in range(0,len(top)):
+        for t in range(0, len(top)):
             TP = 0
-            for idx in range(0,top[t]):
+            for idx in range(0, top[t]):
                 if idx < len(rankedList):
-                    if rankedList[idx][2] == (i+1):
-                        TP+= 1
+                    if rankedList[idx][2] == (i + 1):
+                        TP += 1
             if top[t] <= len(rankedList):
-                precision[t] += TP/top[t]
+                precision[t] += TP / top[t]
+                # precision[t] = TP / top[t]
             else:
-                # if len(rankedList) ==0:
-                #     precision[t]+=0
-                # else:
                 precision[t] += TP / len(rankedList)
-            recall[t] += TP/len(problemsByTopic[i])
+                # precision[t] = TP / len(rankedList)
+            recall[t] += TP / len(problemsByTopic[i])
+            # recall[t] = TP / len(problemsByTopic[i])
         # print(passConcepts)
         passConcepts = passConcepts | concepts_in_current_problems
         # passConcepts = passConcepts | currentConcepts
@@ -472,16 +472,7 @@ def recommendation_tfidf_for_wizard(exampleFileName, problemFileName, alpha, bet
                         if c != '':
                             # conceptSet.add((c.split(":")[0],float(c.split(":")[1])))
                             # conceptSet = AddConcept(conceptSet,c)
-                            if c.split(':')[0] in conceptSet:
-                                conceptSet[c.split(':')[0]] +=  float(c.split(':')[1])
-                            else:
-                                conceptSet[c.split(':')[0]] = float(c.split(':')[1])
-                                if c.split(":")[0] in idf:
-                                    idf[c.split(":")[0]] += 1
-                                else:
-                                    idf[c.split(":")[0]] = 1
-
-
+                            conceptSet[c.split(':')[0]] =  float(c.split(':')[1])
                     problems[int(row[1])] = conceptSet
                     # print(row[1])
                 else:
@@ -493,30 +484,11 @@ def recommendation_tfidf_for_wizard(exampleFileName, problemFileName, alpha, bet
                     conceptList = row[5].split(",")
                     for c in conceptList:
                         if c != '':
-                            # conceptSet.add((c.split(":")[0], float(c.split(":")[1])))
-                            # conceptSet = AddConcept(conceptSet, c)
-                            if c.split(':')[0] in conceptSet:
-                                conceptSet[c.split(':')[0]] +=  float(c.split(':')[1])
-                            else:
-                                conceptSet[c.split(':')[0]] = float(c.split(':')[1])
-                                if c.split(":")[0] in idf:
-                                    idf[c.split(":")[0]] += 1
-                                else:
-                                    idf[c.split(":")[0]] = 1
-
+                            conceptSet[c.split(':')[0]] = float(c.split(':')[1])
 
                     problems[int(row[1])] = conceptSet
         problemsByTopic.append(problems)
         number_of_problems += len((problems))
-
-    #calculate tf-idf for each problem
-    for i in range(0,len(problemsByTopic)):
-        for k1,v1 in problemsByTopic[i].items():
-            for v2 in v1:
-                # print(v2)
-                # print(number_of_problems*1.0/idf[v2])
-                v1[v2] = (1 + math.log(v1[v2]))*math.log10(number_of_problems*1.0/idf[v2])
-            problemsByTopic[i][k1] = v1
 
     passConcepts = set()
     currentConcepts = set()
@@ -536,6 +508,7 @@ def recommendation_tfidf_for_wizard(exampleFileName, problemFileName, alpha, bet
             if c != '':
                 currentConcepts.add(c)
         # print(currentConcepts)
+        currentConcepts = currentConcepts - passConcepts
         rankedList = list()
 
         for j in range(i, len(problemsByTopic)):
@@ -674,8 +647,8 @@ def recommendation_tfidf(exampleFileName, problemFileName):
     precision = [0, 0, 0, 0]
     recall = [0, 0, 0, 0]
     f1 = [0, 0, 0, 0]
-    currentConcepts = list()
     for i in range(0, len(examples)):
+        currentConcepts = list()
         # print(e)
         e = examples[i]
         e[1] = e[1].replace("{", "")
@@ -686,8 +659,6 @@ def recommendation_tfidf(exampleFileName, problemFileName):
         for c in e[1].split(","):
             if c != '':
                 currentConcepts.append((c.split(':')[0],int(c.split(':')[1])))
-                example += int(c.split(':')[1])*int(c.split(':')[1])
-        example = math.sqrt(example)
 
         rankedList = list()
         for j in range(i, len(problemsByTopic)):
@@ -701,9 +672,8 @@ def recommendation_tfidf(exampleFileName, problemFileName):
                 score = 0
                 for c in currentConcepts:
                     if c[0] in concepts_in_problem:
-                        # print()
                         score += c[1]*concepts_in_problem[c[0]]
-                score = score/(example*problem)
+                score = score/(problem)
                 rankedList.append((score, key, j + 1))
 
                 # currentConcepts_in_problem = concepts_in_problem & currentConcepts
@@ -725,9 +695,12 @@ def recommendation_tfidf(exampleFileName, problemFileName):
                         TP += 1
             if top[t] <= len(rankedList):
                 precision[t] += TP / top[t]
+                # precision[t] = TP / top[t]
             else:
                 precision[t] += TP / len(rankedList)
+                # precision[t] = TP / len(rankedList)
             recall[t] += TP / len(problemsByTopic[i])
+            # recall[t] = TP / len(problemsByTopic[i])
         something =0
         # print(rankedList)
 
@@ -923,10 +896,8 @@ def FindBestParameters():
             print(b)
             for c in range(1, 101):
                 if a != 0 or b != 0 or c != 0:
-                    # f1_3, f1_5, f1_10, f1_15 = recommendation("data/julio.examples_with_concepts.aggregated.csv", "data/julio.annotated_examples_with_concepts.csv", a, b, c,0)
-                    f1_3, f1_5, f1_10, f1_15 = recommendation("data/julio.examples_with_concepts.aggregated.csv",
-                                                              "data/julio.quizje_problems_with_concepts.csv", a, b,
-                                                              c, 0)
+                    f1_3, f1_5, f1_10, f1_15 = recommendation("data/julio.examples_with_concepts.aggregated.csv", "data/julio.annotated_examples_with_concepts.csv", a, b, c,0)
+                    # f1_3, f1_5, f1_10, f1_15 = recommendation("data/julio.examples_with_concepts.aggregated.csv","data/julio.quizje_problems_with_concepts.csv", a, b, c, 0)
                     if f1_3 > best_f1_3:
                         best_f1_3 = f1_3
                         alpha_best_3 = a
@@ -1054,18 +1025,29 @@ def CheckErrorRate():
         # print(examples
 
 # DrawContour()
+recommendation("data/julio.examples_with_concepts.aggregated.csv", "data/julio.quizje_problems_with_concepts.csv", 0.2, 1, 1.5)
+# print("\n\n")
 # recommendation("data/julio.examples_with_concepts.aggregated.csv", "data/julio.quizje_problems_with_concepts.csv", 0.2, 1, 2.5)
 # print("\n\n")
 # recommendation_tfidf("data/julio.examples_with_concepts.aggregated.csv", "data/julio.quizje_problems_with_concepts.csv")
+# print("\n\n")
 # recommendation_wizard_for_tfidf("data/julio.examples_with_concepts.aggregated.csv", "data/julio.quizje_problems_with_concepts.csv", 0.2, 1, 1.5)
 # CheckErrorRate()
-# recommendation_tfidf_wizard("data/arto.examples_with_concepts.aggregated.csv", "data/arto.assignment.csv",0.1, 0.8, 2.1)
+# print("\n\n")
+# recommendation_tfidf_for_wizard("data/julio.examples_with_concepts.aggregated.csv", "data/julio.quizje_problems_with_concepts.csv",0.2, 1, 1.5)
 # recommendation_combined("data/arto.examples_with_concepts.aggregated.csv", "data/arto.assignment.csv", 0, 1, 12)
 
 # FindBestParameters()
 
 
-# recommendation("data/julio.examples_with_concepts.aggregated.csv", "data/julio.annotated_examples_with_concepts.csv", 1/6, 1, 3)
+# recommendation("data/julio.examples_with_concepts.aggregated.csv", "data/julio.annotated_examples_with_concepts.csv", 0.2, 1, 1.5)
+# print("\n\n")
+# recommendation("data/julio.examples_with_concepts.aggregated.csv", "data/julio.annotated_examples_with_concepts.csv", 1, 6, 18)
+# print("\n\n")
+# recommendation_tfidf("data/julio.examples_with_concepts.aggregated.csv", "data/julio.annotated_examples_with_concepts.csv")
+# recommendation_wizard_for_tfidf("data/julio.examples_with_concepts.aggregated.csv", "data/julio.annotated_examples_with_concepts.csv", 0.2, 1, 1.5)
 # print("\n\n")
 # recommendation_wizard_for_tfidf("data/julio.examples_with_concepts.aggregated.csv", "data/julio.annotated_examples_with_concepts.csv", 0.2, 1, 1.5)
-recommendation_tfidf("data/julio.examples_with_concepts.aggregated.csv", "data/julio.annotated_examples_with_concepts.csv")
+# CheckErrorRate()
+# print("\n\n")
+# recommendation_tfidf_for_wizard("data/julio.examples_with_concepts.aggregated.csv", "data/julio.annotated_examples_with_concepts.csv",0.2, 1, 1.5)
