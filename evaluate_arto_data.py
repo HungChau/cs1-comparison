@@ -87,10 +87,8 @@ def recommendation(exampleFileName, problemFileName, alpha, beta, gamma, output 
 
         # print(len(currentConcepts), len(currentConcepts-passConcepts))
         currentConcepts = currentConcepts - passConcepts
-
         # print(currentConcepts,"\n")
 
-        # print(currentConcepts)
         rankedList = list()
         for j in range(i,len(problemsByTopic)):
             for key,value in problemsByTopic[j].items():
@@ -208,13 +206,16 @@ def recommendation_error_rate(exampleFileName, problemFileName, alpha, beta, gam
     for i in range(0, len(examples)):
         # print(e)
         e = examples[i]
-        e[2] = e[2].replace("[","")
+        e[2] = e[2].replace("[", "")
         e[2] = e[2].replace("]", "")
         e[2] = e[2].replace("'", "")
         e[2] = e[2].replace(" ", "")
         for c in e[2].split(","):
-            if c!= '':
+            if c != '':
                 currentConcepts.add(c)
+
+        currentConcepts = currentConcepts - passConcepts
+        # print(currentConcepts, "\n")
         # print(currentConcepts)
         rankedList = list()
         for j in range(i,len(problemsByTopic)):
@@ -246,13 +247,14 @@ def recommendation_error_rate(exampleFileName, problemFileName, alpha, beta, gam
                 precision[t] = TP / len(rankedList)
             recall[t] = TP/len(problemsByTopic[i])
 
-        for idx in range(0, len(recall)):
-            if recall[idx] == 0 and precision[idx] == 0:
-                f1[idx] = 0
-            else:
-                f1[idx] = 2 * precision[idx] * recall[idx] / (recall[idx] + precision[idx])
+        # for idx in range(0, len(recall)):
+        #     if recall[idx] == 0 and precision[idx] == 0:
+        #         f1[idx] = 0
+        #     else:
+        #         f1[idx] = 2 * precision[idx] * recall[idx] / (recall[idx] + precision[idx])
 
         if (i+1) == topic_to_eval:
+            print(currentConcepts, "\n")
             break
 
         # print(passConcepts)
@@ -267,6 +269,7 @@ def recommendation_error_rate(exampleFileName, problemFileName, alpha, beta, gam
             f1[i] = 0
         else:
             f1[i] = 2 * precision[i] * recall[i] / (recall[i] + precision[i])
+    print(f1[3])
     if output == 1:
         for i in range(0,len(recall)):
             print("Precision at top ",top[i],": ", precision[i])
@@ -773,6 +776,169 @@ def recommendation_tfidf(exampleFileName, problemFileName):
         print("F1 at top  ", top[i], ": ", f1[i])
         # print(examples[9][2])
 
+def recommendation_tfidf_error_rate(exampleFileName, problemFileName,topic_to_eval):
+    examples = list()
+    with open(exampleFileName, 'r') as f:
+        reader = csv.reader(f)
+        for row in reader:
+            if row[0] != "Week":
+                examples.append(row)
+
+    # print(examples)
+    # remove the last two topics
+    # examples = examples[:-1]
+    # get
+    number_of_problems = 0
+    problemsByTopic = list()
+    with open(problemFileName, 'r') as f:
+        reader = csv.reader(f)
+        topic = 1
+        problems = dict()
+        idf = dict()
+        for row in reader:
+            # print(row)
+            if row[0] != "Week":
+                if int(row[3]) == topic:
+                    if int(row[1]) not in problems:
+                        conceptSet = dict()
+                    else:
+                        conceptSet = problems[int(row[1])]
+                    conceptList = row[5].split(",")
+                    for c in conceptList:
+                        if c != '':
+                            # conceptSet.add((c.split(":")[0],float(c.split(":")[1])))
+                            # conceptSet = AddConcept(conceptSet,c)
+                            if c.split(':')[0] in conceptSet:
+                                conceptSet[c.split(':')[0]] +=  float(c.split(':')[1])
+                            else:
+                                conceptSet[c.split(':')[0]] = float(c.split(':')[1])
+                                if c.split(":")[0] in idf:
+                                    idf[c.split(":")[0]] += 1
+                                else:
+                                    idf[c.split(":")[0]] = 1
+
+
+                    problems[int(row[1])] = conceptSet
+                    # print(row[1])
+                else:
+                    topic += 1
+                    problemsByTopic.append(problems)
+                    number_of_problems+= len((problems))
+                    problems = dict()
+                    conceptSet = dict()
+                    conceptList = row[5].split(",")
+                    for c in conceptList:
+                        if c != '':
+                            # conceptSet.add((c.split(":")[0], float(c.split(":")[1])))
+                            # conceptSet = AddConcept(conceptSet, c)
+                            if c.split(':')[0] in conceptSet:
+                                conceptSet[c.split(':')[0]] +=  float(c.split(':')[1])
+                            else:
+                                conceptSet[c.split(':')[0]] = float(c.split(':')[1])
+                                if c.split(":")[0] in idf:
+                                    idf[c.split(":")[0]] += 1
+                                else:
+                                    idf[c.split(":")[0]] = 1
+
+
+                    problems[int(row[1])] = conceptSet
+        problemsByTopic.append(problems)
+        number_of_problems += len((problems))
+
+    #calculate tf-idf for each problem
+    for i in range(0,len(problemsByTopic)):
+        for k1,v1 in problemsByTopic[i].items():
+            for v2 in v1:
+                # print(v2)
+                # print(number_of_problems*1.0/idf[v2])
+                v1[v2] = (1 + math.log(v1[v2]))*math.log10(number_of_problems*1.0/idf[v2])
+            problemsByTopic[i][k1] = v1
+
+    top = [3, 5, 10, 15]
+    precision = [0, 0, 0, 0]
+    recall = [0, 0, 0, 0]
+    f1 = [0, 0, 0, 0]
+
+    for i in range(0, len(examples)):
+        currentConcepts = list()
+        # print(e)
+        e = examples[i]
+        e[1] = e[1].replace("{", "")
+        e[1] = e[1].replace("}", "")
+        e[1] = e[1].replace("'", "")
+        e[1] = e[1].replace(" ", "")
+        example = 0
+        for c in e[1].split(","):
+            if c != '':
+                currentConcepts.append((c.split(':')[0], int(c.split(':')[1])))
+
+        rankedList = list()
+        for j in range(i, len(problemsByTopic)):
+            for key, value in problemsByTopic[j].items():
+                concepts_in_problem = value
+                problem = 0
+
+                for v in concepts_in_problem.values():
+                    problem += v * v
+                problem = math.sqrt(problem)
+                score = 0
+                for c in currentConcepts:
+                    if c[0] in concepts_in_problem:
+                        # print()
+                        score += c[1] * concepts_in_problem[c[0]]
+                score = score / (problem)
+                # score = score/len(concepts_in_problem)
+                rankedList.append((score, key, j + 1))
+
+                # currentConcepts_in_problem = concepts_in_problem & currentConcepts
+                # passConcepts_in_problem = concepts_in_problem & passConcepts
+                # futureConcepts_in_problem = concepts_in_problem - (currentConcepts | passConcepts)
+                # if len(currentConcepts_in_problem) > 0:
+                #     score = len(passConcepts_in_problem) * alpha + len(currentConcepts_in_problem) * beta - len(
+                #         futureConcepts_in_problem) * gamma
+                #     rankedList.append((score, key, j + 1))
+
+        rankedList = sorted(rankedList, key=itemgetter(0), reverse=True)
+
+        for t in range(0, len(top)):
+            TP = 0
+            for idx in range(0, top[t]):
+                if idx < len(rankedList):
+                    if rankedList[idx][2] == (i + 1):
+                        TP += 1
+            if top[t] <= len(rankedList):
+                precision[t] = TP / top[t]
+                # precision[t] = TP / top[t]
+            else:
+                precision[t] = TP / len(rankedList)
+                # precision[t] = TP / len(rankedList)
+            recall[t] = TP / len(problemsByTopic[i])
+            # recall[t] = TP / len(problemsByTopic[i])
+
+        # for t in range(0,len(top)):
+        #     TP = 0
+        #     for idx in range(0,top[t]):
+        #         if idx < len(rankedList):
+        #             if rankedList[idx][2] == (i+1):
+        #                 TP+= 1
+        #     if top[t] <= len(rankedList):
+        #         precision[t] = TP/top[t]
+        #     else:
+        #         precision[t] = TP / len(rankedList)
+        #     recall[t] = TP/len(problemsByTopic[i])
+        if (i + 1) == topic_to_eval:
+            # print(currentConcepts, "\n")
+            break
+
+    # precision = [x/len(examples) for x in precision]
+    # recall = [x/len(examples) for x in recall]
+    for i in range(0, len(recall)):
+        if recall[i] == 0 and precision[i] == 0:
+            f1[i] = 0
+        else:
+            f1[i] = 2 * precision[i] * recall[i] / (recall[i] + precision[i])
+    return f1
+
 def recommendation_wizard_for_tfidf(exampleFileName, problemFileName, alpha, beta, gamma, output = 1):
     examples = list()
     with open(exampleFileName, 'r') as f:
@@ -1056,19 +1222,21 @@ def DrawContour():
 
 #This function perform error rates of different number of examples
 def CheckErrorRate():
-    topic = [(2,32),(3,13),(4,18),(5,22),(6,12),(7,30),(8,35),(9,37)]
-    # topic = [(2,32),(3, 13), (6, 12), (7, 30), (9, 37)]
-    # topic = [(2, 32)]
+    # topic = [(2,32),(3,13),(4,18),(5,22),(6,12),(7,30),(8,35),(9,37)]
+    # topic = [(1,6),(2, 32), (3, 13), (4, 15), (5, 22), (6, 12), (7, 30), (8, 72), (9, 17)]
+    topic = [(2, 32), (3, 13), (4, 3),(5,12), (6, 22), (7, 12), (8, 30), (9, 72)]
+    # topic = [(2, 32), (3, 13), (5, 12), (6, 22), (8, 30)]
+    # topic = [(8, 30)]
     label = list() #save the scatters to add legend
     name_of_topic = list()  #names of the scatters by topic
     for t in topic:
         name_of_topic.append("Topic "+str(t[0]))
-        max = 12
+        max = 10
         number_of_examples = np.arange(1,max+1)
         f1 = [0]*(max)
         for time in range(0, 10):
             for i in range(1,max+1):
-                seed(time+1)
+                seed(time+2)
                 examples = list()
                 for j in range(0,i):
                     ranNum = randint(1,t[1])
@@ -1078,31 +1246,37 @@ def CheckErrorRate():
                 # print(examples)
                 if i ==max:
                     hkc =0
+                print(i)
+                print(examples)
                 aggregate_data.aggregate_arto_with_random_examples("data/arto.examples_with_concepts.csv", "data/arto.examples_with_concepts.aggregated.csv",examples,t[0])
                 f1[i-1] += recommendation_error_rate("data/arto.examples_with_concepts.aggregated.csv", "data/arto.assignment.csv", 0.2, 1, 1.5, t[0],0)[3]
+                # f1[i - 1] += recommendation_tfidf_error_rate("data/arto.examples_with_concepts.aggregated.csv", "data/arto.assignment.csv",t[0])[3]
         f1 = [x / 10 for x in f1]
         label.append(plt.scatter(number_of_examples,f1, s =5, alpha=0.8))
         plt.plot(number_of_examples, f1)
     # print(f1)
     plt.xlabel("Number of examples")
     plt.ylabel("F1 score at top 15")
+    # plt.title("tf-idf")
+    plt.title("wizard")
     plt.legend(label,
                name_of_topic,
                scatterpoints=1,
                loc='upper left',
-               bbox_to_anchor=(0.8, 0.5),
+               bbox_to_anchor=(0.8,0.3),
                ncol=1,
                fontsize=8)
     plt.show()
         # print(examples
 
 # DrawContour()
-recommendation("data/arto.examples_with_concepts.aggregated.csv", "data/arto.assignment.csv", 0.2, 1, 1.5)
-print("\n\n")
-recommendation_tfidf("data/arto.examples_with_concepts.aggregated.csv", "data/arto.assignment.csv")
-print("\n\n")
+# aggregate_data.aggregate_arto("data/arto.examples_with_concepts.csv", "data/arto.examples_with_concepts.aggregated.csv")
+# recommendation("data/arto.examples_with_concepts.aggregated.csv", "data/arto.assignment.csv", 0.2, 1, 1.5)
+# print("\n\n")
+# recommendation_tfidf("data/arto.examples_with_concepts.aggregated.csv", "data/arto.assignment.csv")
+# print("\n\n")
 # recommendation_wizard_for_tfidf("data/arto.examples_with_concepts.aggregated.csv", "data/arto.assignment.csv", 0.2, 1, 1.5)
-# CheckErrorRate()
+CheckErrorRate()
 # print("\n\n")
 # recommendation_tfidf_for_wizard("data/arto.examples_with_concepts.aggregated.csv", "data/arto.assignment.csv",0.2, 1, 1.5)
 # recommendation_combined("data/arto.examples_with_concepts.aggregated.csv", "data/arto.assignment.csv", 0.2, 1, 1.5)
@@ -1111,4 +1285,4 @@ print("\n\n")
 
 # a ="dsadafgert"
 # a = a.replace("\[asf]","")
-# print(a)
+# print(a

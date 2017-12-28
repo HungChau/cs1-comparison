@@ -896,8 +896,8 @@ def FindBestParameters():
             print(b)
             for c in range(1, 101):
                 if a != 0 or b != 0 or c != 0:
-                    f1_3, f1_5, f1_10, f1_15 = recommendation("data/julio.examples_with_concepts.aggregated.csv", "data/julio.annotated_examples_with_concepts.csv", a, b, c,0)
-                    # f1_3, f1_5, f1_10, f1_15 = recommendation("data/julio.examples_with_concepts.aggregated.csv","data/julio.quizje_problems_with_concepts.csv", a, b, c, 0)
+                    # f1_3, f1_5, f1_10, f1_15 = recommendation("data/julio.examples_with_concepts.aggregated.csv", "data/julio.annotated_examples_with_concepts.csv", a, b, c,0)
+                    f1_3, f1_5, f1_10, f1_15 = recommendation("data/julio.examples_with_concepts.aggregated.csv","data/julio.quizje_problems_with_concepts.csv", a, b, c, 0)
                     if f1_3 > best_f1_3:
                         best_f1_3 = f1_3
                         alpha_best_3 = a
@@ -1024,12 +1024,13 @@ def CheckErrorRate():
     plt.show()
         # print(examples
 
+# aggregate_data.aggregate_arto("data/julio.examples_with_concepts.csv", "data/julio.examples_with_concepts.aggregated.csv")
 # DrawContour()
 recommendation("data/julio.examples_with_concepts.aggregated.csv", "data/julio.quizje_problems_with_concepts.csv", 0.2, 1, 1.5)
-# print("\n\n")
+print("\n\n")
+recommendation_tfidf("data/julio.examples_with_concepts.aggregated.csv", "data/julio.quizje_problems_with_concepts.csv")
+print("\n\n")
 # recommendation("data/julio.examples_with_concepts.aggregated.csv", "data/julio.quizje_problems_with_concepts.csv", 0.2, 1, 2.5)
-# print("\n\n")
-# recommendation_tfidf("data/julio.examples_with_concepts.aggregated.csv", "data/julio.quizje_problems_with_concepts.csv")
 # print("\n\n")
 # recommendation_wizard_for_tfidf("data/julio.examples_with_concepts.aggregated.csv", "data/julio.quizje_problems_with_concepts.csv", 0.2, 1, 1.5)
 # CheckErrorRate()
@@ -1042,9 +1043,10 @@ recommendation("data/julio.examples_with_concepts.aggregated.csv", "data/julio.q
 
 # recommendation("data/julio.examples_with_concepts.aggregated.csv", "data/julio.annotated_examples_with_concepts.csv", 0.2, 1, 1.5)
 # print("\n\n")
+# recommendation_tfidf("data/julio.examples_with_concepts.aggregated.csv", "data/julio.annotated_examples_with_concepts.csv")
+
 # recommendation("data/julio.examples_with_concepts.aggregated.csv", "data/julio.annotated_examples_with_concepts.csv", 1, 6, 18)
 # print("\n\n")
-# recommendation_tfidf("data/julio.examples_with_concepts.aggregated.csv", "data/julio.annotated_examples_with_concepts.csv")
 # recommendation_wizard_for_tfidf("data/julio.examples_with_concepts.aggregated.csv", "data/julio.annotated_examples_with_concepts.csv", 0.2, 1, 1.5)
 # print("\n\n")
 # recommendation_wizard_for_tfidf("data/julio.examples_with_concepts.aggregated.csv", "data/julio.annotated_examples_with_concepts.csv", 0.2, 1, 1.5)

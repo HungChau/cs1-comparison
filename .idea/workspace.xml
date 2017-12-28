@@ -2,21 +2,24 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="26058bfa-45e5-4f73-be81-06d5aa215d2d" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/data/julio.annotated_examples_with_concepts copy.csv" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pic/Figure_arto_alpha.png" afterPath="$PROJECT_DIR$/pic/Figure_arto_alpha.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pic/Figure_arto_beta.png" afterPath="$PROJECT_DIR$/pic/Figure_arto_beta.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pic/Figure_arto_gamma.png" afterPath="$PROJECT_DIR$/pic/Figure_arto_gamma.png" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/pic/Figure_examples.png" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/cs1-comparison.iml" afterPath="$PROJECT_DIR$/.idea/cs1-comparison.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/aggregate_data.py" afterPath="$PROJECT_DIR$/aggregate_data.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/arto.assignment.csv" afterPath="$PROJECT_DIR$/data/arto.assignment.csv" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/arto.examples_with_concepts copy.csv" afterPath="$PROJECT_DIR$/data/arto.examples_with_concepts copy.csv" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/arto.examples_with_concepts.aggregated.csv" afterPath="$PROJECT_DIR$/data/arto.examples_with_concepts.aggregated.csv" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/arto.examples_with_concepts.csv" afterPath="$PROJECT_DIR$/data/arto.examples_with_concepts.csv" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/arto/assignment-baselines-and-solutions-with-concepts-processed.csv" afterPath="$PROJECT_DIR$/data/arto/assignment-baselines-and-solutions-with-concepts-processed.csv" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/julio.annotated_examples_with_concepts.csv" afterPath="$PROJECT_DIR$/data/julio.annotated_examples_with_concepts.csv" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/julio.examples_with_concepts.aggregated.csv" afterPath="$PROJECT_DIR$/data/julio.examples_with_concepts.aggregated.csv" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/julio.examples_with_concepts.csv" afterPath="$PROJECT_DIR$/data/julio.examples_with_concepts.csv" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/julio.quizje_problems_with_concepts.csv" afterPath="$PROJECT_DIR$/data/julio.quizje_problems_with_concepts.csv" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/evaluate_arto_data.py" afterPath="$PROJECT_DIR$/evaluate_arto_data.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/evaluate_julio_data.py" afterPath="$PROJECT_DIR$/evaluate_julio_data.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../django_apps/UPitt_activity_finder/.idea/UPitt_activity_finder.iml" afterPath="$PROJECT_DIR$/../django_apps/UPitt_activity_finder/.idea/UPitt_activity_finder.iml" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -27,28 +30,41 @@
   </component>
   <component name="CoverageDataManager">
     <SUITE FILE_PATH="coverage/cs1_comparison$training_first_model.coverage" NAME="training.first.model Coverage Results" MODIFIED="1509028023508" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/../../eclipse-luna/ConceptExtraction/data" />
-    <SUITE FILE_PATH="coverage/cs1_comparison$aggregate_data.coverage" NAME="aggregate_data Coverage Results" MODIFIED="1510771339908" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/cs1_comparison$aggregate_data.coverage" NAME="aggregate_data Coverage Results" MODIFIED="1511937050188" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/cs1_comparison$examples.coverage" NAME="examples Coverage Results" MODIFIED="1508910586493" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/../../pycharm/contour3D" />
+    <SUITE FILE_PATH="coverage/cs1_comparison$languagemodeler.coverage" NAME="languagemodeler Coverage Results" MODIFIED="1512163750715" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/../../pycharm/nlp/hkc6-ass3" />
     <SUITE FILE_PATH="coverage/cs1_comparison$hkcProcessing.coverage" NAME="hkcProcessing Coverage Results" MODIFIED="1508961169260" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/../../eclipse-luna/ConceptExtraction/data" />
-    <SUITE FILE_PATH="coverage/cs1_comparison$process_arto_data.coverage" NAME="process_arto_data Coverage Results" MODIFIED="1510701181487" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/cs1_comparison$evaluate_arto_data.coverage" NAME="evaluate_arto_data Coverage Results" MODIFIED="1511806121294" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/cs1_comparison$evaluate_julio_data.coverage" NAME="evaluate_julio_data Coverage Results" MODIFIED="1511806359181" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/cs1_comparison$process_arto_data.coverage" NAME="process_arto_data Coverage Results" MODIFIED="1511908697481" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/cs1_comparison$evaluate_arto_data.coverage" NAME="evaluate_arto_data Coverage Results" MODIFIED="1511991775069" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/cs1_comparison$evaluate_julio_data.coverage" NAME="evaluate_julio_data Coverage Results" MODIFIED="1511982762600" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file leaf-file-name="evaluate_arto_data.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/evaluate_arto_data.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="217">
-              <caret line="730" column="16" lean-forward="false" selection-start-line="730" selection-start-column="18" selection-end-line="730" selection-end-column="56" />
+            <state relative-caret-position="7425">
+              <caret line="1255" column="37" lean-forward="false" selection-start-line="1255" selection-start-column="37" selection-end-line="1255" selection-end-column="37" />
               <folding>
                 <element signature="e#0#10#0" expanded="true" />
-                <element signature="e#5964#10904#0" expanded="false" />
-                <element signature="e#11005#17923#0" expanded="false" />
-                <element signature="e#18032#25575#0" expanded="false" />
-                <element signature="e#39696#41756#0" expanded="false" />
-                <element signature="e#41781#43444#0" expanded="false" />
-                <element signature="e#43539#45225#0" expanded="false" />
+                <element signature="e#11138#18056#0" expanded="false" />
+                <element signature="e#18165#25708#0" expanded="false" />
+                <element signature="e#25774#32102#0" expanded="false" />
+                <element signature="e#38817#46403#0" expanded="false" />
+                <element signature="e#46435#48495#0" expanded="false" />
+                <element signature="e#48520#50183#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="languagemodeler.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/../../pycharm/nlp/hkc6-ass3/languagemodeler.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="320">
+              <caret line="352" column="0" lean-forward="false" selection-start-line="352" selection-start-column="0" selection-end-line="369" selection-end-column="41" />
+              <folding>
+                <element signature="e#0#49#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -57,45 +73,36 @@
       <file leaf-file-name="aggregate_data.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/aggregate_data.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2580">
-              <caret line="172" column="38" lean-forward="false" selection-start-line="172" selection-start-column="38" selection-end-line="172" selection-end-column="38" />
+            <state relative-caret-position="780">
+              <caret line="52" column="34" lean-forward="false" selection-start-line="52" selection-start-column="34" selection-end-line="52" selection-end-column="34" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="evaluate_julio_data.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="process_arto_data.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/process_arto_data.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="795">
+              <caret line="53" column="67" lean-forward="false" selection-start-line="53" selection-start-column="67" selection-end-line="53" selection-end-column="67" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="evaluate_julio_data.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/evaluate_julio_data.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="159">
-              <caret line="100" column="60" lean-forward="false" selection-start-line="100" selection-start-column="22" selection-end-line="100" selection-end-column="60" />
+            <state relative-caret-position="7770">
+              <caret line="1035" column="18" lean-forward="false" selection-start-line="1035" selection-start-column="18" selection-end-line="1035" selection-end-column="18" />
               <folding>
                 <element signature="e#0#10#0" expanded="true" />
                 <element signature="e#5861#10801#0" expanded="false" />
                 <element signature="e#10902#17820#0" expanded="false" />
                 <element signature="e#17929#24124#0" expanded="false" />
-                <element signature="e#36207#38466#0" expanded="false" />
                 <element signature="e#38491#40165#0" expanded="false" />
                 <element signature="e#40260#41946#0" expanded="false" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Data Science with Pandas.ipynb" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../tagging/data-analysis/Data Science with Pandas.ipynb">
-          <provider selected="true" editor-type-id="ipnb-editor">
-            <state>
-              <selected id="1" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="concept-tagging.ipynb" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../tagging/data-analysis/concept-tagging.ipynb">
-          <provider selected="true" editor-type-id="ipnb-editor">
-            <state>
-              <selected id="1" />
             </state>
           </provider>
         </entry>
@@ -145,16 +152,18 @@
         <option value="$PROJECT_DIR$/../../eclipse-luna/ConceptExtraction/data/hkcProcessing.py" />
         <option value="$PROJECT_DIR$/../../eclipse-luna/ConceptExtraction/data/training.first.model.py" />
         <option value="$PROJECT_DIR$/process_arto_data.py" />
-        <option value="$PROJECT_DIR$/aggregate_data.py" />
         <option value="$PROJECT_DIR$/../django_apps/UPitt_activity_finder/templates/admin/change_form.html" />
         <option value="$PROJECT_DIR$/../django_apps/UPitt_activity_finder/reports/templates/reports2.html" />
         <option value="$PROJECT_DIR$/../django_apps/UPitt_activity_finder/activity_finder/models.py" />
         <option value="$PROJECT_DIR$/../django_apps/UPitt_activity_finder/reports/views.py" />
-        <option value="$PROJECT_DIR$/../tagging/data-analysis/.ipynb_checkpoints/concept-tagging-checkpoint.ipynb" />
         <option value="$PROJECT_DIR$/../tagging/data-analysis/Data Science with Pandas.ipynb" />
-        <option value="$PROJECT_DIR$/../tagging/data-analysis/concept-tagging.ipynb" />
+        <option value="$PROJECT_DIR$/aggregate_data.py" />
         <option value="$PROJECT_DIR$/evaluate_arto_data.py" />
         <option value="$PROJECT_DIR$/evaluate_julio_data.py" />
+        <option value="$PROJECT_DIR$/../../pycharm/data-science-with-pandas/mynotebook.ipynb" />
+        <option value="$PROJECT_DIR$/../tagging/data-analysis/.ipynb_checkpoints/concept-tagging-checkpoint.ipynb" />
+        <option value="$PROJECT_DIR$/../tagging/data-analysis/concept-tagging.ipynb" />
+        <option value="$PROJECT_DIR$/../../pycharm/nlp/hkc6-ass3/languagemodeler.py" />
       </list>
     </option>
   </component>
@@ -165,10 +174,8 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds" fullScreen="true">
-    <option name="x" value="1280" />
-    <option name="y" value="23" />
-    <option name="width" value="1680" />
-    <option name="height" value="1027" />
+    <option name="width" value="1280" />
+    <option name="height" value="800" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -186,23 +193,19 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
               <item name="cs1-comparison" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cs1-comparison" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="cs1-comparison" type="b2602c69:ProjectViewProjectNode" />
-              <item name="contour3D" type="462c0819:PsiDirectoryNode" />
+              <item name="hkc6-ass3" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
       <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -228,7 +231,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.evaluate_julio_data">
+  <component name="RunManager" selected="Python.languagemodeler">
     <configuration default="true" type="tests" factoryName="Doctests">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -364,6 +367,24 @@
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
     </configuration>
+    <configuration name="languagemodeler" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/../../pycharm/nlp/hkc6-ass3" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="hkc6-ass3" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/../../pycharm/nlp/hkc6-ass3/languagemodeler.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+    </configuration>
     <configuration name="process_arto_data" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -382,39 +403,21 @@
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
     </configuration>
-    <configuration name="training.first.model" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/../../eclipse-luna/ConceptExtraction/data" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="data" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/../../eclipse-luna/ConceptExtraction/data/training.first.model.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-    </configuration>
     <list size="6">
       <item index="0" class="java.lang.String" itemvalue="Jupyter Notebook.contour3D" />
       <item index="1" class="java.lang.String" itemvalue="Python.evaluate_arto_data" />
-      <item index="2" class="java.lang.String" itemvalue="Python.training.first.model" />
-      <item index="3" class="java.lang.String" itemvalue="Python.process_arto_data" />
-      <item index="4" class="java.lang.String" itemvalue="Python.evaluate_julio_data" />
-      <item index="5" class="java.lang.String" itemvalue="Python.aggregate_data" />
+      <item index="2" class="java.lang.String" itemvalue="Python.process_arto_data" />
+      <item index="3" class="java.lang.String" itemvalue="Python.evaluate_julio_data" />
+      <item index="4" class="java.lang.String" itemvalue="Python.aggregate_data" />
+      <item index="5" class="java.lang.String" itemvalue="Python.languagemodeler" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python.evaluate_julio_data" />
+        <item index="0" class="java.lang.String" itemvalue="Python.languagemodeler" />
         <item index="1" class="java.lang.String" itemvalue="Python.evaluate_arto_data" />
-        <item index="2" class="java.lang.String" itemvalue="Python.aggregate_data" />
-        <item index="3" class="java.lang.String" itemvalue="Python.process_arto_data" />
-        <item index="4" class="java.lang.String" itemvalue="Python.training.first.model" />
+        <item index="2" class="java.lang.String" itemvalue="Python.evaluate_julio_data" />
+        <item index="3" class="java.lang.String" itemvalue="Python.aggregate_data" />
+        <item index="4" class="java.lang.String" itemvalue="Python.process_arto_data" />
       </list>
     </recent_temporary>
   </component>
@@ -446,20 +449,20 @@
     </history-entry>
   </component>
   <component name="ToolWindowManager">
-    <frame x="1280" y="0" width="1680" height="1050" extended-state="0" />
+    <frame x="0" y="0" width="1280" height="800" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.12271062" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15751211" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32958034" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.45547596" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.29711142" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24959612" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32876712" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.49793673" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4965612" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32956383" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -470,28 +473,6 @@
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
-    <layout-to-restore>
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32958034" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.4462641" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32876712" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20634921" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Inspection Results" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32876712" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24959612" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.49846467" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32956383" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-    </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
@@ -509,7 +490,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/evaluate_arto_data.py</url>
-          <line>419</line>
+          <line>422</line>
           <option name="timeStamp" value="115" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
@@ -534,22 +515,22 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/evaluate_arto_data.py</url>
-          <line>759</line>
+          <line>762</line>
           <option name="timeStamp" value="144" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/evaluate_arto_data.py</url>
-          <line>129</line>
+          <line>127</line>
           <option name="timeStamp" value="149" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/evaluate_arto_data.py</url>
-          <line>93</line>
+          <line>91</line>
           <option name="timeStamp" value="150" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/evaluate_arto_data.py</url>
-          <line>447</line>
+          <line>450</line>
           <option name="timeStamp" value="156" />
         </line-breakpoint>
       </breakpoints>
@@ -560,46 +541,11 @@
           </properties>
         </breakpoint>
       </default-breakpoints>
-      <option name="time" value="157" />
+      <option name="time" value="190" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/process_arto_data.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="465">
-          <caret line="31" column="28" lean-forward="true" selection-start-line="31" selection-start-column="28" selection-end-line="31" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/process_shell_data.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="36" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="3" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="60" selection-end-column="78" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/parse_concept.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="465">
-          <caret line="34" column="33" lean-forward="false" selection-start-line="34" selection-start-column="30" selection-end-line="34" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/process_shell_data.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="36" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="3" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/test.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
@@ -763,21 +709,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/process_arto_data.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="555">
-          <caret line="37" column="59" lean-forward="false" selection-start-line="37" selection-start-column="59" selection-end-line="37" selection-end-column="59" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/aggregate_data.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2580">
-          <caret line="172" column="38" lean-forward="false" selection-start-line="172" selection-start-column="38" selection-end-line="172" selection-end-column="38" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../django_apps/UPitt_activity_finder/activity_finder/admin.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -883,48 +814,101 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../tagging/data-analysis/.ipynb_checkpoints/concept-tagging-checkpoint.ipynb">
+    <entry file="file://$PROJECT_DIR$/process_arto_data.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="795">
+          <caret line="53" column="67" lean-forward="false" selection-start-line="53" selection-start-column="67" selection-end-line="53" selection-end-column="67" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../pycharm/data-science-with-pandas/Data Science with Pandas.ipynb">
       <provider selected="true" editor-type-id="ipnb-editor">
         <state>
           <selected id="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../tagging/data-analysis/concept-tagging.ipynb">
-      <provider selected="true" editor-type-id="ipnb-editor">
-        <state>
-          <selected id="1" />
+    <entry file="file://$PROJECT_DIR$/../../pycharm/data-science-with-pandas/requirements copy.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="101" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/evaluate_arto_data.py">
+    <entry file="file://$PROJECT_DIR$/../../pycharm/data-science-with-pandas/mbox.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="217">
-          <caret line="730" column="16" lean-forward="false" selection-start-line="730" selection-start-column="18" selection-end-line="730" selection-end-column="56" />
-          <folding>
-            <element signature="e#0#10#0" expanded="true" />
-            <element signature="e#5964#10904#0" expanded="false" />
-            <element signature="e#11005#17923#0" expanded="false" />
-            <element signature="e#18032#25575#0" expanded="false" />
-            <element signature="e#39696#41756#0" expanded="false" />
-            <element signature="e#41781#43444#0" expanded="false" />
-            <element signature="e#43539#45225#0" expanded="false" />
-          </folding>
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../pycharm/data-science-with-pandas/mynotebook.ipynb">
+      <provider selected="true" editor-type-id="ipnb-editor">
+        <state>
+          <selected id="0" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/evaluate_julio_data.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="159">
-          <caret line="100" column="60" lean-forward="false" selection-start-line="100" selection-start-column="22" selection-end-line="100" selection-end-column="60" />
+        <state relative-caret-position="7770">
+          <caret line="1035" column="18" lean-forward="false" selection-start-line="1035" selection-start-column="18" selection-end-line="1035" selection-end-column="18" />
           <folding>
             <element signature="e#0#10#0" expanded="true" />
             <element signature="e#5861#10801#0" expanded="false" />
             <element signature="e#10902#17820#0" expanded="false" />
             <element signature="e#17929#24124#0" expanded="false" />
-            <element signature="e#36207#38466#0" expanded="false" />
             <element signature="e#38491#40165#0" expanded="false" />
             <element signature="e#40260#41946#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/aggregate_data.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="780">
+          <caret line="52" column="34" lean-forward="false" selection-start-line="52" selection-start-column="34" selection-end-line="52" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../tagging/data-analysis/.ipynb_checkpoints/concept-tagging-checkpoint.ipynb">
+      <provider selected="true" editor-type-id="ipnb-editor">
+        <state>
+          <selected id="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../tagging/data-analysis/concept-tagging.ipynb">
+      <provider selected="true" editor-type-id="ipnb-editor">
+        <state>
+          <selected id="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/evaluate_arto_data.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="7425">
+          <caret line="1255" column="37" lean-forward="false" selection-start-line="1255" selection-start-column="37" selection-end-line="1255" selection-end-column="37" />
+          <folding>
+            <element signature="e#0#10#0" expanded="true" />
+            <element signature="e#11138#18056#0" expanded="false" />
+            <element signature="e#18165#25708#0" expanded="false" />
+            <element signature="e#25774#32102#0" expanded="false" />
+            <element signature="e#38817#46403#0" expanded="false" />
+            <element signature="e#46435#48495#0" expanded="false" />
+            <element signature="e#48520#50183#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../pycharm/nlp/hkc6-ass3/languagemodeler.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="320">
+          <caret line="352" column="0" lean-forward="false" selection-start-line="352" selection-start-column="0" selection-end-line="369" selection-end-column="41" />
+          <folding>
+            <element signature="e#0#49#0" expanded="true" />
           </folding>
         </state>
       </provider>
